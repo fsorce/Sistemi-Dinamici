@@ -1,0 +1,56 @@
+\documentclass[a4paper]{report}
+\input{../../preamble}
+%PER CAMBIARE I MARGINI
+\usepackage[margin=4cm]{geometry}
+
+%----------- Setup stilistico ----------------
+\definecolor{DarkRed}{HTML}{B6321C}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=DarkRed,
+    filecolor=blue,
+    citecolor = black,
+    urlcolor=cyan,
+}
+\renewcommand\thefootnote{\textcolor{blue}{\arabic{footnote}}}
+% ============================================
+
+
+%---------- Comandi specifici ----------------
+
+
+%--------- Comandi dattilografici ------------
+
+
+% ============================================
+\title{Sistemi Dinamici\\
+\large Corso dei proff. Claudio Bonanno \& Roberto Castorrini}
+
+\author{Francesco Sorce}
+\date{Università di Pisa\\
+Dipartimento di Matematica\\
+A.A. 2023/24}
+
+\begin{document}
+\maketitle
+
+%\newpage
+\tableofcontents
+\newpage
+\include{01introduzione}
+\part{Sistemi continui}
+\include{02Orbite-InsInvarianti}
+\include{03StabilitaLyapunov}
+\include{04StabilitaLineare}
+\include{05SistemiHamiltoniani}
+\include{06PrimiMetodiGlobale}
+\include{07VarietaStabili}
+\include{08OrbitePeriodiche}
+\include{09ModelliFamosi}
+\part{Sistemi discreti}
+
+\appendix
+\include{Riconoscimenti.tex}
+
+
+\end{document}

@@ -1,0 +1,116 @@
+\chapter*{Introduzione}
+
+
+\begin{definition}[Sistema dinamico]
+Un \textbf{sistema dinamico} \`e una terna $(X,G,S)$, dove $X$ \`e un insieme, $G$ un (semi)gruppo e $S=G\acts X$ una azione.\\
+L'insieme $X$ \`e detto \textbf{spazio delle fasi}.
+\end{definition}
+\begin{remark}
+In realt\`a vorremmo che l'azione abbia una regolarit\`a compatibile con la struttura dell'insieme in esame.
+\end{remark}
+
+
+\section*{Sistemi continui}
+\begin{definition}[Equazione differenziale]
+Un \textbf{sistema di equazioni differenziali} (in forma esplicita) \`e un'equazione della forma
+\[\dot x=F(x),\quad x\in\R^d, \ F\in C^1(\R^d).\]
+Un \textbf{problema di Cauchy} associato all'equazione differenziale sopra \`e dato da un sistema del tipo
+\[\begin{cases}
+\dd t{}x(t)=F(x(t))\\
+x(0)=x_0
+\end{cases}\]
+Per il teorema di Cauchy-Lipschitz \`e ben definito il \textbf{flusso} $\phi:\R^d\times \R\to \R^d$ associato all'equazione differenziale definito come la funzione che rispetta 
+\[\begin{cases}
+\dd t{}\phi_t(x_0)=F(\phi_t(x_0))\\
+\phi_0(x_0)=x_0
+\end{cases}.\]
+\end{definition}
+
+\begin{remark}
+Osserviamo che $\phi_0:\R^d\to \R^d$ \`e la mappa identit\`a e che $\phi_{\cdot}(x)$ \`e un omomorfismo per ogni $x$, cio\`e
+\[\phi_t(\phi_s(x))=\phi_{s+t}(x).\]
+\end{remark}
+
+\begin{definition}[Sistema dinamico a tempo continuo]
+Una terna $(\R^d,\R,\phi_t(\cdot))$ \`e un \textbf{sistema dinamico (a tempo) continuo} se $\phi_t(\cdot)$ \`e il flusso di un sistema di ODE della forma $\dot x=F(x)$ con $F(x)$ campo di vettori, $F\in C^k$ con $k\geq1$.
+\end{definition}
+
+
+\begin{example}[Equazioni differenziali su $\R$]
+Consideriamo l'equazione
+\[\dot x=ax.\]
+Il nostro approccio standard \`e imporre una condizine di Cauchy $x(0)=x_0$ e troviamo la soluzione
+\[x(t)=x_0e^{at}.\]
+Ponendo $G=\R,\ X=\R$ e $S=G\acts X$ dove $S(t,x_0)=\phi_t(x_0)$ possiamo interpretare l'equazione sopra come un sistema dinamico.
+
+\noindent
+Se consideriamo ora un'equazione del tipo
+\[\dot x=a(x+x^9)\]
+diventa diffcile risolvere l'equazione. Possiamo fare studi qualitativi.
+
+\noindent Negli studi qualitativi per $X=\R$ sono utili le seguenti considerazioni
+\begin{itemize}
+\item Rintracciare punti fissi
+\item Studiare il segno della derivata
+\item Soluzioni diverse non si incrociano per unicit\`a locale
+\item Teorema di approssimazione lineare.
+\end{itemize}
+\end{example}
+
+\noindent Di solito ci interesseranno equazioni in $\R^2$ o $\R^3$. Seguono alcuni modi per trasformare alcuni tipi di equazioni differenziali nella forma $\dot \ulx=\ul F(\ulx)$\footnote{Non metter\`o mai pi\`u le barre se posso.}.
+\begin{example}[Ordine superiore]
+Consideriamo l'equazione
+\[\ddot x=-kx,\quad k>0.\]
+Ponendo $y=\dot x$ troviamo
+\[\begin{cases}
+\dot x=y\\
+\dot y=-kx
+\end{cases}\coimplies \dot{\spa{\emat{x\\y}}}=\mat{y\\-kx}.\]
+\end{example}
+
+\begin{example}[Sistema non autonomo]
+Consideriamo l'equazione
+\[\dot x=f(x)+g(t)\]
+Possiamo linearizzare come segue
+\[\begin{cases}
+\dot x=f(x)+g(t)\\
+\dot t=1
+\end{cases}.\]
+\end{example}
+
+%\noindent Per completezza mostriamo un sistema dinamico continuo che non deriva da una equazione differenziale:
+%\begin{example}
+%Ricordiamo la seguente
+%\begin{definition}[Gruppo speciale lineare]
+%Il gruppo speciale lineare a coefficienti in $R$ e dimensone $d$ \`e
+%\[SL(d,R)=\cpa{M\in M(d,R)\mid \det M=1}.\]
+%\end{definition}
+%\noindent
+%Consideriamo il seguente sistema dinamico: 
+%\[X=SL(2,\R),\ G=\cpa{\mat{e^t & 0\\ 0 & e^{-t}}\mid t\in \R}\quad \text{e}\quad S:\funcDef{G\times X}{X}{(a,g)}{ga}.\]
+
+%Consideriamo invece $X=\quot{SL(2,\R)}{SL(2,\Z)}$ [FINISCI NEL CASO]
+%\end{example}
+
+\section*{Sistemi discreti}
+Definiamo ora sistemi dinamici discreti
+\begin{definition}[Sistema dinamico a tempo discreto]
+Un \textbf{sistema dinamico (a tempo) discreto} \`e una terna $(X,\N,T)$ dove $X\in\{\R,\ [a,b],\ S^1\}$ e $T:X\to X$ continua. Il sistema dinamico \`e dato da $(X,\N, S)$ dove $S(n,x)=T^n(x)$.
+\end{definition}
+\begin{remark}
+Se $T$ \`e invertibile possiamo estendere un sistema dinamico discreto sostituendo $\N$ con $\Z$ e ponendo (per $n\in\N^+$) $S(-n,x)=(T\ii)^n(x)$.
+\end{remark}
+
+\begin{example}[Successione per ricorrenza]
+Una successione per ricorrenza \`e un sistema dinamico discreto
+\[\begin{cases}
+x_n=T(x_{n-1})\\
+x_0=a
+\end{cases}\]
+\end{example}
+
+\begin{example}[Mappa di Bernoulli]
+Consideriamo
+\[S^1=\cpa{z\in\C\mid \abs z=1},\quad T:\funcDef{S^1}{S^1}{z}{z^2}\]
+Osserviamo che l'unico punto fisso \`e $0$, ma reiterando da un punto qualsiasi non c'\`e modo che la successione vi tendi. Inoltre la distanza tra punti si raddoppia ad ogni iterata (a meno del modulo). Questo \`e uno dei primi esempi di sistemi caotici.
+\end{example}

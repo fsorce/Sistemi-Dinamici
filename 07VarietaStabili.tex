@@ -1,0 +1,164 @@
+\chapter{Variet\`a stabili/instabili}
+
+\section{Variet\`a stabili e instabili locali}
+In un punto fisso lineare di tipo sella sappiamo che esistono due assi: uno che converge al punto ($E^s$) e uno che vi diverge ($E^u$).\\
+Cerchiamo di generalizzare questo concetto.
+
+\begin{definition}[Variet\`a stabile/instabile locale]
+Siano $x_0$ un punto fisso iperbolico per $\dot x=F(x)$ e $U$ un intorno di $x_0$. La \textbf{variet\`a stabile locale} di $x_0$ in $U$ \`e data da
+\[W^s_{loc}(x_0)=\cpa{y\in U\mid \forall t\geq 0\ \phi_t(y)\in U,\ \lim_{t\to+\infty}\phi_t(y)\to x_0}.\]
+Similmente definiamo la \textbf{variet\`a instabile locale} come
+\[W^{u}_{loc}(x_0)=\cpa{y\in U\mid \forall t\leq 0\ \phi_t(y)\in U,\ \lim_{t\to-\infty}\phi_t(y)\to x_0}.\]
+\end{definition}
+
+
+\begin{theorem}[Variet\`a stabile/instabile]\label{TeoremaVarietaStabileInstabile}
+Sia $x_0$ un punto fisso iperbolico\footnote{ricordo che $x_0$ iperbolico implica in particolare che $\dim E^s(x_0)+\dim E^u(x_0)=d$, dove $\R^d$ \`e lo spazio delle fasi.} per $F\in C^k$ e $k\geq 1$. Allora esiste $\e>0$ tale che
+\setlength{\leftmargini}{0.5cm}
+\begin{enumerate}
+\item $W_{loc}^{s/u}(x_0)$ in $B_\e(x_0)$ esistono e sono uniche,
+\item $W^s_{loc}(x_0)$ \`e positivamente invariante e $W^u_{loc}(x_0)$ \`e negativamente invariante,
+\item $W^{s/u}_{loc}(x_0)$ sono sottovariet\`a di $B_\e(x_0)$ di classe $C^k$.\\
+Inoltre $\dim W^s_{loc}(x_0)=\dim E^s(x_0)$ e $\dim W^u_{loc}(x_0)=\dim E^u(x_0)$.
+\item I sottospazi affini $x_0+E^{s/u}(x_0)$ sono tangenti a $W^{s/u}_{loc}$ in $x_0$.
+\end{enumerate}
+\end{theorem}
+\begin{proof}[Dimostrazione. (Caso $d=2$)]
+Poich\'e $x_0$ \`e un punto fisso iperbolico si presentano due casi: le parti reali dei due autovalori hanno lo stesso segno o hanno segno opposto. Se hanno lo stesso segno sappiamo che $\det \Dc F(x_0)>0$ e che $\tr \Dc F(x_0)\neq 0$. Segue dunque che $W^s_{loc}(x_0)=B_\e(x_0)$ e $W^u_{loc}(x_0)=\cpa{x_0}$ o viceversa a seconda del segno delle parti reali. Da queste caratterizzazioni \`e evidente che il teorema vale.
+\vspace{0.5cm}
+
+\noindent Supponiamo dunque che le parti reali dei due autovalori abbiano segno opposto. Segue immediatamente che $x_0$ \`e un punto di stella e che gli autovalori sono reali. Siano $-\la$ e $\mu$ questi autovalori (dove $\la,\mu>0$). A meno di una traslazione e un cambio base supponiamo
+\[x_0=(0,0),\ \Dc F(x_0)e_1=-\la e_1,\quad \Dc F(x_0)e_2=\mu e_2.\]
+Possiamo dunque riscrivere il sistema come
+\[\begin{cases}
+\dot x=-\la x+f(x,y)\\
+\dot y=\mu y+g(x,y)
+\end{cases}\]
+dove $f,g$ sono di classe $C^k$, $f(0,0)=g(0,0)=0$\footnote{in quanto $x_0=(0,0)$ \`e un punto fisso}, $\nabla f(0,0)=\nabla g(0,0)=(0\ 0)^\top$\footnote{in quanto sappiamo che $\Dc F((0,0))=\pa{\smat{-\la &0\\0&\mu}}$} e le seguenti funzioni sono $o$-piccoli di $\sqrt{x^2+y^2}$: $f,\ g,\ \pp xf,\ \pp yf,\ \pp xg$ e $\pp y g$\footnote{per come funziona l'espansione di Taylor}.\\
+Data questa trasformazione, la tesi \`e equivalente a mostrare che $W^s_{loc}(0,0)$ esiste, \`e unico, positivamente invariante, di classe $C^k$ e tangente a \[\cpa{y=0}=(0,0)+E^s((0,0))\text{ in }(0,0).\] Un argomento simmetrico mostra i risultati mancanti relativi a $W^u_{loc}$.
+\vspace{0.5cm}
+
+\noindent Definiamo i seguenti insiemi: per ogni $\e>0$ e per ogni $M>1$ siano
+\[D_\e=\cpa{|x|\leq\e,\ |y|\leq \e},\ C_M=\cpa{|x|\geq M|y|},\ C_M^+=C_M\cap\cpa{x>0}\cap D_\e.\]
+Mostriamo prima dei lemmi utili alla dimostrazione. Fissiamo $M>1$
+\begin{lemma}
+Esiste un $\e>0$ tale che $\dot x\res{C_M^+}<0$
+\end{lemma}
+\begin{proof}[Dimostrazione del lemma.]
+Ricordiamo che
+\[\dot x=-\la x+f(x,y)\quad\text{con }|f(x,y)|=o(\sqrt{x^2+y^2}),\]
+in particolare esiste $\e>0$ tale che per ogni $(x,y)\in D_\e$
+\[\abs{f(x,y)}\leq \frac\la{2\sqrt 2}\sqrt{x^2+y^2}.\]
+Se $(x,y)\in C_M$ allora
+\[\sqrt{x^2+y^2}\leq \sqrt{x^2\pa{1+\frac1{M^2}}}\pasgnlmath\leq{M\geq 1} \sqrt 2|x|.\]
+Mettendo insieme questi risultati
+\begin{align*}
+\dot x\res{C_M^+}=&-\la x+f(x,y)\res{C_M^+}\leq\\
+\leq& -\la x+\frac\la{2\sqrt 2}\sqrt{x^2+y^2}\res{C_M^+}\leq\\
+\pasgnlmath\leq{x>0} & -\la x+\frac\la2x=-\frac\la2 x<0.
+\end{align*}
+\end{proof}
+\begin{lemma}
+Esiste un $\e>0$ tale che $\dot y\res{\del C_M^+\cap \cpa{y>0}}>0$ e $\dot y\res{\del C_M^+\cap \cpa{y<0}}<0$.
+\end{lemma}
+\begin{proof}[Dimostrazione del lemma.]
+Ricordiamo che
+\[\dot y=\mu y+g(x,y)\quad\text{con }|g(x,y)|=o(\sqrt{x^2+y^2}),\]
+in particolare esiste $\e>0$ tale che per ogni $(x,y)\in D_\e$
+\[\abs{g(x,y)}\leq \frac\mu{2\sqrt{1+M^2}}\sqrt{x^2+y^2}.\]
+Segue che
+\begin{align*}
+\dot y\res{\del C_M^+\cap \cpa{y>0}}=&\mu y+g(My,y)\geq\\
+\geq&\mu y-\frac\mu{2\sqrt{1+M^2}}\sqrt{(1+M^2)}y=\\
+=&\frac\mu2y>0.
+\end{align*}
+Gli stessi conti con le disuguaglianze nel senso opposto danno la dimostrazione per $\dot y\res{\del C_M^+\cap \cpa{y<0}}$.
+\end{proof}
+Definiamo gli insiemi
+\begin{align*}
+I^+_\e=&\cpa{y\in(-\e,\e)\mid (\e,y)\in C_M,\ \exists t_0>0\ t.c.\ \phi_{t_0}(\e,y)\in \del C_M^+\cap \cpa{y>0}}\\
+I^-_\e=&\cpa{y\in(-\e,\e)\mid (\e,y)\in C_M,\ \exists t_0>0\ t.c.\ \phi_{t_0}(\e,y)\in \del C_M^+\cap \cpa{y<0}}
+\end{align*}
+\begin{lemma}
+Gli insiemi $I_\e^+$ e $I_\e^-$ sono intervalli aperti.
+\end{lemma}
+\begin{proof}[Dimostrazione del lemma]
+Mostriamo la tesi solo per $I_\e^+$. Il caso $I_\e^-$ \`e simmetrico.
+\setlength{\leftmargini}{0cm}
+\begin{itemize}
+\item[$\boxed{\text{aperto}}$] Sia $y_0\in I_\e^+$ e sia $t_0>0$ tale che $\phi_{t_0}(\e,y_0)\in \del C_M^+\cap\cpa{y>0}$. Se $\phi_t(a,b)=(x(t,a,b),y(t,a,b))$ osserviamo che $y(t_0,\e,y_0)>0$ e $x(t_0,\e,y_0)-My(t_0,\e,y_0)=0$. Definiamo
+\[G(b,t)=x(t,\e,b)-My(t,\e,b).\]
+Per quanto detto $G(y_0,t_0)=0$ e, per $\e>0$ abbastanza piccolo, $\dd t{}G(y_0,t_0)=\dot x(t_0,\e,y_0)-M\dot y(t_0,\e,y_0)<0\neq 0$\footnote{stiamo usando i due lemma precedenti.}.\\
+Abbiamo verificato le ipotesi del teorema della funzione implicita, dunque esistono $U$ intorno di $y_0$, $V$ intorno di $t_0$ e $\tau:U\to V$ continua $C^k$ (regolarit\`a di $G$) tali che $\tau(y_0)=t_0$ e per ogni $y\in U$ abbiamo
+\[G(y,\tau(y))=0\coimplies \phi_{\tau(y)}(\e,y)\in \del C_M^+.\]
+La tesi segue a meno di restringere $U$ a $U\cap (\phi_{\tau(\cdot)}(\e,\cdot))\ii(\cpa{y>0})$.
+\item[$\boxed{\text{connesso}}$] Segue immediatamente da esistenza e unicit\`a unito alla monotonia di $x$ in $t$ e per $\e$ abbastanza piccolo (in modo che $D_\e$ contenga come unico punto fisso $(0,0)$). 
+\end{itemize}
+\setlength{\leftmargini}{0.5cm}
+\end{proof}
+\noindent
+Per ogni $(\e,y)\in C_M$ sappiamo che $\phi_t(\e,y)$ esce dal bordo superiore, inferiore, o tocca $(0,0)$.
+\begin{lemma}
+Si ha che
+\[\#\cpa{y\in(-\e,\e)\mid (\e,y)\in C_M,\ \omega(\e,y)=\cpa{(0,0)}}=1.\]
+\end{lemma}
+\begin{proof}
+Supponiamo per assurdo che esistano $y_0$ e $y_1$ distinti nell'insieme. A meno di moltiplicare $F$ per una funzione scalare\footnote{\`e noto da analisi 2 che questa operazione non cambia le orbite del sistema} possiamo supporre
+\[\begin{cases}
+\dot x=-x\\
+\displaystyle\dot y=\frac{\mu y+g(x,y)}{\la-\frac1xf(x,y)}
+\end{cases}\]
+A meno di conti possiamo definire $\wt \la>0$ e $\wt g$ con le stesse propriet\`a di $g$ come $o$-piccolo di $\sqrt{x^2+y^2}$ in modo tale che il sistema diventi
+\[\begin{cases}
+\dot x=-x\\
+\dot y=\wt \la y+\wt g(x,y)
+\end{cases}\]
+In questo nuovo sistema $\phi_t(\e,y)=(\e e^{-t},y(t,\e,y))$, cio\`e orbite che partono con la stessa componente $x$ mantengono la stessa componente $x$. Consideriamo come cambia la distanza tra $y_0$ e $y_1$ seguendo le orbite:
+\[\dd t{}\pa{y_1(t)-y_0(t)}=\dot y_1(t)-\dot y_0(t)=\wt \la(y_1(t)-y_0(t))+\wt g(\e e^{-t},y_1(t))-\wt g(\e e^{-t},y_0(t)).\]
+Per il teorema di Lagrange
+\[\abs{\wt g(\e e^{-t},y_1(t))-\wt g(\e e^{-t},y_0(t))}= \pp y{\wt g}(\e e^{-t},\xi(t))\abs{y_1(t)-y_0(t)}\]
+con $\xi(t)\in (y_0(t),y_1(t))$. 
+Sia ora $\e>0$ tale che per ogni $(x,y)\in D_\e$
+\[\abs{\pp y{\wt g}}\leq \frac{\wt \la}2\sqrt{x^2+y^2}.\]
+Si ha dunque che
+\begin{align*}
+\dd t{}\pa{y_1(t)-y_0(t)}\geq& \wt \la(y_1(t)-y_0(t))-\frac{\wt \la}2\sqrt{\e^2e^{-2t}+\xi(t)^2}\abs{y_1(t)-y_0(t)}\pasgnlmath\geq{y_1(t),y_2(t)\in D_\e}\\
+\geq& \wt \la(y_1(t)-y_0(t))-\frac{\wt \la}2\e \sqrt 2 (y_1(t)-y_0(t))=\\
+=&\under{>0\text{ per }\e\in(0,\sqrt 2)}{\pa{\wt \la-\frac{\wt \la}2\e\sqrt 2}}(y_1(t)-y_0(t))>0,
+\end{align*}
+dunque $y_1(t)-y_0(t)$ cresce, in particolare non possono entrambe convergere verso $(0,0)$.
+\end{proof}
+\noindent
+Sia $\ol y\in(-\e,\e)$ l'unica condizione iniziale tale che $(\e,\ol y)\in C_M$ e $\omega(\e,\ol y)=(0,0)$. Si ha dunque che 
+\[W^s_{loc}(0,0)\cap \cpa{x>0}=\Oc^+(\e,\ol y).\]
+Ripetendo quanto fatto per $\cpa{x<0}$ troviamo l'esistenza e unicit\`a di $W^s_{loc}$.
+\vspace{0.5cm}
+
+\noindent Sappiamo che $W^s_{loc}(0,0)\cap \cpa{x>0}=\Oc^+(\e,\ol y)$ e per il metodo delle isocline (\ref{MetodoIsoclineNelPiano}) sappiamo che
+\[\Oc^+(\e,\ol y)\subseteq \cpa{y=h(x)}\]
+con $h(x)$ soluzione di
+\[\dd xy=\frac{\mu y+g(x,y)}{-\la x+f(x,y)}.\]
+Per la regolarit\`a delle funzioni che definiscono $h$ sappiamo che $h$ \`e $C^k$, quindi effettivamente $W^s_{loc}\cap \cpa{x>0}$ \`e una variet\`a $C^k$.\\
+Osserviamo inoltre che $h'(0)=0$, infatti
+\[\abs{h'(x)}\sim_{x\to o^+}\abs{-\frac \mu\la\frac yx}\leq \frac\mu\la\frac1M\]
+per ogni $M>1$, dunque passando al limite per $M\to+\infty$ troviamo $h'(0)=0$. Questo mostra la tangenza di $W^s_{loc}\cap \cpa{x>0}$ a $\cpa{y=0}$ in $(0,0)$. Ripetendo questi passaggi per l'altro semipiano troviamo finalmente la tesi. 
+\end{proof}
+
+\section{Variet\`a stabili e instabili}
+
+\begin{definition}[Variet\`a stabile/instabile globale]
+Definiamo le \textbf{variet\`a stabile/instabile globale} di $x_0$ come
+\begin{align*}
+W^s(x_0)=&\bigcup_{t\leq0}\phi_t\pa{W^s_{loc}(x_0)}\\
+W^u(x_0)=&\bigcup_{t\geq0}\phi_t\pa{W^u_{loc}(x_0)}
+\end{align*}
+\end{definition}
+\begin{remark}
+Studiamo velocemente come $W^s$ e $W^u$ possono intersecarsi in $\R^2$. Per l'unicit\`a locale se si incontrano coincidono o si incontrano in un punto fisso, restituendo orbite omocline ed eterocline rispettivamente.\\
+Per $d>2$ il comportamento di $W^s$ e $W^u$ \`e pi\`u intricato.
+\end{remark}
+\begin{remark}
+In generale $W^s$ e $W^u$ perdono alcune propriet\`a della struttura differenziale che hanno $W^s_{loc}$ e $W^u_{loc}$.
+\end{remark}
+
+

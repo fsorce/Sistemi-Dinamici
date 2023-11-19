@@ -1,0 +1,101 @@
+\chapter{Integrali Primi e Sistemi Hamiltoniani}
+In questo capitolo introduciamo una classe di sistemi che ammettono integrale primo (e quindi ci permettono di fare uno studio globale guardando le curve di livello di questo). A volte, anche se un sistema non \`e della forma trattata in questo capitolo, \`e possibile studiarne il comportamento approssimandolo prima ad uno di questi e poi perturbando la soluzione trovata in modo opportuno.
+\section{Sistemi Hamiltoniani}
+\begin{notation}
+Quando consideriamo lo spazio $\R^{2d}$ in questo capitolo indichiamo le coordinate come $(x,y)=(q,p)\in\R^{2d}$ con $x=q\in\R^d$ e $y=p\in\R^d$. In genere $q$ \`e detto \textbf{coordinata generalizzata} e $p$ \`e detto \textbf{momento generalizzato}.\\
+Con la notazione $\pp xH$ intendiamo il vettore la cui componente $i$-esima \`e $\ppxi iH$. Similmente per $\pp yH$.
+\end{notation}
+\begin{definition}[Sistema Hamiltoniano]
+Un sistema di ODE su $\R^{2d}$ \`e un \textbf{sistema Hamiltoniano} se \`e della forma
+\[\mat{\dot x\\ -\dot y}=\nabla H\coimplies \begin{cases}
+\displaystyle \dot x_i=\pp{y_i}H\\\\
+\displaystyle \dot y_i=-\pp{x_i}H
+\end{cases}\text{per ogni }i\in\cpa{1,\cdots,d},\]
+dove $H:\R^{2d}\to\R$ \`e una funzione di classe $C^2(\R^{2d})$ detta \textbf{funzione Hamiltoniana} del sistema.\\
+Il numero $d$ \`e detto numero di \textbf{gradi di libert\`a}.
+\end{definition}
+\begin{remark}
+Ad ogni funzione $H:\R^{2d}\to\R$ di classe $C^2$ \`e associato un sistema Hamiltoniano.
+\end{remark}
+
+\begin{proposition}[Hamiltoniana \`e un integrale primo]\label{HamiltonianaEIntegralePrimo}
+Se $H$ \`e una funzione Hamiltoniana allora \`e un integrale primo del sistema ad essa associato.
+\end{proposition}
+\begin{proof}
+Basta calcolare $\dot H$.
+\begin{align*}
+\dot H(x,y)=&\nabla H(x,y)\cdot \mat{\displaystyle \pp {y}H \\\\ \displaystyle -\pp {x}H}=\\
+=&\sum_{i=1}^d\pa{\pp{x_i}H\pp{y_i}H+\pp{y_i}H\pa{-\pp{x_i}H}}=0.
+\end{align*}
+\end{proof}
+
+\begin{example}
+Un sistema con due gradi di libert\`a \`e dato dal doppio pendolo, il quale \`e interamente determinato da due angoli. Lo spazio delle fasi \`e $T^2\times \R^2$ dove $T^2=S^1\times S^1$ parametrizza i due angoli e $\R^2$ le velocit\`a angolari.\\
+Osserviamo intuitivamente che $\dim \cpa{H=c}=3$, che vedremo essere la minima dimensione che permette orbite caotiche.
+\end{example}
+\begin{example}[Un grado di libert\`a e mezzo]
+Se un sistema ha un grado di libert\`a ma non \`e autonomo possiamo renterpretarlo come un sistema con due gradi di libert\`a dove abbiamo aggiunto il tempo e questi sistemi possono ancora presentare comportamenti caotici. Un esempio sono oscillatori armonici perturbati periodicamente.
+\end{example}
+
+\begin{theorem}[Liouville]\label{TeoremaLiouville}
+Sia $H:\R^{2d}\to \R$ di classe $C^3$ e sia $\phi_t$ il flusso del sistema Hamiltoniano associato. Allora per ogni $A\subseteq \R^{2d}$ misurabile si ha che per ogni $t\in\R$
+\[\Lc(A)=\Lc(\phi_t(A)).\]
+\end{theorem}
+\begin{proof}
+Osserviamo che
+\[\dd t{}\phi_t(x,y)=F(\phi_t(x,y))=\mat{\displaystyle\pp yH(\phi_t(x,y))\\\\\displaystyle-\pp xH(\phi_t(x,y))}.\]
+Poich\'e $H$ \`e di classe $C^3$, si ha che $\phi:(x,y,t)\mapsto\phi_t(x,y)$ \`e di classe $C^2$ \footnote{Poich\'e $H$ \`e $C^3$ ne deriva che $F$ \`e $C^2$. Dato che $\phi'=F(\phi)$ si ha per il teorema del differenziale totale che $\phi$ \`e almeno $C^2$ in ogni entrata.}, quindi
+\[\dd t{}\pa{\Dc(\phi_t(x,y))}\pasgnl={regolarit\`a}\Dc \under{=F(\phi_t(x,y))}{\pa{\dd t{}\phi_t(x,y)}}=\Dc F(\phi_t(x,y))\Dc (\phi_t(x,y)).\]
+Poich\'e $\Dc\phi_0(x,y)=I$, possiamo integrare l'identit\`a precedente\footnote{\`e come se stessimo risolvendo insieme tutti i sistemi della forma \[\dd t{}{}v(t)=\Dc F(\phi_t(x,y))v(t),\quad\text{per } v(t)=\Dc(\phi_t(x,y))e_i:\R\to \R^{2d}.\]} per trovare
+\[\Dc(\phi_t(x,y))=\exp\pa{\int_0^t\Dc F(\phi_s(x,y))ds}.\]
+Segue da una identit\`a nota\footnote{$\det(e^A)=e^{\tr A}$} che
+\begin{align*}
+\det{\Dc(\phi_t(x,y))}=&\exp\pa{\int_0^t\tr\pa{\Dc F(\phi_s(x,y))}ds}.
+\end{align*}
+Per il teorema di Schwarz 
+\[\pp{x_i\del y_i}{^2H}=\pp{y_i\del x_i}{^2H},\] 
+dunque $\tr(\Dc F)=0$, da cui
+\[\tr\pa{\Dc F(\phi_s(x,y))}=0.\]
+Segue che
+\[\det{\Dc(\phi_t(x,y))}=e^0=1.\]
+Concludiamo con il seguente conto
+\begin{align*}
+\Lc(\phi_t(A))=&\int_{\phi_t(A)}1d\Lc=\int_A\abs{\det \Dc \phi_t(x,y)(x,y)}d\Lc=\\
+=&\int_A 1d\Lc=\Lc(A).
+\end{align*}
+\end{proof}
+
+\subsection{Sistemi meccanici con un grado di libert\`a}
+\begin{definition}[Sistema meccanico]
+Un \textbf{sistema meccanico} \`e un sistema Hamiltoniano della forma
+\[H(x,y)=\frac12y^\top A y+V(x)\]
+con $V:\R^d\to\R$ e $A\in Sym(d,\R)$. La funzione $V$ \`e detta \textbf{potenziale}.
+\end{definition}
+
+\noindent Studiamo un sistema meccanico con un grado di libert\`a:\\
+A meno di riscalamento poniamo $A=\mat1$.
+\[\begin{cases}
+\displaystyle\dot x=\pp yH=y\\\\
+\displaystyle\dot y=-\pp xH=-V'(x)
+\end{cases}\]
+Osserviamo che i punti fissi sono $\cpa{(x,0)\mid V'(x)=0}$. La matrice Jacobiana \`e data da
+\[\Dc F(x,y)=\mat{0 & 1\\-V''(x) &0}\implies \tr \Dc F=0,\ \det \Dc F=V''(x).\]
+Se $V''(x)=0$ siamo in un caso degenere e il linearizzato non ci aiuta.\\
+Se $V''(x)<0$ il punto $(x,0)$ \`e una sella.\\
+Se $V''(x)>0$ il punto $(x,0)$ \`e un punto non iperbolico di tipo centro.
+\vspace*{0.5cm}
+
+\noindent Il teorema di linearizzazione ci informa solo sul caso $(x,0)$ sella. Studiamo la stabilit\`a del caso di tipo centro.
+
+
+
+\begin{proposition}[Caratterizzazione dei punti fissi in sistema meccanico ad un grado di libert\`a]\label{CaratterizzazionePuntiFissiSistemaMeccanico1GradoLiberta}
+I punti fissi non degeneri\footnote{$(x_0,0)$ con $V'(x_0)=0$ e $V''(x_0)\neq 0$} di un sistema meccanico ad un grado di libert\`a sono selle o centri\footnote{non solo nel linearizzato}.
+\end{proposition}
+\begin{proof}[Idea di dimostrazione.]
+Se $(x_0,0)$ fosse instabile, esisterebbe un $\e>0$ tale che per ogni $\delta>0$ esiste $z_0\in B_\delta((x_0,0))$ tale che $\norm{\phi_t(z_0)-(x_0,0)}>\e$. Poniamo
+\[m_\e=\min_{\del{B_\e((x_0,0))}} H\]
+e consideriamo un $\e$ abbastanza piccolo in modo tale che $m_\e\sup_{B_\e((x_0,0))} H$, che sappiamo esistere perch\'e da noti criteri sulle derivate prime e seconde $(x_0,0)$ \`e un minimo locale di $H$.
+Poich\'e le orbite del sistema corrispondono alle curve di livello di $H$ abbiamo trovato una contraddizione in quanto per $\e$ abbastanza piccolo le orbite non possono attraversare $\del B_\e((x_0,0))$.\\
+Se $(x_0,0)$ fosse asintoticamente stabile esisterebbe un intorno di $(x_0,0)$ che converge a $(x_0,0)$, in particolare l'area di questo intorno non si conserva, contraddicendo il teorema di liouville (\ref{TeoremaLiouville}).
+\end{proof}

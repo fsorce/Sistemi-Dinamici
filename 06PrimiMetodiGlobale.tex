@@ -1,0 +1,48 @@
+\chapter{Primi metodi di studio globale}
+\section{Metodo delle isocline nel piano}
+Supponiamo $F=(f,g)$ con $f,g:\R^2\to \R$ di classe $C^1$.
+
+\noindent
+Introduciamo un metodo che permette di calcolare esplicitamente orbite in qualche caso.
+\begin{proposition}[Metodo delle isocline nel piano]\label{MetodoIsoclineNelPiano}
+Sia $(x_0,y_0)$ tale che $F(x_0,y_0)\neq (0,0)$, allora esiste un intorno $U$ di $(x_0,y_0)$ tale che $\Oc(x_0,y_0)\cap U$ \`e il grafico di una funzione $h(x)$ (se $f(x_0,y_0)\neq 0$, altrimenti $h(y)$) che risolve l'equazione differenziale
+\[\dd x{h(x)}=\frac{g(x,h(x))}{f(x,h(x))}.\]
+\end{proposition}
+\begin{proof}
+Senza perdita di generalit\`a supponiamo $f(x_0,y_0)\neq 0$, esiste dunque $U$ intorno di $(x_0,y_0)$ dove $f$ non si annulla. Consideriamo la funzione
+\[I(x,y)=y-h(x)\]
+dove $h(x)$ \`e la soluzione del problema di Cauchy 
+\[\dd x{h(x)}=\frac{g(x,h(x))}{f(x,h(x))},\quad h(x_0)=y_0\] 
+definita in un intorno di $x_0$ contenuto nella proiezione sulla prima componente di $U$. Osserviamo che
+\[\dot I\res{I=0}(x,y)=\dot y-h'(x)\dot x\res{I=0}=\rbar{g(x,y)-\frac{g(x,h(x))}{f(x,h(x))}f(x,y)}_{y=h(x)}=0,\]
+dunque per il criterio (\ref{CostruzioneInsiemiInvariantiCurveDiLivello}) sappiamo che $\cpa{y=h(x)}$ \`e un insieme invariante. Poich\'e \`e una curva e contiene $(x_0,y_0)$ questa \`e l'orbita voluta ed effettivamente l'abbiamo scritta come grafico.
+\end{proof}
+
+\section{Ricerca di simmetrie}
+Spesso, soprattutto negli esercizi, i sistemi in esame presentano delle simmetrie, ovvero \`e possibile costruire una mappa\footnote{Durante il corso non \`e stata data una definizione rigorosa di simmetria, solo una idea intuitiva e pratica di come impiegarla nella risoluzione di esercizi. Questa formulazione NON \`e stata data durante il corso e non so se \`e standard, serve solo some guida per capire il concetto a chi legge le dispense.}
+\[\funcDef{C^1(\R,\R^d)}{C^1(\R,\R^d)}{x(t)}{\wt x(t)}\]
+tale che 
+\[\dd t{}x(t)=F(x(t))\implies \dd t{}\wt x(t)=F(\wt x(t)).\]
+Spesso una simmetria si fattorizza in una mappa ``geometrica" composta con una mappa ``temporale", cio\`e esistono $\tau:\R\to \R$ e $g:\R^d\to\R^d$ tali che
+\[\wt x(t)=g(x(\tau(t))).\]
+
+\begin{example}[Esempio di simmetrie]
+Consideriamo il sistema
+\[\begin{cases}
+\dot x=x^2\\
+\dot y=y^2
+\end{cases}\]
+L'unico punto fisso \`e $(0,0)$ e gli assi sono invarianti. Ci sono altre rette invarianti? Cio\`e, esistono $a,b$ tali che una curva di livello di $I(x,y)=ax+by$ \`e invariante?
+\begin{align*}
+\dot I\res{I=c}=&a\dot x+b\dot y\res{ax+by=c}\pasgnl={se $b\neq 0$}\\
+=&ax^2+by^2\res{ax+by=c}=ax^2+b\pa{\frac{c-ax}b}^2=\\
+=&\pa{a+\frac{a^2}b}x^2-2\frac{ac}bx+\frac{c^2}b.
+\end{align*}
+Per annullare tutti i coefficienti $c=0$ e $a\in\cpa{0,-b}$. Troviamo dunque le condizioni $c=0$ e $a=0$ o $a=-b$. Dunque $\cpa{x=y}$ \`e un insieme invariante.
+    
+Andiamo ora a studiare le isocline. Per $x\neq 0$ consideriamo
+\[\dd yx=\frac{y^2}{x^2}\implies -\frac1{y(x)}+\frac1{y_0}=-\frac1x+\frac1{x_0}\implies y(x)=\dfrac1{\frac1x+\pa{\frac1{y_0}-\frac1{x_0}}}.\]
+Studiamo le simmetrie del sistema. Proviamo a porre $(\wt x(t),\wt y(t))=(-x(-t),-y(-t))$, da cui
+\[\dd t{} \wt x(t)=-\dot x(-t)(-1)=\dot x(-t)=x^2(-t)=(-\wt x(t))^2=(\wt x(t))^2\]
+e similmete per $\wt y$. Questo mostra che ad ogni orbita possiamo associarne un'altra che geometricamente \`e la riflessione rispetto all'origine e che viene percorsa in verso opposto.
+\end{example}
