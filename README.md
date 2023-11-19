@@ -7,3 +7,6 @@ Se notate errori o avete suggerimenti per aumentare la leggibilità vi prego di 
 
 
 Il sito che ho usato per realizzare molti dei diagrammi di fase è https://paolini.github.io/funplot/.
+
+
+Per compilare il file in locale scaricate preamble.tex e leggete il README.md nella repo https://github.com/fsorce/Template_per_LaTeX.
