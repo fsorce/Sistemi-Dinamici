@@ -146,6 +146,13 @@ Definiamo il \textbf{rettangolo di flusso} per questa scelta di $\sigma$ e $\chi
 Se $\Nc_{\sigma,\chi}$ \`e un rettangolo di flusso allora $\Nc_{\sigma,\chi}$ \`e un intorno di $y$ tale che per ogni $z\in \Nc_{\sigma,\chi}$ esiste $\ol t(z)\in (-\sigma,\sigma)$ tale che $\phi_{\ol t}(z)\in S_k(y)$.
 \end{lemma}
 
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=9cm]{Immagini/rettificazione_locale.png}
+    \caption{Rappresentazione di come agisce una $\psi$ rettificazione locale come sopra.}
+\end{figure}
+
+
 \begin{theorem}[Poincar\'e-Bendixon]\label{TeoremaPoincareBendixon}
 Sia $\dot x=F(x)$ con $F\in C^1(\R^2)$. Supponiamo che esista $D\subseteq \R^2$ compatto non vuoto che non contiene punti fissi e per il quale esiste $x_0\in D$ tale che per qualche $t_0>0$ abbiamo $\phi_t(x_0)\in D$ per ogni $t\geq t_0$.\\
 Allora $\Gamma=\omega(x_0)\subseteq D$ \`e un'orbita periodica.
@@ -169,8 +176,12 @@ Poich\'e sia $\wt \tau_j^1$ che $\wt \tau_j^2$ vanno a $+\infty$, esistono $\xi_
 Sia $\wt \Gamma$ la curva chiusa data da
 \[\wt \Gamma=\cpa{\al\phi_{\xi_1}(x_0)+(1-\al)\phi_{\xi_2}(x_0)\mid \al\in [0,1]}\cup \bigcup_{s\in (\xi_1,\xi_2)}\phi_s(x_0).\]
 Per definizione di $S_k(y)$ e per unicit\`a locale si ha che $\Oc^+(\phi_{\xi_2}(x_0))$ \`e contenuto nella componente connessa limitata definita da $\wt \Gamma$, ma questo \`e assurdo perch\'e esiste $\Delta t=\xi_3-\xi_2$ \`e tale che $\phi_{\Delta t}(\phi_{\xi_2}(x_0))=\phi_{\xi_3}(x_0)$ ma per definizione di $S_k(y)$ un'orbita che parte da $S_k(y)$ torna a $S_k(y)$ dal lato opposto rispetto a quello di partenza.
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=5cm]{Immagini/poincare_bendixon.png}
+    \caption{Rappresentazione grafica dell'assurdo trovato.}
+\end{figure}
 
-[INSERISCI IL DISEGNO]
 \end{itemize}
 \setlength{\leftmargini}{0.5cm}
 \end{proof}
