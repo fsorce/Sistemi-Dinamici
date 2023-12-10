@@ -59,9 +59,9 @@ Definiamo l'\textbf{$\omega$-limite} di $x$ come
 \[\omega(x)=\cpa{y\in X\mid \exists n_k\nearrow+\infty\ t.c.\ \lim_{k\to+\infty}T^{n_k}(x)=y}.\]
 Similmente definiamo l'\textbf{$\alpha$-limite}.
 \end{definition}
-Supponiamo da ora in poi che $X$ sia uno spazio metrico compatto.
+Supponiamo da ora in poi che $X\subseteq \R^k$ per qualche $k$.
 \begin{proposition}[Orbita limitata restituisce $\omega$ compatto invariante]\label{OrbitaLimitataDaOmegaLimiteCompattoInvariante}
-Se $\Oc(x)$ \`e limitata\footnote{servirebbe totalmente limitata perch\'e dobbiamo estrarre una sottosuccessioni di Cauchy nella dimostrazione. Se $X$ \`e una variet\`a reale di dimensione finita questa condizione \`e automaticamente verificata.} allora $\omega(x)$ \`e un compatto non vuoto. Se $T$ \`e continua allora $\omega(x)$ \`e invariante.
+Se $\Oc(x)$ \`e limitata allora $\omega(x)$ \`e un compatto non vuoto. Se $T$ \`e continua allora $\omega(x)$ \`e invariante.
 \end{proposition}
 \begin{proof}
 Come nel teorema (\ref{OrbitaPositivaLimitataImplicaCompattezzaEInvarianzaOmegaLimite}) ricaviamo che $\omega(x)=\bigcap_{n\in\N} \ol{\Oc(T^{n}(x))}$ da cui segue compattezza e $\omega(x)\neq \emptyset$.\\ 
@@ -70,7 +70,7 @@ Mostriamo l'invarianza:
 \begin{itemize}
 \item[$\boxed{T(\omega(x))\subseteq\omega(x)}$] Se $y\in \omega(x)$ allora troviamo una successione di istanti tale che $T^{n_k}(x)\to y$, dunque
 \[T(y)=T(\lim T^{n_k}(x))\pasgnl={$T$ cont.}\lim T^{n_k+1}(x)\in \omega(x).\]
-\item[$\boxed{T(\omega(x))\supseteq\omega(x)}$] Se $y\in \omega(x)$ allora troviamo una successione crescente di istanti tale che $T^{n_k}(x)\to y$. Poich\'e $\cpa{T^{n_k-1}(x)}\subseteq \Oc(x)$ esiste una sottosuccessione $k_j$ tale che $T^{n_{k_j-1}}(x)\to z\in X$\footnote{$\Oc(x)$ \`e (totalmente) limitata quindi possiamo estrarre una sottosuccessione di Cauchy, ma poich\'e $X$ \`e compatto questa successione converge a un punto di $X$.}. Per definizione di $\omega$-limite $z\in \omega(x)$ e 
+\item[$\boxed{T(\omega(x))\supseteq\omega(x)}$] Se $y\in \omega(x)$ allora troviamo una successione crescente di istanti tale che $T^{n_k}(x)\to y$. Poich\'e $\cpa{T^{n_k-1}(x)}\subseteq \Oc(x)$, per il teorema di Bolzano-Weierstrass esiste una sottosuccessione $k_j$ tale che $T^{n_{k_j-1}}(x)\to z\in \ol X$. Per definizione di $\omega$-limite $z\in \omega(x)$ e 
 \[T(z)=T(\lim T^{n_{k_j}-1}(x))=\lim T^{n_{k_j}}(x)=y\]
 dove l'ultimo passaggio segue dal fatto che $T^{n_{k_j}}(x)$ \`e una sottosuccessione di $T^{n_k}(x)$.
 \end{itemize}
@@ -95,54 +95,3 @@ Definiamo la mappa di \textbf{shift} come
 La mappa di shift \`e continua perch\'e uniformemente continua.
 \end{remark}
 
-\section{Stabilit\`a locale dei punti fissi}
-\begin{definition}[Punto attrattivo/repulsivo]
-Un punto fisso $x\in X$ si dice \textbf{attrattivo} se esiste un intorno $U$ di $x$ tale che per ogni $y\in U$ si ha che $\cpa{T^n(y)}_{n\in\N}\subseteq U$ e $\displaystyle\lim_{n\to+\infty}T^n(y)=x$.\\
-L'intorno $U$ come sopra \`e un \textbf{bacino di attrazione}.
-\vspace{0.25cm}
-
-\noindent
-Un punto fisso $x\in X$ si dice \textbf{repulsivo} se esiste un intorno $U$ di $x$ tale che per ogni $y\in U\bs \cpa x$ esiste $n(y)\in\N$ tale che $T^{n(y)}(y)\notin U$.
-\end{definition}
-
-\begin{definition}[Orbita attrattiva/repulsiva]
-Sia $x$ punto periodico di periodo minimo $p$, allora $\Oc(x)=\cpa{x,\cdots, T^{p-1}(x)}$ \`e \textbf{attrattiva} (rispettivamente \textbf{repulsiva}) se $x$ \`e attrattivo (rispettivamente repulsivo) per $T^p$.
-\end{definition}
-
-\begin{definition}[Punto iperbolico]
-Supponiamo che $X\in\cpa{[0,1], S^1, \R, (a,b), [a,b), (a,b]}$ e $T\in C^1(X,X)$. Un punto fisso $x\in X$ si dice \textbf{iperbolico} se $\abs{T'(x)}\neq 1$\footnote{L'idea \`e che $T(y)-x=T(y)-T(x)=T'(x)(y-x)+o(y-x)$, dunque se $\abs{T'(x)}\neq 1$ allora il termine lineare ci dice se per $y$ abbastanza vicino a $x$ vale $\abs{T(y)-x}>\abs{y-x}$ o viceversa.}.
-\end{definition}
-
-\begin{proposition}[Relazione tra punti iperbolici e attrattivit\`a]\label{RelazioneTraPuntiIperboliciEAttrattivita}
-Sia $T\in C^1(X,X)$ e $x$ un punto fisso iperbolico. Allora 
-\begin{align*}
-\abs{T'(x)}<1&\implies x\text{ \`e attrattivo}\\
-\abs{T'(x)}>1&\implies x\text{ \`e repulsivo.}
-\end{align*}
-\end{proposition}
-\begin{proof}
-Studiamo i due casi
-\setlength{\leftmargini}{0cm}
-\begin{itemize}
-\item[$\boxed{\abs{T'(x)}<1}$] Sia $c\in (\abs{T'(x)},1)$ e consideriamo $\delta>0$ tale che $\abs{T'(y)}\leq c$ per ogni $y\in [x-\delta,x+\delta]$. Sia ora $y\in (x-\delta,x+\delta)$, segue che esiste $\xi\in (x,y)$ tale che
-\[\abs{T(y)-x}=\abs{T'(\xi)}\abs{y-x}\leq c\abs{y-x}.\]
-Segue in particolare che $T(y)\in (x-\delta,x+\delta)$. Ripetendo questo procedimento si ha che $\abs{T^2(y)-x}\leq c\abs{T(y)-x}\leq c^2\abs{y-x}$. Procedendo per induzione
-\[\abs{T^n(y)-x}\leq c^n\abs{y-x}\underset{n\to+\infty}{\to} 0,\]
-cio\`e $x$ \`e attrattivo con bacino di attrazione $(x-\delta,x+\delta)$.
-\item[$\boxed{\abs{T'(x)}<1}$] Sia $c\in (1,\abs{T'(x)})$ e sia $\delta>0$ tale che $\abs{T'(y)}\geq c$ per ogni $y\in [x-\delta,x+\delta]$. Consideriamo ora $y\in (x-\delta,x+\delta)$. Supponiamo per assurdo che $T^n(y)\in (x-\delta,x+\delta)$ per ogni $n$. Con un ragionamento analogo a prima ricaviamo
-\[\delta>\abs{T^n(y)-x}\geq c^n\abs{y-x}\underset{n\to+\infty}{\to}+\infty,\]
-che \`e assurdo.
-\end{itemize}
-\setlength{\leftmargini}{0.5cm}
-\end{proof}
-
-\begin{remark}[Derivata delle iterate]
-Osserviamo che
-\begin{align*}
-(T^p)'(x)=&\dd x{}\pa{T^{p-1}(T(x))}=(T^{p-1})'(T(x))T'(x)=\\
-=&((T^{p-2})'(T(T(x)))T'(T(x)))T'(x)=\cdots\\
-\cdots=&\under{=1}{(T^{p-p})'(T^p(x))}\prod_{k=0}^{p-1}T'(T^k(x))=\\
-=&\prod_{k=0}^{p-1}T'(T^k(x)).
-\end{align*}
-In particolare se $x$ \`e un punto di periodo $p$ segue riordinando i fattori della formula sopra che $(T^p)'(T^k(x))=(T^p)'(x)$.
-\end{remark}

@@ -1,0 +1,159 @@
+\chapter{Orbite periodiche}
+In questa sezione supponiamo che  $X$ sia uno spazio metrico compatto di dimensione 1 (cio\`e $X=[0,1]$ o $X=S^1$ a meno di omeomorfismo).
+
+\begin{remark}
+Le orbite con periodo $p$ corrispondono a punti fissi di $T^p$.
+\end{remark}
+
+\section{\texorpdfstring{Partizioni e $T$-grafi}{Partizioni e T-grafi}}
+\begin{definition}[Partizione finita]
+Sia $\cpa{a_1,\cdots, a_N}$ un insieme finito di punti di $X$ e per ogni $h$ definiamo $J_h=[a_h,a_{h+1}]$.\\ L'insieme $\Jc=\cpa{J_h}$ \`e una \textbf{partizione finita} di $X$ in intervalli se $X=\bigcup_{h=0}^{N-1}J_h$ e 
+\[J_h\cap J_k=\begin{cases}
+J_h & \text{se }h=k\\
+a_{h} & \text{se }k=h-1\\
+a_{k} & \text{se }k=h+1\\
+\emptyset &\text{altrimenti}
+\end{cases}.\] 
+\end{definition}
+
+\begin{definition}[Coprire un intervallo $m$ volte]
+Sia $m$ un intero positivo e $T:X\to X$ continua. Un intervallo $J_h$ \textbf{ricopre} un intervallo $J_k$ \textbf{(almeno) $m$ volte} se esistono $K_1,\cdots, K_m$ intervalli aperti disgiunti in $J_h$ tali che $T(\ol{K_i})=J_k$ per ogni $i\in\cpa{1,\cdots, m}$.
+\end{definition}
+
+\begin{definition}[$T$-grafo associato a partizione]
+Data una partizione $\Jc=\cpa{J_1,\cdots, J_N}$ finita in intervalli chiusi, definiamo il \textbf{$T$-grafo associato a $\Jc$} come il grafo orientato che ha come vertici gli indici $\cpa{1,\cdots, N}$ e colleghiamo due vertici con una freccia orientata $m:h\to k$ se $J_h$ ricopre $J_k$ almeno una volta.
+\end{definition}
+\begin{remark}
+\`E possibile definire una variante graduata del $T$-grafo dove il grado di $h\to k$ registra quante volte $J_h$ ricopre $J_k$.
+\end{remark}
+
+[DISEGNO]
+
+\begin{definition}[Cammino ammissibile su $T$-grafo]
+Un \textbf{cammino ammissibile} sul $T$-grafo associato ad una partizione $\Jc$ \`e una successione di intervalli di $\Jc$ tale che la sequenza di indici ha la propriet\`a che due indici successivi $hk$ possono presentarsi solo se esiste una freccia orientata $h\to k$ nel $T$-grafo associato (cio\`e solo se $J_h$ ricopre $J_k$ almeno una volta).
+\end{definition}
+
+\begin{example}
+Nel $T$-grafo illustrato prima un cammino ammissibile \`e [INSERIRE CAMMINO], mentre [INSERIRE CAMMINO] non \`e ammissibile perch\'e $J_{???}$ non ricopre $J_{??}$.
+\end{example}
+
+\begin{proposition}[Criterio con grafo per esistenza di orbite periodiche]\label{CriterioTGrafoPerEsistenzaOrbitePeriodiche}
+Sia $T:X\to X$ continua, $X$ compatto di dimensione $1$ e $\Jc=\cpa{J_1,\cdots, J_N}$ partizione finita di $X$. Considerando il $T$-grafo associato a $\Jc$, se esiste un cammino ammissibile 
+\[J_{p(1)}J_{p(2)}\cdots J_{p(s+1)}\] 
+di lunghezza $s+1$ chiuso (cio\`e $p(1)=p(s+1)$) allora esiste $x\in J_{p(1)}$ tale che $T^s(x)=x$ e $T^i(x)\in J_{p(i+1)}$ per ogni $i$.
+\end{proposition}
+\begin{proof}
+Poniamo $\ol K_{s+1}=J_{p(s+1)}$. Poich\'e il cammino \`e ammissibile, $J_{p(s)}$ copre $J_{p(s+1)}$ almeno una volta, quindi esiste $K_s\subseteq J_{p(s)}$ tale che $T(\ol K_s)=J_{p(s+1)}=\ol K_{s+1}$.\\
+Similmente esiste $\wt K_{s-1}\subseteq J_{p(s-1)}$ tale che $T(\ol{\wt K_{s-1}})=J_{p(s)}$, quindi restringendo opportunamente troviamo un intervallo $K_{s-1}\subseteq J_{p(s-1)}$ tale che 
+\[T(\ol K_{s-1})=\ol K_s\subseteq J_{p(s)}.\]
+Reiterando costruiamo $K_1,\cdots, K_s$ aperti in $X$ tali che $K_i\subseteq J_{p(i)}$ e $T(\ol K_i)=\ol K_{i+1}$ (in particolare $T^{s-i+1}(\ol K_i)=\ol K_{s+1}$). Questo mostra che $T^s(\ol K_1)=\ol{K_{s+1}}=J_{p(s+1)}=J_{p(1)}$, quindi per il il teorema del valore intermedio $T^s\res{\ol K_1}$ ha un punto fisso, cio\`e esiste $x\in \ol K_1\subseteq J_{p(1)}$ tale che $T^s(x)=x$.\\
+Per concludere basta osservare che per costruzione $T^i(x)\in \ol K_{i+1}\subseteq J_{p(i+1)}$.
+\end{proof}
+\begin{remark}
+\`E possibile che il punto fisso di periodo $s$ trovato abbia periodo minimo che divide strettamente $s$.
+\end{remark}
+\begin{remark}[Criterio di esistenza per periodi minimi]\label{CriterioEsistenzaPeriodiMinimi}
+Se il cammino NON \`e della forma
+\[\under{s/k\text{ volte}}{(J_{p(1)}J_{p(2)}\cdots J_{p(k)}) \cdots (J_{p(1)}J_{p(2)}\cdots J_{p(k)})}J_{p(1)}\]
+allora il punto $x$ trovato nel teorema ha periodo \textit{minimo} $s$.\\
+In particolare se il cammino attraversa sempre indici diversi prima di tornare a $J_{p(1)}$ allora $x$ ha periodo minimo $s$. 
+\end{remark}
+\begin{remark}
+Se $T$ \`e continua eccetto in un numero finito di punti possiamo provare a infittire la partizione e stando attenti al comportamento sul bordo la proposizione (\ref{CriterioTGrafoPerEsistenzaOrbitePeriodiche}) continua in genere a valere.
+\end{remark}
+
+\section{Teorema di Sharkovsky}
+\subsection{Ordinamento e teorema}
+\begin{definition}[Ordinamento di Sharokovsky]
+Definiamo l'\textbf{ordinamento di Sharokovsky} su $\N$ (che indichiamo $(\N,\prec)$) come
+
+$2^p(2n+3)\prec 2^p(2n+1)$, $2^pa\prec 2^{p-1}b$ per ogni $a,b$ dispari diversi da $1$
+\begin{align*}
+1\prec2^2\prec 2^3\prec\cdots&\\
+\vdots&\\
+\cdots\prec2^2\cdot7\prec2^2\cdot5\prec2^2\cdot3&\\
+\cdots\prec2\cdot7\prec2\cdot5\prec2\cdot3&\\
+\cdots\prec7\prec5\prec3&
+\end{align*}
+\end{definition}
+
+\begin{theorem}[Sharkovsky]\label{TeoremaSharkovsky}
+Se $T:[a,b]\to [a,b]$ \`e continua ed esiste un'orbita periodica di periodo minimo $m$ allora esiste un'orbita periodica di periodo minimo $n$ per ogni $n\prec m$.
+\end{theorem}
+\begin{proof}
+Supponiamo $m$ dispari.\\
+Osserviamo che se $n\prec m$ allora $n=1$, $n>m$ oppure $n<m$ e $n$ \`e pari. Supponiamo senza perdita di generalit\`a che non esista orbita periodica di periodo minimo $\wt m$ per ogni $\wt m$ tale che $\wt m\succ m$ (DIRE PERCH\'E)
+
+Sia $P_1$ un punto periodico con periodo minimo $m$ e sia
+\[\Oc(P_1)=\cpa{P_1,P_2,\cdots, P_m}\]
+dove ordiniamo $a\leq P_1<P_2<\cdots<P_m\leq b$. Poniamo
+\[\Jc=\cpa{J_h}_{h\in\cpa{1,\cdots, m-1}}\cup \cpa{[a,P_1], [P_m,b]},\]
+dove $J_h=[P_h,P_{h+1}]$. Seguiamo alcuni passi:
+\setlength{\leftmargini}{0cm}
+\begin{enumerate}
+\item Notiamo che $T(P_1)>P_1$ e $T(P_m)<P_m$. Sia allora $\ol h$ tale che $T(P_r)<P_r$ per ogni $r>\ol h$ e $T(P_{\ol h})>P_{\ol h}$ \footnote{esiste per il principio del minimo}. 
+
+[DISEGNO]
+
+Osserviamo graficamente che $J_{\ol h}$ ricopre se stesso e almeno anche $J_{\ol h-1}$ o $J_{\ol h+1}$ (altrimenti avremmo un orbita di periodo 2). Supponiamo che $J_{\ol h}$ ricopra $J_{\ol h}$ e $J_{\ol h-1}$
+
+[DISEGNO]
+
+Notiamo che $T(P_{\ol h})\geq P_{\ol h+1}$ e $T(P_{\ol h+1})\leq P_{\ol h-1}$. Dato che $J_{\ol h}J_{\ol h}$ \`e un cammino ammissibile, per la proposizione (\ref{CaratterizzazionePuntiFissiSistemaMeccanico1GradoLiberta}) esiste un punto fisso in $J_{\ol h}$.
+\item Mostriamo che per ogni $\ell\in \cpa{1,\cdots, m-1}$ esiste un cammino ammissibile da $J_{\ol h}$ a $J_{\ell}$:
+
+Sia $\cpa{V_k}$ tale che per ogni $v\in V_{k+1}$ esiste $w\in V_k$ tale che $w\to v$ sta nel $T$-grafo e $V_1=\cpa{\ol h}$.\\
+Notiamo che $V_k\subseteq V_{k+1}$ per ogni $k\geq 1$, quindi esiste $\ol k$ tale che $V_{\ol k}=V_{\ol k+1}=V_r$ per ogni $r\geq \ol k+1$. Questa sabilizzazione pu\`o avvenire in due modi: $V_{\ol k}=\cpa{1,\cdots,m-1}$ e abbiamo completato il passo, oppure troviamo un sottoinsieme stretto di $\cpa{1,\cdots, m-1}$, ma questo implica che partendo da $\ol h$ esiste un intervallo che non viene ricoperto (per esempio $J_a$). Sappiamo che gli estremi di $J_a$ per\`o devono essere raggiunti perch\'e sono punti dell'orbita e trattando i vari casi**** questo restituisce un'orbita in $\Oc(P_1)$ di periodo minimo pi\`u piccolo di $m$, assurdo.
+\item Mostriamo che esiste $J_{\ol \ell}$ con $\ol \ell\neq \ol h$ che ricopre $J_{\ol h}$.\\
+per assurdo supponiamo che non esista un tale $\ol\ell$. Notiamo che per ogni $P_j$ con $P_j>P_{\ol h}$ si deve avere che $T(P_j)<P_{\ol h}$ (partiamo da $\ol h+1$ e iteriamo fino in fondo). Similmente per $P_j<P_{\ol h}$ ricaviamo iterativamente che $T(P_j)>P_{\ol h}$. Abbiamo quindi diviso i punti esattamente a met\`a, ma questo \`e assurdo perch\'e $m$ dispari.
+\item Sappiamo che esiste un cammino ammissibile della forma
+\[J_{\ol h}J_{p(2)}\cdots J_{p(s)}J_{\ol h}\]
+Notiamo che $s\geq m-1$, infatti se $s<m-1$: se $s$ dispari per la proposizione (\ref{CaratterizzazionePuntiFissiSistemaMeccanico1GradoLiberta}) esiste $x\in J_{\ol h}$ tale che $T^s(x)=x$, ma questo \`e assurdo perch\'e $s<m$ e dispari, se invece $s$ \`e pari allora il cammino 
+\[J_{\ol h}J_{p(2)}\cdots J_{p(s)}J_{\ol h}J_{\ol h}\]
+\`e ammissibile e quindi sempre per la proposizione troviamo $x\in J_{\ol h}$ tale che $T^{s+1}(x)=x$, ma questo \`e falso perch\'e $s+1<m$ (in quanto $m-1$ pari e $s<m-1$ con $s$ pari implica $s\leq m-3$).
+
+
+Mostriamo ora che il cammino contriene ogni $J_{\ell}$ per $\ell\in\cpa{1,\cdots, m-1}$ esattamente una volta, infatti se $\ell$ apparisse pi\`u volte potremmo eliminare il tratto tra le due manifestazioni di $\ell$ e trovare un cammino ammissibile pi\`u breve, ma questo \`e assurdo perch\'e in tal caso $s<m-1$. Combinando questo fatto con il precedente troviamo che $s=m-1$.
+
+Siamo pronti per mostrare che esiste un orbita periodica di periodo minimo $n$ per ogni $n>m$, infatti
+\[\under{m-1}{J_{\ol h}\cdots J_{\ol \ell}}\under{n-m+2}{J_{\ol h}\cdots J_{\ol h}}\]
+\`e ammissibile e quindi esiste $x$ tale che $T^{n}(x)=x$ e $n$ \`e periodo minimo perch\'e all'inizio trovo tutti gli intervalli una sola volta e poi ripetendo solo $J_{\ol h}$ garantisco di non trovare la stessa successione di intervalli.
+
+\item Notiamo che $J_{\ol h}$ copre solo $T(J_{\ol h})=J_{\ol h}\cup J_{\ol h-1}$ senza perdita di generalit\`a, perch\'e altrimenti potrei trovare un cammino ammissibile pi\`u piccolo di $m-1$. Similmente gli altri intervalli coprono solo i predendenti come immagini di $J_{\ol h}$ iterando $T$, eccetto l'ultimo intervallo, che copre $\ol h$, $p(3)$, $p(5)$ fino a $p(\ell)$ stesso. Partendo allora da $J_\ell$ torniamo a $J_\ell$ reguendo il ciclo ma partendo da $\ol h$ o $p(3)$ o $p(5)$ o $p(7)$ ecc, trovando orbite di lunghezza pari ad ogni numero pari minore di $m$.
+\end{enumerate}
+Per $m=s^h\wt m$ con $\wt m$ dispari applichiamo quanto detto a $T^{2^h}$.
+
+Per $m=1$ ok perch\'e ho sempre punti fissi.
+\setlength{\leftmargini}{0.5cm}
+\end{proof}
+
+\subsection{Ferri di cavallo}
+\begin{definition}[Ferro di cavallo]
+Sia $T:[a,b]\to[a,b]$ continua. Essa ha un \textbf{ferro di cavallo} se esiste $J\subseteq [a,b]$ intervallo chiuso che ricopre se stesso almeno due volte.
+\end{definition}
+
+\begin{proposition}[Relazione tra ferro di cavallo e periodi minimi]\label{RelazioneFerroDiCavalloEPeriodiMinimi}
+Sia $T:[a,b]\to[a,b]$ continua.
+\begin{enumerate}
+\item Se $T$ ha un ferro di cavallo allora ha orbite periodiche di periodo minimo $n$ per ogni $n\in\N$.
+\item Se $T$ ha un'orbita periodica di periodo minimo $m$ dispari allora $T^2$ ha un ferro di cavallo. 
+\end{enumerate}
+\end{proposition}
+\begin{proof}
+Mostriamo i due punti
+\begin{enumerate}
+\item Basta mostrare che esiste $x\in [a,b]$ tale che $T^3(x)=x$ e $T(x)\neq x$. Questo conclude per Sharokovsky (\ref{TeoremaSharkovsky}). Siano $K_1$ e $K_2$ disgiunti intervalli aperti tali che $T(\ol K_i)=J$ per un opportuno intervallo di $[a,b]$. Definiamo una partizione di $[a,b]$ che contenga $\ol K_1$ e $\ol K_2$. Cos\`i facendo avremo un $T$-grafo dove $\ol K_1\ol K_2\ol K_2\ol K_1$ \`e ammissibile, quindi esiste $x\in K_1$ tale che $T^3(x)=x$ e $T(x)\in \ol K_2$. Se $\ol K_1\cap \ol K_2=\emptyset$ allora $T(x)\neq x$ come voluto. Se $\ol K_1\cap \ol K_2=\cpa{z}$ allora si presentano due casi: se $z$ non \`e un punto fisso allora comunque $T(x)\neq x$, se $z$ \`e un punto fisso allora osserviamo graficamente che esiste $\ol K_3\subseteq \ol K_1$ tale che $\ol K_3\cap \ol K_2=\emptyset$ e $K_2$ e $K_3$ coprono $J$, e ci siamo ricondotti al caso precedente e il nuovo $x$ non pu\`o essere fisso (MAGARI METTI IN CIMA)
+\item Supponiamo senza perdita di generalit\`a che $m$ sia il pi\`u piccolo dispari per cui vale l'ipotesi. Ricordando la configurazione trovata dimostrando (\ref{TeoremaSharkovsky})
+
+[DISEGNO]
+
+vedendo i due disegni osserviamo che esiste $\ol x$ fisso in $[P_1,P_2]$ e $\ol y\in [P_{m},P_{m-2}]$ tale che $T(\ol y)=\ol x$. Segue che $J=[P_m,\ol x]$ copre se stesso almeno due volte per $T^2$.
+\end{enumerate}
+\end{proof}
+
+
+
+
+\begin{proposition}[]
+Sia $T:S^1\to S^1$ un omeomorfismo, allora se esiste un punto di periodo minimo $p$ ogni punto periodico \`e di periodo minimo $p$.
+\end{proposition}

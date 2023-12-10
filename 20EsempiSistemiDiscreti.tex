@@ -126,12 +126,9 @@ Quello che sta succedendo che abbiamo trovato due serie della seguente forma che
 
 \section{Mappa Logistica e Tenda}    
 \begin{definition}[Mappa logistica]
-Una funzione continua $T_\la:[0,1]\to[0,1]$ si dice \textbf{logistica} se \`e della forma
+Una funzione continua $T_\la:[0,1]\to[0,1]$ si dice \textbf{logistica} se \`e della forma\footnote{Le restrizioni $0\leq \la\leq 4$ servono per garantire che effettivamente $[0,1]$ sia il codominio.}
 \[T_\la(x)=\la x(1-x),\quad 0\leq \la\leq 4.\]
 \end{definition}
-\begin{remark}
-Le restrizioni $0\leq \la\leq 4$ servono per garantire che effettivamente $[0,1]$ sia il codominio.
-\end{remark}
 
 \begin{figure}[!htb]
     \centering
@@ -144,8 +141,26 @@ Le restrizioni $0\leq \la\leq 4$ servono per garantire che effettivamente $[0,1]
 Osserviamo che $T_\la$ ha un massimo in $\frac12$.\\
 Cerchiamo i punti fissi:
 \[\la x(1-x)=x\coimplies x((\la-1)-\la x)=0,\]
-quindi i punti fissi sono $0$ e $1-\la\ii$, dove il secondo punto fisso si presenta solo se compreso tra $0$ e $1$, cio\`e solo se $\la\geq 1$.
+quindi i punti fissi sono $0$ e $1-\la\ii$, dove il secondo punto fisso si presenta solo se compreso tra $0$ e $1$, cio\`e solo se $\la\geq 1$.\\
+Calcoliamo quando questi punti fissi sono iperbolici:\\
+\[T_\la'(x)=\la-2\la x.\]
+Per $\la<1$ si ha che $0$ \`e iperbolico attrattivo e che per $\la>1$ \`e iperbolico repulsivo.\\
+Se $\la=1$ allora i due punti fissi coincidono e sono non iperbolici.
+\[T'_\la(1-\la\ii)=2-\la\]
+quindi $1-\la\ii$ \`e iperbolico per $\la\neq 1$ o $3$.\\
+Studiamo ora i casi di $\la=1$ e $\la=3$:
+\setlength{\leftmargini}{0cm}
+\begin{itemize}
+\item[$\boxed{\la=1}$] Calcoliamo che $T_\la''(x)=-2\la<1$, quindi, poich\'e $T_\la'(0)=\la=1$ per il criterio per punti non iperbolici (\ref{CriterioPuntiNonIperboliciDerivataPositiva}) si ha che $0$ \`e attrattivo.
+\item[$\boxed{\la=3}$] Il questo caso $1-\la\ii=2/3$, inotlre $T'(x)=3-6x$, $T''(x)=-6$ e $T'''(x)=0$. Segue che $ST(x)=0-\frac32(6/(3-6x))^2<0$, in particolare $ST(2/3)<0$ e quindi \`e un punto fisso attrattivo per il criterio per punti non iperbolici con derivata $-1$ (\ref{CriterioPuntiNonIperboliciDerivataNegativa}).
+\end{itemize}
+\setlength{\leftmargini}{0.5cm}
 \end{example}
+
+
+
+
+
 \begin{definition}[Mappa tenda]
 Una funzione continua $T_a:[0,1]\to[0,1]$ si dice \textbf{tenda} se \`e della forma
 \[T_a(x)=\begin{cases}
