@@ -1,0 +1,110 @@
+\chapter{Dinamica topologica Caotica}
+Supponiamo che $X$ sia uno spazio metrico compatto e che $T:X\to X$ sia continua.
+
+\begin{definition}[Mappa topologicamente transitiva]
+Sia $N$ spazio topologico e siano  $T:N\to N$ si dice \textbf{topologicamente transitiva} se per ogni coppia $U,V$ si aperti non vuoti esiste $n$ tale che $T^n(U)\cap V\neq \emptyset$.
+\end{definition}
+\begin{definition}[Dipendenza sensibile dalle condizioni iniziali]
+Sia $N$ uno spazio metrico e $T:N\to N$ continua. $T$ ha \textbf{dipendenza sensibile dalle condizioni iniziali} su $N$ se esiste $c>0$ tale che per ogni $x\in \Lambda$ e per ogni $\e>0$ esiste $y\in B_\e(x)$ per cui esiste $n$ tale che $d(T^n(x),T^n(y))>c$.
+\end{definition}
+\begin{definition}[Caos di Devaney]
+Affermiamo che $T$ \`e \textbf{caotica (nel senso di Devaney)} se esiste un sottoinsieme $\Lambda\subseteq X$ compatto e positivamente invariante tale che
+\begin{enumerate}
+\item l'insieme dei punti periodici \`e denso in $\Lambda$,
+\item $T$ \`e topologicamente transitiva su $\Lambda$
+\item $T$ ha dipendenza sensibile dalle condizioni iniziali su $\Lambda$.
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Spazio $(n,\e)$-separato]
+Sia $T:X\to X$ continua con $X$ metrico compatto. Dati $n\in\N$ e $\e>0$, un insieme $S\subseteq X$ \`e \textbf{$(n,\e)$-separato} se per ogni $x,y\in S$ distinti esiste $k\in\N$ con $k<n$ tale che $d(T^k(x),T^k(y))>\e$.
+\end{definition}
+
+\begin{definition}[Entropia topologica]
+Sia $T:X\to X$ continua con $X$ metrico compatto. Definiamo l'\textbf{entropia topologica} di $T$ come
+\[h_{top}(T)=\lim_{\e\to0^+}\limsup_{n\to+\infty}\frac1n\log\pa{\max\cpa{\# S\mid \text{$S$ \`e $(n,\e)$-separato}}}.\]
+\end{definition}
+
+\begin{definition}[Caos per entropia topologica]
+Affermiamo che $T$ \`e \textbf{caotica (nel senso dell'entropia topologica)} se $h_{top}(T)>0$.
+\end{definition}
+
+\begin{proposition}[L'entropia topologica \`e invariante]\label{EntropiaTopologicaInvariantePerConiugioTopologico}
+L'entropia topologica \`e invariante per coniugio topologico.
+\end{proposition}
+\begin{proof}
+NON DATA DURANTE IL CORSO
+\end{proof}
+
+\begin{theorem}[Caratterizzazione del Caos]\label{CaratterizzazioneCaos}
+Sia $T:[a,b]\to [a,b]$ continua. Allora le seguenti sono affermazioni sono equivalenti:
+\begin{enumerate}
+\item $T$ \`e caotica nel senso di Devaney
+\item $h_{top}(T)>0$
+\item Esiste $n\in\N$ per cui $T^n$ ha un ferro di cavallo
+\item esiste orbita periodica per $T$ di periodo minimo $m$ non potenza di $2$.
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+L'equivalenza tra le ultime due \`e la proposizione (\ref{RelazioneFerroDiCavalloEPeriodiMinimi}). Per il resto la dimostrazione non \`e stata data durante il corso.
+\end{proof}
+
+\section{Dinamica simbolica}
+Sia $\Ac$ un alfabeto finito e sia $\Omega=\Ac^\N$. Imponiamo la topologia discreta su $\Ac$ e la topologia prodotto su $\Omega$. Per il teorema di Tychonoff segue dalla compattezza di $\Ac$ che $\Omega$ \`e compatto.\\
+Lo spazio $\Omega$ \`e anche uno spazio metrico con distanza definita come segue:
+\[d(\omega,\wt \omega)=\sum_{i=0}^\infty 2^{-i-1}\delta(\omega_i,\wt \omega_i),\]
+dove $\delta(a,b)=\begin{cases}
+1 & a\neq b\\
+0 & a=b
+\end{cases}$.
+
+\begin{definition}[Shift]
+Definiamo la mappa di \textbf{shift} come
+\[\sigma:\funcDef{\Omega}{\Omega}{(\omega_i)_{i\in\N}}{(\omega_{i+1})_{i\in\N}}.\]
+\end{definition}
+\begin{remark}
+La mappa di shift \`e continua perch\'e uniformemente continua.
+\end{remark}
+
+\begin{example}
+Consideriamo $\Ac=\cpa{1,\cdots, N}$, $\Omega=\Ac^\N$ con la metrica definita prima e $\sigma:\Omega\to\Omega$ lo shift.\\
+Affermiamo che $\sigma$ \`e caotica (Devaney) su $\Omega$:
+\begin{enumerate}
+\item Vogliamo mostrare che per ogni $\wt \omega$ e per ogni $\e>0$ esiste $\omega$ parola periodica \footnote{$\omega=sssss\cdots$ con $s\in \Ac^\ast$, cio\`e $s$ \`e una parola finita formata dai simboli in $\Ac$.} tale che $d(\omega,\wt \omega)<\e$. Fissati $\wt \omega$ e $\e$ basta prendere $s$ un opportuno troncamento di $\wt \omega$ (tanto la distanza \`e pesata molto sui simboli iniziali).
+\item Gli aperti di $\Omega$ hanno come prebase i cilindri della forma
+\[C(\omega,h,n)=\cpa{\wt \omega\in\Omega\mid \forall i\in\cpa{0,\cdots,n-1},\ \omega_{h+i}=\wt \omega_{h+i}}.\]
+Vogliamo dunque mostrare che ogni $\omega^1,\ \omega^2\in\Omega$ e per ogni $h^1,h^2,n^1,n^2\geq 0$ esiste $m\in\N$ tale che
+\[\sigma^m(C(\omega^1,h^1,n^1))\cap C(\omega^2,h^2,n^2)\neq \emptyset.\]
+Vogliamo dunque mostrare che esiste $\wt \omega\in C(\omega^1,h^1,n^1)$ tale che $\sigma^m(\wt \omega)\in C(\omega^2,h^2,n^2)$. Basta porre che $\rbar{\wt\omega}_{h^1+n^1-1}^{h^1}=\rbar{\omega^1}_{h^1+n^1-1}^{h^1}$ e $\rbar{\wt\omega}_{m+h^2+n^2-1}^{m+h^2}=\rbar{\omega^2}_{h^2+n^2-1}^{h^2}$ per un $m\gg h^1$.
+\item Fissiamo $c\in (0,1)$. Fissati $\omega\in\Omega$ e $\e>0$ cerchiamo $\wt \omega\in B_\e(\omega)$ tale che esiste $m\in\N$ tale che $d(\sigma^m(\omega),\sigma^m(\wt \omega))>c$. Osserviamo che esiste $k_\e\in\N$ tale che se $\omega_i=\wt \omega_i$ per ogni $i\leq k_\e$ allora $d(\omega,\wt \omega)<\e$. Costruiamo allora $\wt \omega$ facendo s\`i che almeno i primi $k_\e$ simboli coincidano con quelli di $\omega$ e tale che tutti i successivi a un certo indice $m$ siano diversi tra le due successioni. Osserviamo allora che $d(\sigma^m(\omega),\sigma^m(\wt \omega))=\sum_{i\geq 0}2^{-i-1}\cdot 1=1>c$.
+\end{enumerate}
+\end{example}
+
+\begin{example}
+Consideriamo $\Ac=\cpa{1,\cdots, N}$, $\Omega=\Ac^\N$ con la metrica definita prima e $\sigma:\Omega\to\Omega$ lo shift.\\
+Affermiamo che $\sigma$ \`e caotica (entropia topologica) su $\Omega$:\\
+Fissati $n,\e$ osserviamo che per ogni $\omega\neq \wt\omega$ esiste $k<n$ tale che $d(\sigma^k(\omega),\sigma^k(\wt \omega))$ se e solo se esiste $i\in\cpa{0,\cdots, k_\e}$ tale che $\omega_{k+i}\neq \wt \omega_{k+i}$. Consideriamo allora
+\[\funcDef{\cpa{1,\cdots, N}^{n+k_\e+1}}{S}{s}{s\cdots}\]
+dove $s\cdots$ indica una qualche stringa fissata che coincide con $s$ all'inizio. Si ha dunque che
+\[\max\cpa{\# S\mid S\text{ \`e $(n,\e)$-separato}}\sim \#\cpa{1,\cdots, N}^{n+k_\e+1}\sim N^{n+k_\e},\]
+da cui
+\[h_{top}(\sigma)=\lim \frac1{n+k_\e}\log N=\log N.\]
+\end{example}
+
+\begin{proposition}[Entropia topologica e partizioni]\label{EntropiaTopologicaEPartizioni}
+Sia $T:[0,1]\to[0,1]$ tale che esiste $\Jc=\cpa{J_1,\cdots, J_k}$ partizione finita in intervalli tale che per ogni $i$ abbiamo $T(J_i)=[0,1]$ e $T\res{J_i}$ \`e invertibile e continua. Allora 
+\[h_{top}(T)=\log k=\lim_{n\to+\infty}\frac1n\log(\#\cpa{Fix T^n}).\]
+\end{proposition}
+
+\begin{proposition}[]
+Sia $T_\al:S^1\to S^1$ dato da $T_\al(x)=x+\al\mod 1$. Allora $h_{top}(T_\al)=0$
+\end{proposition}
+\begin{proof}
+ESERCIZIO
+\end{proof}
+
+
+\begin{proposition}[]
+Sia $T:S^1\to S^1$ un omeomorfismo, allora se esiste un punto di periodo minimo $p$ ogni punto periodico \`e di periodo minimo $p$.
+\end{proposition}
+

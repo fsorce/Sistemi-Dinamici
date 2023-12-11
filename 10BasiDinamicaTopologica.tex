@@ -76,22 +76,3 @@ dove l'ultimo passaggio segue dal fatto che $T^{n_{k_j}}(x)$ \`e una sottosucces
 \end{itemize}
 \setlength{\leftmargini}{0.5cm}
 \end{proof}
-
-
-\section{Dinamica simbolica}
-Sia $\Ac$ un alfabeto finito e sia $\Omega=\Ac^\N$. Imponiamo la topologia discreta su $\Ac$ e la topologia prodotto su $\Omega$. Per il teorema di Tychonoff segue dalla compattezza di $\Ac$ che $\Omega$ \`e compatto.\\
-Lo spazio $\Omega$ \`e anche uno spazio metrico con distanza definita come segue:
-\[d(\omega,\wt \omega)=\sum_{i=0}^\infty 2^{-i-1}\delta(\omega_i,\wt \omega_i),\]
-dove $\delta(a,b)=\begin{cases}
-1 & a\neq b\\
-0 & a=b
-\end{cases}$.
-
-\begin{definition}[Shift]
-Definiamo la mappa di \textbf{shift} come
-\[\sigma:\funcDef{\Omega}{\Omega}{(\omega_i)_{i\in\N}}{(\omega_{i+1})_{i\in\N}}.\]
-\end{definition}
-\begin{remark}
-La mappa di shift \`e continua perch\'e uniformemente continua.
-\end{remark}
-
