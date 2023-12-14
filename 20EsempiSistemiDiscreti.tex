@@ -123,7 +123,8 @@ Quello che sta succedendo che abbiamo trovato due serie della seguente forma che
 \end{example}
 
 
-\section{Mappa Logistica e Tenda}    
+\section{Mappa Logistica e Tenda}
+\subsection{Mappa logistica} 
 \begin{definition}[Mappa logistica]
 Una funzione continua $T_\la:[0,1]\to[0,1]$ si dice \textbf{logistica} se \`e della forma\footnote{Le restrizioni $0\leq \la\leq 4$ servono per garantire che effettivamente $[0,1]$ sia il codominio.}
 \[T_\la(x)=\la x(1-x),\quad 0\leq \la\leq 4.\]
@@ -135,18 +136,20 @@ Una funzione continua $T_\la:[0,1]\to[0,1]$ si dice \textbf{logistica} se \`e de
     \caption{Rappresentazione di due mappe logistiche.}
 \end{figure}
 
-
-\begin{example}[Mappa logistica]
-Osserviamo che $T_\la$ ha un massimo in $\frac12$.\\
-Cerchiamo i punti fissi:
+\subsubsection{Derivata}
+La derivata di $T_\la(x)=\la x(1-x)$ \`e
+\[T'_\la(x)=\la-2\la x.\]
+Segue che $T_\la$ ha massimo in $1/2$.
+\subsubsection{Punti fissi}
+I punti fissi di $T_\la$ sono le soluzioni di
 \[\la x(1-x)=x\coimplies x((\la-1)-\la x)=0,\]
-quindi i punti fissi sono $0$ e $1-\la\ii$, dove il secondo punto fisso si presenta solo se compreso tra $0$ e $1$, cio\`e solo se $\la\geq 1$.\\
-Calcoliamo quando questi punti fissi sono iperbolici:\\
-\[T_\la'(x)=\la-2\la x.\]
+cio\`e $0$ e $1-\la\ii$. Notiamo per\`o che il secondo punto fisso \`e rilevante solo se $1-\la\ii\in [0,1]$, cio\`e solo se $\la\geq 1$.\\
+Calcoliamo quando questi punti fissi sono iperbolici:
+\[T'_\la(0)=\la.\]
 Per $\la<1$ si ha che $0$ \`e iperbolico attrattivo e che per $\la>1$ \`e iperbolico repulsivo.\\
 Se $\la=1$ allora i due punti fissi coincidono e sono non iperbolici.
-\[T'_\la(1-\la\ii)=2-\la\]
-quindi $1-\la\ii$ \`e iperbolico per $\la\neq 1$ o $3$.\\
+\[T'_\la(1-\la\ii)=2-\la.\]
+Segue che $1-\la\ii$ \`e iperbolico attrattivo se $\la\in (1,3)$, iperbolico repulsivo se $\la\in (3,4]$ e non iperbolico per $\la\in\cpa{1,3}$.
 Studiamo ora i casi di $\la=1$ e $\la=3$:
 \setlength{\leftmargini}{0cm}
 \begin{itemize}
@@ -154,11 +157,36 @@ Studiamo ora i casi di $\la=1$ e $\la=3$:
 \item[$\boxed{\la=3}$] Il questo caso $1-\la\ii=2/3$, inotlre $T'(x)=3-6x$, $T''(x)=-6$ e $T'''(x)=0$. Segue che $ST(x)=0-\frac32(6/(3-6x))^2<0$, in particolare $ST(2/3)<0$ e quindi \`e un punto fisso attrattivo per il criterio per punti non iperbolici con derivata $-1$ (\ref{CriterioPuntiNonIperboliciDerivataNegativa}).
 \end{itemize}
 \setlength{\leftmargini}{0.5cm}
-\end{example}
+\subsubsection{Diagramma di biforcazione}
+Osserviamo che 
+\[T_\la^2(x)=\la(\la x(1-x))(1-\la x(1-x))=\la^2 x(1-x)(1-\la x(1-x)).\]
+
+[DISEGNO]
+
+Osserviamo che in corrispondenza di $\la=3$ passiamo da una soluzione a due:
+\begin{gather*}
+\la^2 x(1-x)(1-\la x(1-x))-x=0\\
+x(\la^2(1-x)(1-\la x(1-x))-1)=0\\
+-x(x-(1-\la\ii))(\la^2x^2-\la(\la+1)x+\la+1)=0\\
+x\pa{x-\frac{\la-1}\la}\pa{x-\under{x_+(\la)}{\frac{(\la+1)+\sqrt{\la^2-2\la-3}}{2\la}}}\pa{x-\under{x_-(\la)}{\frac{(\la+1)-\sqrt{\la^2-2\la-3}}{2\la}}}=0
+\end{gather*}
+dove $x_{\pm}(\la)$ esiste se $\sqrt{\la^2-2\la-3}$ \`e ben definita, cio\`e se $\la\geq 3$. Poich\'e le prime due soluzioni sono soluzioni le soluzioni di $T_\la(x)=x$, si ha che $x_{\pm}(\la)$ sono l'unica orbita periodica di periodo minimo 2 (quando le soluzioni sono distinte, cio\`e per $\la>3$).\\
+Cerchiamo di capire se $\Oc=\cpa{x_{\pm}(\la)}$ \`e un'orbita attrattiva:
+\[(T_\la^2(x))'=T_\la'(T_\la(x))T'_\la(x),\]
+da cui dopo dei conti
+\[\abs{(T^2_\la)'(x_{\pm}(\la))}=\abs{4+2\la-\la^2},\]
+quindi $\Oc$ \`e attrattiva se $\la\in [3,1+\sqrt 6]$ e repulsiva se $\la\in (1+\sqrt 6,4)$.
+\vspace{0.25cm}
+
+\noindent Possiamo graficare al variare di $\la\in [0,4]$ le orbite stabili (fattibile al computer in quanto stabili). Osserviamo dai risultati ottenuti che per $\la<1$ ci aspettiamo solo l'unico punto fisso $0$, poi per $\la\in(1,3)$ l'unico punto fisso attrattivo \`e $1-\la\ii$, poi tra in $(3,1+\sqrt 6)$ troviamo una orbita periodica attrattiva di periodo 2 e possiamo immaginarci di trovare ulteriori suddivisioni dell'intervallo rimanente dove l'orbita graficata ha periodo minimo variabile:
+
+[DISEGNO]
+
+Per ogni $\la$ possiamo trovare $\Omega^\la$ invariante dato un'orbita periodica ma per $\la\uparrow$ convergiamo verso un $\Omega^\infty$ invariante che non \`e un orbita periodica. $\Omega^\infty$ \`e uno \textbf{strange attractor}\footnote{Questo tipo di fenomeni dimostra che in genere lo studio delle orbite non \`e sufficiente. Per capire meglio sistemi dinamici \`e spesso utile definire misure.}.
 
 
 
-
+\subsection{Mappa Tenda}
 
 \begin{definition}[Mappa tenda]
 Una funzione continua $T_a:[0,1]\to[0,1]$ si dice \textbf{tenda} se \`e della forma
