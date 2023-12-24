@@ -61,6 +61,7 @@ Osserviamo che
 In particolare se $x$ \`e un punto di periodo $p$ segue riordinando i fattori della formula sopra che $(T^p)'(T^k(x))=(T^p)'(x)$.
 \end{remark}
 
+\newpage
 Supponendo una opportuna regolarit\`a di $T$ possiamo estrapolare il comportamento di alcuni punti non iperbolici. 
 \begin{proposition}[Criterio per punti fissi non iperbolici con derivata positiva]\label{CriterioPuntiNonIperboliciDerivataPositiva}
 Sia $x_0$ un punto fisso per $T:[0,1]\to[0,1]$ con $T\in C^3$ e $T'(x_0)=1$. Allora
@@ -73,12 +74,22 @@ Sia $x_0$ un punto fisso per $T:[0,1]\to[0,1]$ con $T\in C^3$ e $T'(x_0)=1$. All
 \end{cases}\]
 \end{itemize}
 \end{proposition}
-\begin{proof}
-Dimostrazioni per disegno
-	
-[DISEGNO]
 
-[DISEGNO]
+
+\begin{proof}
+La dimostrazione segue immediatamente dei seguenti disegni:
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=9cm]{Immagini/T''_non_nulla.png}
+	\caption{Caso $T''(x_0)\neq 0$. A sinistra il caso di $T''(x_0)>0$ e a destra $T''(x_0)<0$}
+\end{figure}
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=9cm]{Immagini/T'''_non_nulla.png}
+	\caption{Caso $T''(x_0)=0$ e $T'''(x_0)\neq 0$. A sinistra il caso di $T'''(x_0)>0$ e a destra l'altro.}
+\end{figure}
 \end{proof}
 	
 \begin{definition}[Derivata Schwarziana]

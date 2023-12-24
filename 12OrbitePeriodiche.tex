@@ -27,24 +27,28 @@ Data una partizione $\Jc=\cpa{J_1,\cdots, J_N}$ finita in intervalli chiusi, def
 \`E possibile definire una variante graduata del $T$-grafo dove il grado di $h\to k$ registra quante volte $J_h$ ricopre $J_k$.
 \end{remark}
 
-[DISEGNO]
+\begin{definition}[Cammino ammissibile su $T$-grafo]
+Un \textbf{cammino ammissibile} sul $T$-grafo associato ad una partizione $\Jc$ \`e una successione di intervalli di $\Jc$ tale che la sequenza di indici ha la propriet\`a che due indici successivi $hk$ possono presentarsi solo se esiste una freccia orientata $h\to k$ nel $T$-grafo associato (cio\`e solo se $J_h$ ricopre $J_k$ almeno una volta).
+\end{definition}
 
+\begin{example}[Un $T$-grafo]
+Consideriamo una funzione $T:[0,1]\to[0,1]$ data da 
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=6cm]{Immagini/esempio_Grafico_per_TGrafo.png}
+	\caption{Esempio di una funzione. Notiamo che $J_1$ ricopre $J_1,\ J_2$ e $J_3$, $J_2$ ricopre $J_2$ e $J_3$ e $J_3$ ricopre $J_1,\ J_2$ e $J_3$.}
+\end{figure}
+Il $T$-grafo associato \`e\footnote{i numeri sulle frecce indicano quante volte un intervallo ricopre un altro}
 \[\begin{tikzcd}
 	1 \arrow[loop left] && 2\arrow[loop right] \\
-	& 3\arrow[loop below]
+	& 3\arrow["{_2}", loop below]
 	\arrow[curve={height=6pt}, from=2-2, to=1-1]
 	\arrow[curve={height=6pt}, from=1-1, to=2-2]
 	\arrow["{_2}", curve={height=-6pt}, from=2-2, to=1-3]
 	\arrow[curve={height=-6pt}, from=1-3, to=2-2]
 	\arrow[curve={height=-6pt}, from=1-1, to=1-3]
 \end{tikzcd}\]
-
-\begin{definition}[Cammino ammissibile su $T$-grafo]
-Un \textbf{cammino ammissibile} sul $T$-grafo associato ad una partizione $\Jc$ \`e una successione di intervalli di $\Jc$ tale che la sequenza di indici ha la propriet\`a che due indici successivi $hk$ possono presentarsi solo se esiste una freccia orientata $h\to k$ nel $T$-grafo associato (cio\`e solo se $J_h$ ricopre $J_k$ almeno una volta).
-\end{definition}
-
-\begin{example}
-Nel $T$-grafo illustrato prima un cammino ammissibile \`e $J_1J_2J_3J_3J_1J_1$, mentre $J_1J_2J_1$ non \`e ammissibile perch\'e $J_2$ non ricopre $J_1$.
+Un esempio di cammino ammissibile \`e $J_1J_2J_3J_3J_1J_1$, mentre $J_1J_2J_1$ non \`e ammissibile perch\'e $J_2$ non ricopre $J_1$.
 \end{example}
 
 \begin{proposition}[Criterio con grafo per esistenza di orbite periodiche]\label{CriterioTGrafoPerEsistenzaOrbitePeriodiche}
@@ -111,7 +115,11 @@ dove $J_h=[P_h,P_{h+1}]$. Seguiamo alcuni passi:
 \begin{enumerate}
 \item Notiamo che necessariamente $T(P_1)>P_1$ e $T(P_m)<P_m$. Sia allora $\ol h$ l'indice tale che $T(P_r)<P_r$ per ogni $r>\ol h$ e $T(P_{\ol h})>P_{\ol h}$ \footnote{esiste per il principio del minimo}. 
 
-[DISEGNO]
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=9cm]{Immagini/Definizione_hbarra.png}
+	\caption{Rappresentazione grafica della definizione di $\ol h$.}
+\end{figure}
 
 Osserviamo che $T(P_{\ol h})\geq P_{\ol h+1}$ e $T(P_{\ol h+1})\leq P_{\ol h-1}$, quindi $J_{\ol h}$ ricopre se stesso. Segue dunque che $J_{\ol h}J_{\ol h}$ \`e un cammino ammissibile e quindi per la proposizione (\ref{CriterioTGrafoPerEsistenzaOrbitePeriodiche}) esiste un punto fisso in $J_{\ol h}$, quindi abbiamo verificato l'esistenza di un'orbita di \textit{periodo minimo 1}.
 
@@ -165,7 +173,14 @@ per ogni $k$ dispari.
 
 Osserviamo che, affinch\'e $I_1\cdots I_{m-1}I_1$ abbia la propriet\`a di lunghezza minima mostrata, $I_1$ copre solo $I_1$ e $I_2$. Similmente $I_2$ pu\`o coprire al massimo $I_1,\ I_2$ e $I_3$ eccetera. Osserviamo dunque che $I_1=J_{\ol h+1}$ oppure $J_{\ol h-1}$, senza perdita di generalit\`a supponiamo $I_1=J_{\ol h-1}$\footnote{il ragionamento procede in modo simile per l'altro caso}. Si deve dunque avere che $T(P_{\ol h+1})=P_{\ol h-1}$ e $T(P_{\ol h})=P_{\ol h+1}$. Imponendo iterativamente le condizioni sopra ricaviamo che $I_2$ copre solo $I_3$, $I_3$ copre solo $I_4$ e cos\`i procedendo fino a raggiungere $I_{m-1}=J_{1}$, la cui immagine forzata ad essere $[P_{\ol h},P_m]$ cio\`e, sempre per la corrispondenza esplicita trovata, $I_1\cup I_2\cup \cdots I_{m-2}$.
 
-[DISEGNO A]
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=9cm]{Immagini/Disegno_A.png}
+	\caption{Rappresentazione di come i punti dell'orbita sono organizzati. Il punto centrale \`e $\ol h$.}
+	\label{ConfigurazioneOrbita}
+\end{figure}
+
+
 \end{enumerate}
 Consideriamo ora il caso $m$ pari\footnote{Da qu\`i in poi \`e una curiosit\`a che non fa parte del programma.}.
 Senza perdita di generalit\`a supponiamo che $T$ abbia un'orbita di periodo minimo $m$ e non di periodo $k$ per ogni $k\succ m$. Scriviamo $m=2^p\wt m$.\\
@@ -192,18 +207,22 @@ Mostriamo i due punti
 Siano $K_1$ e $K_2$ disgiunti intervalli aperti tali che $T(\ol K_i)=J$ per un opportuno intervallo di $[a,b]$.\\
 Se $\ol K_1\cap \ol K_2=\cpa{z}$ con $z$ punto fisso allora osserviamo graficamente che esiste $\ol K_3\subseteq \ol K_1$ tale che $\ol K_3\cap \ol K_2=\emptyset$ e $K_2$ e $K_3$ coprono $J$. Quindi sostituiamo $K_1$ con $K_3$.
 
-[DISEGNO]
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=5cm]{Immagini/esempio_Dimostrazione_ferro_di_cavallo.png}
+	\caption{Costruzione di $K_3$ (in blu).}
+\end{figure}
+
 
 Definiamo una partizione di $[a,b]$ che contenga $\ol K_1$ e $\ol K_2$. Cos\`i facendo avremo un $T$-grafo dove $\ol K_1\ol K_2\ol K_2\ol K_1$ \`e ammissibile. Per il teorema (\ref{CriterioTGrafoPerEsistenzaOrbitePeriodiche}) esiste $x\in K_1$ tale che $T^3(x)=x$ e $T(x)\in \ol K_2$.\\
 Se $\ol K_1\cap \ol K_2=\emptyset$ allora $T(x)\neq x$ e abbiamo concluso.\\
 Se $\ol K_1\cap \ol K_2=\cpa{z}$ allora per costruzione $z$ non \`e un punto fisso e quindi anche se $x=z$ comunque $T(x)\neq x$ come voluto.
-\item Supponiamo senza perdita di generalit\`a che $m$ sia il pi\`u piccolo dispari per cui vale l'ipotesi. Ricordando la configurazione trovata dimostrando (\ref{TeoremaSharkovsky})
+\item Supponiamo senza perdita di generalit\`a che $m$ sia il pi\`u piccolo dispari per cui vale l'ipotesi. Ricordando la configurazione trovata dimostrando (\ref{TeoremaSharkovsky})\footnote{Figura \ref{ConfigurazioneOrbita}} e applicando un po' di volte il teorema del valore intermedio
 
-[DISEGNO A]
-
-e applicando un po' di volte il teorema del valore intermedio
-
-[DISEGNO]
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=9cm]{Immagini/Ferro_di_cavallo_2.png}
+\end{figure}
 
 osserviamo che esiste $\ol x$ fisso in $[P_1,P_2]$ e $\ol y\in [P_{m},P_{m-2}]$ tale che $T(\ol y)=\ol x$. Segue che $J=[P_m,\ol x]$ copre se stesso almeno due volte per $T^2$.
 \end{enumerate}
