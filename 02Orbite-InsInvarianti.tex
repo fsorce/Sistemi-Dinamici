@@ -27,7 +27,7 @@ $\Oc(x)=\cpa{\phi_s(x)\mid s\in[0,T)}$.
 \end{remark}
 
 \begin{remark}[Simulazione]
-Di solito per tracciare orbite usiamo il computer. Il problema \`e che \`e difficile fargli assumere \textit{determinate condizioni iniziali}, anche se queste rare orbite possono essere essenziali per capire bene il funzionamento del sistema (pensa a orbite limite o periodiche). 
+Di solito per tracciare orbite usiamo il computer ma per natura di tali simulazioni, i dati iniziali (e l'integrazione stessa) non pu\`o essere assolutamente precisa. \`E quindi quasi impossibile disegnare algoritmicamente alcune orbite essenziali per comprendere il funzionamento del sistema (per esempio orbite periodiche, omo- ed eterocline e orbite limite tra due comportamenti). 
 \end{remark}
 
 \section{Insiemi invarianti}
@@ -78,34 +78,6 @@ Se $I$ \`e un integrale primo allora per ogni $c\in\R$ l'insieme
 \begin{remark}[Intuizione geometrica]
 Se $\nabla I(x)\neq 0$, la condizione $\dot I(x)=0$ afferma che $\nabla I(x)$ e $F(x)$ sono perpendicolari. Per il teorema delle funzioni implicite, se $x\in I_c$ abbiamo che un vettore normale a $I_c$ in $x$ \`e $\nabla I$, dunque se $F(x)$ vi \`e perpendicolare si ha che $F(x)\in T_x I_c$, in particolare l'orbita tende a procedere rimanendo nello spazio tangente, cio\`e resta contenuta in $I_c$.
 \end{remark}
-
-\section{Passaggio a coordinate polari}
-In $\R^2$ cerchiamo di capire come trasformare un problema differenziale da coordinate cartesiane a polari.
-\[\begin{cases}
-x=\rho\cos\theta\\
-y=\rho\sin\theta
-\end{cases}\implies 
-\begin{cases}
-\dot x=\dot\rho\cos\theta-\rho\dot\theta\sin\theta\\
-\dot y=\dot\rho\sin\theta+\rho\dot\theta\cos\theta\\
-\end{cases}\implies\]
-\[\rbar{\begin{cases}
-\dot \rho=\frac{x\dot x+y\dot y}\rho\\
-\dot\theta=\frac{x\dot y-y\dot x}{\rho^2}
-\end{cases}}_{\smat{x=\rho\cos\theta\\y=\rho\sin\theta}}\]
-
-
-\begin{proposition}[Invarianza cerchi in coordinate polari]
-Dato il sistema
-\[\begin{cases}
-\dot \rho=f(\rho,\theta)\\
-\dot \theta=g(\rho,\theta)
-\end{cases}\]
-se esiste $\rho_0>0$ tale che $f(\rho_0,\theta)=0$ per ogni $\theta$ allora $\{\rho=\rho_0\}$ \`e invariante.
-\end{proposition}
-\begin{proof}
-Segue da (\ref{CostruzioneInsiemiInvariantiCurveDiLivello}) prendendo $I(\rho,\theta)=\rho$.
-\end{proof}
 
 \section{Alpha e Omega limiti}
 \begin{definition}[Alpha e Omega limiti]

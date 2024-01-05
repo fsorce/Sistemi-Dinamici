@@ -1,11 +1,11 @@
 \chapter{Dinamica topologica Caotica}
 Supponiamo che $X$ sia uno spazio metrico compatto e che $T:X\to X$ sia continua.
-
+\section{Caos di Devaney}
 \begin{definition}[Mappa topologicamente transitiva]
 Sia $N$ spazio topologico e siano  $T:N\to N$ si dice \textbf{topologicamente transitiva} se per ogni coppia $U,V$ si aperti non vuoti esiste $n$ tale che $T^n(U)\cap V\neq \emptyset$.
 \end{definition}
 \begin{definition}[Dipendenza sensibile dalle condizioni iniziali]
-Sia $N$ uno spazio metrico e $T:N\to N$ continua. $T$ ha \textbf{dipendenza sensibile dalle condizioni iniziali} su $N$ se esiste $c>0$ tale che per ogni $x\in \Lambda$ e per ogni $\e>0$ esiste $y\in B_\e(x)$ per cui esiste $n$ tale che $d(T^n(x),T^n(y))>c$.
+Sia $N$ uno spazio metrico e $T:N\to N$ continua. $T$ ha \textbf{dipendenza sensibile dalle condizioni iniziali} su $N$ se esiste $c>0$ tale che per ogni $x\in N$ e per ogni $\e>0$ esiste $y\in B_\e(x)$ per cui esiste $n$ tale che $d(T^n(x),T^n(y))>c$.
 \end{definition}
 \begin{definition}[Caos di Devaney]
 Affermiamo che $T$ \`e \textbf{caotica (nel senso di Devaney)} se esiste un sottoinsieme $\Lambda\subseteq X$ compatto e positivamente invariante tale che
@@ -16,6 +16,7 @@ Affermiamo che $T$ \`e \textbf{caotica (nel senso di Devaney)} se esiste un sott
 \end{enumerate}
 \end{definition}
 
+\section{Entropia topologica}
 \begin{definition}[Spazio $(n,\e)$-separato]
 Sia $T:X\to X$ continua con $X$ metrico compatto. Dati $n\in\N$ e $\e>0$, un insieme $S\subseteq X$ \`e \textbf{$(n,\e)$-separato} se per ogni $x,y\in S$ distinti esiste $k\in\N$ con $k<n$ tale che $d(T^k(x),T^k(y))>\e$.
 \end{definition}
@@ -36,6 +37,73 @@ L'entropia topologica \`e invariante per coniugio topologico.
 NON DATA DURANTE IL CORSO
 \end{proof}
 
+\begin{proposition}[Entropia topologica e partizioni]\label{EntropiaTopologicaEPartizioni}
+Sia $T:[0,1]\to[0,1]$ tale che esiste $\Jc=\cpa{J_1,\cdots, J_k}$ partizione finita in intervalli tale che per ogni $i$ abbiamo $T(J_i)=[0,1]$ e $T\res{J_i}$ \`e invertibile e continua. Allora 
+\[h_{top}(T)=\log k=\lim_{n\to+\infty}\frac1n\log(\#\cpa{Fix T^n}).\]
+\end{proposition}
+\begin{proof}[Dimostrazione (NON DATA DURANTE IL CORSO)]
+Osserviamo che per ogni $n$, la partizione $\Jc=\Jc_1$ induce una partizione finita $\Jc_n$ pi\`u fine (composta da $k^n$ intervalli) data considerando gli intervalli dove $T^n$ \`e necessariamente invertibile e continua.
+Senza perdita di generalit\`a supponiamo $\e<1/k$. In tal caso notiamo che $Fix T^n$ \`e un insieme $(n,\e)$-separato:\\
+I punti di $Fix T^n$ appartengono a diversi intervalli di $\Jc_n$ e appartengono tutti alla parte interna di questi (altrimenti $T^n\res{int(J^{(n)}_j)}$ non potrebbe essere invertibile). Siano $x,y\in Fix T^n$ punti distinti e sia $k$ il pi\`u piccolo intero tale che $y$ e $x$ appartengono ad intervalli diversi per la partizione $\Jc_k$. Notiamo che $k$ esiste ed \`e compreso tra $1$ e $n$ per costruzione. Affermiamo che $d(T^k(x),T^k(y))>1/k>\e$, infatti per costruzione delle partizioni $T^k(x)$ e $T^k(y)$ appartengono ad elementi diversi di $\Jc$ e quindi per ipotesi su $\e$ distano pi\`u di $\e$.
+
+Osserviamo che se $\e>1/m$ allora la massima cardinalit\`a di un insieme $(0,\e)$-separato \`e $m$. Un insieme $S$ $(n,\e)$-separato di massima cardinalit\`a possibile pu\`o perci\`o contenere al massimo $k^nm$ punti in quanto ogni punto deve distare da ogni altro punto almeno $\e$ applicando una mappa della forma $T^r$ per qualche $r\leq n$\footnote{il miglior caso \`e porre avere $m$ punti in ogni elemenento di $\Jc_n$.}. Si ha dunque che 
+\begin{align*}
+h_{top}(T)\leq&\lim_{m\to+\infty}\lim_{\e\to\frac1m^+}\limsup_{n\to+\infty}\frac1n\log\pa{k^nm}=\\
+=&\log k +\lim_{m\to+\infty}\lim_{\e\to\frac1m^+}\under{=0}{\limsup_{n\to+\infty}\frac{\log m}n}=\log k.
+\end{align*}
+Abbiamo dunque mostrato che $\log k\leq h_{top}(T)$ e $h_{top}(T)\leq \log k$ come voluto.
+\end{proof}
+
+\begin{proposition}[Entropia di una rotazione]
+Sia $T_\al:S^1\to S^1$ dato da $T_\al(x)=x+\al\mod 1$. Allora $h_{top}(T_\al)=0$
+\end{proposition}
+\begin{proof}
+Notiamo che $T_\al$ \`e una isometria, quindi $d(T_\al^k(x),T^k_\al(y))>\e$ se e solo se $d(x,y)>\e$. Segue che un insieme \`e $(n,\e)$-separato se e solo se \`e $(0,\e)$-separato. La massima cardinalit\`a di un tale insieme \`e $\floor{\e\ii}$, che in particolare \`e un valore costante in $n$. Segue dunque che $\limsup_n\frac1n\log(\floor{\e\ii})=0$ e quindi $h_{top}(T)=\lim_{\e\to0^+}0$.
+\end{proof}
+
+\section{Ferro di cavallo}
+\begin{definition}[Ferro di cavallo]
+Una funzione continua $T:[a,b]\to[a,b]$ ha un \textbf{ferro di cavallo} se esiste $J\subseteq [a,b]$ intervallo chiuso che ricopre se stesso almeno due volte.
+\end{definition}
+
+\begin{proposition}[Relazione tra ferro di cavallo e periodi minimi]\label{RelazioneFerroDiCavalloEPeriodiMinimi}
+Sia $T:[a,b]\to[a,b]$ continua.
+\begin{enumerate}
+\item Se $T$ ha un ferro di cavallo allora ha orbite periodiche di periodo minimo $n$ per ogni $n\in\N^+$.
+\item Se $T$ ha un'orbita periodica di periodo minimo $m$ dispari allora $T^2$ ha un ferro di cavallo. 
+\end{enumerate}
+\end{proposition}
+\begin{proof}
+Mostriamo i due punti
+\setlength{\leftmargini}{0cm}
+\begin{enumerate}
+\item Per il teorema di Sharkovsky (\ref{TeoremaSharkovsky}) basta mostrare che esiste $x\in [a,b]$ tale che $T^3(x)=x$ e $T(x)\neq x$.\\ 
+Siano $K_1$ e $K_2$ disgiunti intervalli aperti tali che $T(\ol K_i)=J$ per un opportuno intervallo di $[a,b]$.\\
+Se $\ol K_1\cap \ol K_2=\cpa{z}$ con $z$ punto fisso allora osserviamo graficamente che esiste $\ol K_3\subseteq \ol K_1$ tale che $\ol K_3\cap \ol K_2=\emptyset$ e $K_2$ e $K_3$ coprono $J$. Quindi sostituiamo $K_1$ con $K_3$.
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=4cm]{Immagini/esempio_Dimostrazione_ferro_di_cavallo.png}
+	\caption{Costruzione di $K_3$ (in blu).}
+\end{figure}
+
+
+Definiamo una partizione di $[a,b]$ che contenga $\ol K_1$ e $\ol K_2$. Cos\`i facendo avremo un $T$-grafo dove $\ol K_1\ol K_2\ol K_2\ol K_1$ \`e ammissibile. Per il teorema (\ref{CriterioTGrafoPerEsistenzaOrbitePeriodiche}) esiste $x\in K_1$ tale che $T^3(x)=x$ e $T(x)\in \ol K_2$.\\
+Se $\ol K_1\cap \ol K_2=\emptyset$ allora $T(x)\neq x$ e abbiamo concluso.\\
+Se $\ol K_1\cap \ol K_2=\cpa{z}$ allora per costruzione $z$ non \`e un punto fisso e quindi anche se $x=z$ comunque $T(x)\neq x$ come voluto.
+\item Supponiamo senza perdita di generalit\`a che $m$ sia il pi\`u piccolo dispari per cui vale l'ipotesi. Ricordando la configurazione trovata dimostrando (\ref{TeoremaSharkovsky})\footnote{Figura \ref{ConfigurazioneOrbita}} e applicando un po' di volte il teorema del valore intermedio
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=10cm]{Immagini/Ferro_di_cavallo_2.png}
+\end{figure}
+
+osserviamo che esiste $\ol x$ fisso in $[P_1,P_2]$ e $\ol y\in [P_{m},P_{m-2}]$ tale che $T(\ol y)=\ol x$. Segue che $J=[P_m,\ol x]$ copre se stesso almeno due volte per $T^2$.
+\end{enumerate}
+\setlength{\leftmargini}{0.5cm}
+\end{proof}
+
+\section*{Equivalenza tra le definizioni}
 \begin{theorem}[Caratterizzazione del Caos]\label{CaratterizzazioneCaos}
 Sia $T:[a,b]\to [a,b]$ continua. Allora le seguenti sono affermazioni sono equivalenti:
 \begin{enumerate}
@@ -48,63 +116,4 @@ Sia $T:[a,b]\to [a,b]$ continua. Allora le seguenti sono affermazioni sono equiv
 \begin{proof}
 L'equivalenza tra le ultime due \`e la proposizione (\ref{RelazioneFerroDiCavalloEPeriodiMinimi}). Per il resto la dimostrazione non \`e stata data durante il corso.
 \end{proof}
-
-\section{Dinamica simbolica}
-Sia $\Ac$ un alfabeto finito e sia $\Omega=\Ac^\N$. Imponiamo la topologia discreta su $\Ac$ e la topologia prodotto su $\Omega$. Per il teorema di Tychonoff segue dalla compattezza di $\Ac$ che $\Omega$ \`e compatto.\\
-Lo spazio $\Omega$ \`e anche uno spazio metrico con distanza definita come segue:
-\[d(\omega,\wt \omega)=\sum_{i=0}^\infty 2^{-i-1}\delta(\omega_i,\wt \omega_i),\]
-dove $\delta(a,b)=\begin{cases}
-1 & a\neq b\\
-0 & a=b
-\end{cases}$.
-
-\begin{definition}[Shift]
-Definiamo la mappa di \textbf{shift} come
-\[\sigma:\funcDef{\Omega}{\Omega}{(\omega_i)_{i\in\N}}{(\omega_{i+1})_{i\in\N}}.\]
-\end{definition}
-\begin{remark}
-La mappa di shift \`e continua perch\'e uniformemente continua.
-\end{remark}
-
-\begin{example}
-Consideriamo $\Ac=\cpa{1,\cdots, N}$, $\Omega=\Ac^\N$ con la metrica definita prima e $\sigma:\Omega\to\Omega$ lo shift.\\
-Affermiamo che $\sigma$ \`e caotica (Devaney) su $\Omega$:
-\begin{enumerate}
-\item Vogliamo mostrare che per ogni $\wt \omega$ e per ogni $\e>0$ esiste $\omega$ parola periodica \footnote{$\omega=sssss\cdots$ con $s\in \Ac^\ast$, cio\`e $s$ \`e una parola finita formata dai simboli in $\Ac$.} tale che $d(\omega,\wt \omega)<\e$. Fissati $\wt \omega$ e $\e$ basta prendere $s$ un opportuno troncamento di $\wt \omega$ (tanto la distanza \`e pesata molto sui simboli iniziali).
-\item Gli aperti di $\Omega$ hanno come prebase i cilindri della forma
-\[C(\omega,h,n)=\cpa{\wt \omega\in\Omega\mid \forall i\in\cpa{0,\cdots,n-1},\ \omega_{h+i}=\wt \omega_{h+i}}.\]
-Vogliamo dunque mostrare che ogni $\omega^1,\ \omega^2\in\Omega$ e per ogni $h^1,h^2,n^1,n^2\geq 0$ esiste $m\in\N$ tale che
-\[\sigma^m(C(\omega^1,h^1,n^1))\cap C(\omega^2,h^2,n^2)\neq \emptyset.\]
-Vogliamo dunque mostrare che esiste $\wt \omega\in C(\omega^1,h^1,n^1)$ tale che $\sigma^m(\wt \omega)\in C(\omega^2,h^2,n^2)$. Basta porre che $\rbar{\wt\omega}_{h^1+n^1-1}^{h^1}=\rbar{\omega^1}_{h^1+n^1-1}^{h^1}$ e $\rbar{\wt\omega}_{m+h^2+n^2-1}^{m+h^2}=\rbar{\omega^2}_{h^2+n^2-1}^{h^2}$ per un $m\gg h^1$.
-\item Fissiamo $c\in (0,1)$. Fissati $\omega\in\Omega$ e $\e>0$ cerchiamo $\wt \omega\in B_\e(\omega)$ tale che esiste $m\in\N$ tale che $d(\sigma^m(\omega),\sigma^m(\wt \omega))>c$. Osserviamo che esiste $k_\e\in\N$ tale che se $\omega_i=\wt \omega_i$ per ogni $i\leq k_\e$ allora $d(\omega,\wt \omega)<\e$. Costruiamo allora $\wt \omega$ facendo s\`i che almeno i primi $k_\e$ simboli coincidano con quelli di $\omega$ e tale che tutti i successivi a un certo indice $m$ siano diversi tra le due successioni. Osserviamo allora che $d(\sigma^m(\omega),\sigma^m(\wt \omega))=\sum_{i\geq 0}2^{-i-1}\cdot 1=1>c$.
-\end{enumerate}
-\end{example}
-
-\begin{example}
-Consideriamo $\Ac=\cpa{1,\cdots, N}$, $\Omega=\Ac^\N$ con la metrica definita prima e $\sigma:\Omega\to\Omega$ lo shift.\\
-Affermiamo che $\sigma$ \`e caotica (entropia topologica) su $\Omega$:\\
-Fissati $n,\e$ osserviamo che per ogni $\omega\neq \wt\omega$ esiste $k<n$ tale che $d(\sigma^k(\omega),\sigma^k(\wt \omega))$ se e solo se esiste $i\in\cpa{0,\cdots, k_\e}$ tale che $\omega_{k+i}\neq \wt \omega_{k+i}$. Consideriamo allora
-\[\funcDef{\cpa{1,\cdots, N}^{n+k_\e+1}}{S}{s}{s\cdots}\]
-dove $s\cdots$ indica una qualche stringa fissata che coincide con $s$ all'inizio. Si ha dunque che
-\[\max\cpa{\# S\mid S\text{ \`e $(n,\e)$-separato}}\sim \#\cpa{1,\cdots, N}^{n+k_\e+1}\sim N^{n+k_\e},\]
-da cui
-\[h_{top}(\sigma)=\lim \frac1{n+k_\e}\log N=\log N.\]
-\end{example}
-
-\begin{proposition}[Entropia topologica e partizioni]\label{EntropiaTopologicaEPartizioni}
-Sia $T:[0,1]\to[0,1]$ tale che esiste $\Jc=\cpa{J_1,\cdots, J_k}$ partizione finita in intervalli tale che per ogni $i$ abbiamo $T(J_i)=[0,1]$ e $T\res{J_i}$ \`e invertibile e continua. Allora 
-\[h_{top}(T)=\log k=\lim_{n\to+\infty}\frac1n\log(\#\cpa{Fix T^n}).\]
-\end{proposition}
-
-\begin{proposition}[]
-Sia $T_\al:S^1\to S^1$ dato da $T_\al(x)=x+\al\mod 1$. Allora $h_{top}(T_\al)=0$
-\end{proposition}
-\begin{proof}
-ESERCIZIO
-\end{proof}
-
-
-\begin{proposition}[]
-Sia $T:S^1\to S^1$ un omeomorfismo, allora se esiste un punto di periodo minimo $p$ ogni punto periodico \`e di periodo minimo $p$.
-\end{proposition}
 

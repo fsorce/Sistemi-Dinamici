@@ -9,7 +9,7 @@ Le orbite con periodo $p$ corrispondono a punti fissi di $T^p$.
 \begin{definition}[Partizione finita]
 Sia $\cpa{a_1,\cdots, a_N}$ un insieme finito di punti di $X$ e per ogni $h$ definiamo $J_h=[a_h,a_{h+1}]$.\\ L'insieme $\Jc=\cpa{J_h}$ \`e una \textbf{partizione finita} di $X$ in intervalli se $X=\bigcup_{h=0}^{N-1}J_h$ e 
 \[J_h\cap J_k=\begin{cases}
-J_h & \text{se }h=k\\
+J_h & \text{se }k=h\\
 a_{h} & \text{se }k=h-1\\
 a_{k} & \text{se }k=h+1\\
 \emptyset &\text{altrimenti}
@@ -17,7 +17,8 @@ a_{k} & \text{se }k=h+1\\
 \end{definition}
 
 \begin{definition}[Coprire un intervallo $m$ volte]
-Sia $m$ un intero positivo e $T:X\to X$ continua. Un intervallo $J_h$ \textbf{ricopre} un intervallo $J_k$ \textbf{(almeno) $m$ volte} se esistono $K_1,\cdots, K_m$ intervalli aperti disgiunti in $J_h$ tali che $T(\ol{K_i})=J_k$ per ogni $i\in\cpa{1,\cdots, m}$.
+Sia $m$ un intero positivo e $T:X\to X$ continua. Un intervallo $J_h$ \textbf{ricopre} un intervallo $J_k$ \textbf{(almeno) $m$ volte} se esistono $K_1,\cdots, K_m$ intervalli aperti disgiunti in $J_h$ tali che $T(\ol{K_i})=J_k$ per ogni $i\in\cpa{1,\cdots, m}$.\\
+In particolare $J_h$ \textbf{ricopre} $J_k$ se esiste $K\subseteq J_h$ itervallo aperto tale che $T(\ol K)=J_k$.
 \end{definition}
 
 \begin{definition}[$T$-grafo associato a partizione]
@@ -35,7 +36,7 @@ Un \textbf{cammino ammissibile} sul $T$-grafo associato ad una partizione $\Jc$ 
 Consideriamo una funzione $T:[0,1]\to[0,1]$ data da 
 \begin{figure}[!htb]
 	\centering
-	\includegraphics[width=6cm]{Immagini/esempio_Grafico_per_TGrafo.png}
+	\includegraphics[width=4cm]{Immagini/esempio_Grafico_per_TGrafo.png}
 	\caption{Esempio di una funzione. Notiamo che $J_1$ ricopre $J_1,\ J_2$ e $J_3$, $J_2$ ricopre $J_2$ e $J_3$ e $J_3$ ricopre $J_1,\ J_2$ e $J_3$.}
 \end{figure}
 Il $T$-grafo associato \`e\footnote{i numeri sulle frecce indicano quante volte un intervallo ricopre un altro}
@@ -187,47 +188,11 @@ Senza perdita di generalit\`a supponiamo che $T$ abbia un'orbita di periodo mini
 Seguendo quanto fatto per il caso dispari mostriamo anche in questo caso che $J_{\ol h}$ ricopre se stesso e che iterando $T$ ricopre ogni intervallo. Applicando il caso dispari a $T^{2^p}$ e $\wt m$ troviamo per ogni $k\prec \wt m$ un valore $x$ tale che $x$ abbia periodo minimo $k$ per $T^{2^p}$, e quindi ha periodo $2^pk$ per $T$. Per mostrare che questo periodo \`e minimo \`e necessario studiare pi\`u approfonditamente l'equivalente dei punti 3, 4 e 5.
 \end{proof}
 
-\subsection{Ferri di cavallo}
-\begin{definition}[Ferro di cavallo]
-Una funzione continua $T:[a,b]\to[a,b]$ ha un \textbf{ferro di cavallo} se esiste $J\subseteq [a,b]$ intervallo chiuso che ricopre se stesso almeno due volte.
-\end{definition}
+Il teorema di Sharkovsky segna una netta distinzione qualitativa tra mappe su intervalli e mappe su circonferenze:
 
-\begin{proposition}[Relazione tra ferro di cavallo e periodi minimi]\label{RelazioneFerroDiCavalloEPeriodiMinimi}
-Sia $T:[a,b]\to[a,b]$ continua.
-\begin{enumerate}
-\item Se $T$ ha un ferro di cavallo allora ha orbite periodiche di periodo minimo $n$ per ogni $n\in\N^+$.
-\item Se $T$ ha un'orbita periodica di periodo minimo $m$ dispari allora $T^2$ ha un ferro di cavallo. 
-\end{enumerate}
+\begin{proposition}[Punti periodici su $S^1$]
+Sia $T:S^1\to S^1$ un omeomorfismo, allora se esiste un punto di periodo minimo $p$ ogni punto periodico \`e di periodo minimo $p$.
 \end{proposition}
 \begin{proof}
-Mostriamo i due punti
-\setlength{\leftmargini}{0cm}
-\begin{enumerate}
-\item Per il teorema di Sharkovsky (\ref{TeoremaSharkovsky}) basta mostrare che esiste $x\in [a,b]$ tale che $T^3(x)=x$ e $T(x)\neq x$.\\ 
-Siano $K_1$ e $K_2$ disgiunti intervalli aperti tali che $T(\ol K_i)=J$ per un opportuno intervallo di $[a,b]$.\\
-Se $\ol K_1\cap \ol K_2=\cpa{z}$ con $z$ punto fisso allora osserviamo graficamente che esiste $\ol K_3\subseteq \ol K_1$ tale che $\ol K_3\cap \ol K_2=\emptyset$ e $K_2$ e $K_3$ coprono $J$. Quindi sostituiamo $K_1$ con $K_3$.
-
-\begin{figure}[!htb]
-	\centering
-	\includegraphics[width=5cm]{Immagini/esempio_Dimostrazione_ferro_di_cavallo.png}
-	\caption{Costruzione di $K_3$ (in blu).}
-\end{figure}
-
-
-Definiamo una partizione di $[a,b]$ che contenga $\ol K_1$ e $\ol K_2$. Cos\`i facendo avremo un $T$-grafo dove $\ol K_1\ol K_2\ol K_2\ol K_1$ \`e ammissibile. Per il teorema (\ref{CriterioTGrafoPerEsistenzaOrbitePeriodiche}) esiste $x\in K_1$ tale che $T^3(x)=x$ e $T(x)\in \ol K_2$.\\
-Se $\ol K_1\cap \ol K_2=\emptyset$ allora $T(x)\neq x$ e abbiamo concluso.\\
-Se $\ol K_1\cap \ol K_2=\cpa{z}$ allora per costruzione $z$ non \`e un punto fisso e quindi anche se $x=z$ comunque $T(x)\neq x$ come voluto.
-\item Supponiamo senza perdita di generalit\`a che $m$ sia il pi\`u piccolo dispari per cui vale l'ipotesi. Ricordando la configurazione trovata dimostrando (\ref{TeoremaSharkovsky})\footnote{Figura \ref{ConfigurazioneOrbita}} e applicando un po' di volte il teorema del valore intermedio
-
-\begin{figure}[!htb]
-	\centering
-	\includegraphics[width=9cm]{Immagini/Ferro_di_cavallo_2.png}
-\end{figure}
-
-osserviamo che esiste $\ol x$ fisso in $[P_1,P_2]$ e $\ol y\in [P_{m},P_{m-2}]$ tale che $T(\ol y)=\ol x$. Segue che $J=[P_m,\ol x]$ copre se stesso almeno due volte per $T^2$.
-\end{enumerate}
-\setlength{\leftmargini}{0.5cm}
+NON DATA DURANTE IL CORSO
 \end{proof}
-
-
-

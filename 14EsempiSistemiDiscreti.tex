@@ -1,5 +1,47 @@
-\chapter{Esempi di sistemi discreti}
-\section{Motivazione: le mappe di Poincar\'e}
+\chapter{Sistemi discreti principali}
+
+\section{Dinamica simbolica}
+Sia $\Ac$ un alfabeto finito e sia $\Omega=\Ac^\N$. Imponiamo la topologia discreta su $\Ac$ e la topologia prodotto su $\Omega$. Per il teorema di Tychonoff segue dalla compattezza di $\Ac$ che $\Omega$ \`e compatto.\\
+Lo spazio $\Omega$ \`e anche uno spazio metrico con distanza definita come segue:
+\[d(\omega,\wt \omega)=\sum_{i=0}^\infty 2^{-i-1}\delta(\omega_i,\wt \omega_i),\]
+dove $\delta(a,b)=\begin{cases}
+1 & a\neq b\\
+0 & a=b
+\end{cases}$.
+
+\begin{definition}[Shift]
+Definiamo la mappa di \textbf{shift} come
+\[\sigma:\funcDef{\Omega}{\Omega}{(\omega_i)_{i\in\N}}{(\omega_{i+1})_{i\in\N}}.\]
+\end{definition}
+\begin{remark}
+La mappa di shift \`e continua perch\'e uniformemente continua.
+\end{remark}
+
+\begin{example}
+Consideriamo $\Ac=\cpa{1,\cdots, N}$, $\Omega=\Ac^\N$ con la metrica definita prima e $\sigma:\Omega\to\Omega$ lo shift.\\
+Affermiamo che $\sigma$ \`e caotica (Devaney) su $\Omega$:
+\begin{enumerate}
+\item Vogliamo mostrare che per ogni $\wt \omega$ e per ogni $\e>0$ esiste $\omega$ parola periodica \footnote{$\omega=sssss\cdots$ con $s\in \Ac^\ast$, cio\`e $s$ \`e una parola finita formata dai simboli in $\Ac$.} tale che $d(\omega,\wt \omega)<\e$. Fissati $\wt \omega$ e $\e$ basta prendere $s$ un opportuno troncamento di $\wt \omega$ (tanto la distanza \`e pesata molto sui simboli iniziali).
+\item Gli aperti di $\Omega$ hanno come prebase i cilindri della forma
+\[C(\omega,h,n)=\cpa{\wt \omega\in\Omega\mid \forall i\in\cpa{0,\cdots,n-1},\ \omega_{h+i}=\wt \omega_{h+i}}.\]
+Vogliamo dunque mostrare che ogni $\omega^1,\ \omega^2\in\Omega$ e per ogni $h^1,h^2,n^1,n^2\geq 0$ esiste $m\in\N$ tale che
+\[\sigma^m(C(\omega^1,h^1,n^1))\cap C(\omega^2,h^2,n^2)\neq \emptyset.\]
+Vogliamo dunque mostrare che esiste $\wt \omega\in C(\omega^1,h^1,n^1)$ tale che $\sigma^m(\wt \omega)\in C(\omega^2,h^2,n^2)$. Basta porre che $\rbar{\wt\omega}_{h^1+n^1-1}^{h^1}=\rbar{\omega^1}_{h^1+n^1-1}^{h^1}$ e $\rbar{\wt\omega}_{m+h^2+n^2-1}^{m+h^2}=\rbar{\omega^2}_{h^2+n^2-1}^{h^2}$ per un $m\gg h^1$.
+\item Fissiamo $c\in (0,1)$. Fissati $\omega\in\Omega$ e $\e>0$ cerchiamo $\wt \omega\in B_\e(\omega)$ tale che esiste $m\in\N$ tale che $d(\sigma^m(\omega),\sigma^m(\wt \omega))>c$. Osserviamo che esiste $k_\e\in\N$ tale che se $\omega_i=\wt \omega_i$ per ogni $i\leq k_\e$ allora $d(\omega,\wt \omega)<\e$. Costruiamo allora $\wt \omega$ facendo s\`i che almeno i primi $k_\e$ simboli coincidano con quelli di $\omega$ e tale che tutti i successivi a un certo indice $m$ siano diversi tra le due successioni. Osserviamo allora che $d(\sigma^m(\omega),\sigma^m(\wt \omega))=\sum_{i\geq 0}2^{-i-1}\cdot 1=1>c$.
+\end{enumerate}
+\end{example}
+
+\begin{example}
+Consideriamo $\Ac=\cpa{1,\cdots, N}$, $\Omega=\Ac^\N$ con la metrica definita prima e $\sigma:\Omega\to\Omega$ lo shift.\\
+Affermiamo che $\sigma$ \`e caotica (entropia topologica) su $\Omega$:\\
+Fissati $n,\e$ osserviamo che per ogni $\omega\neq \wt\omega$ esiste $k<n$ tale che $d(\sigma^k(\omega),\sigma^k(\wt \omega))>\e$ se e solo se esiste $i\in\cpa{0,\cdots, k_\e}$ tale che $\omega_{k+i}\neq \wt \omega_{k+i}$. Segue che se $S$ \`e $(n,\e)$-separato, la mappa di troncamento
+\[\funcDef{S}{\cpa{1,\cdots, N}^{n+k_\e+1}}{s}{s\res{\cpa{0,\cdots, n+k_\e}}}\] \`e iniettiva. Poich\'e possiamo facilmente costruire un $S$ tale che la mappa sopra \`e bigettiva\footnote{Basta estendere arbitrariamente le stringhe dopo l'$(n+k_\e+1)$-esimo simbolo}, si ha che
+\[\max\cpa{\# S\mid S\text{ \`e $(n,\e)$-separato}}\sim \#\cpa{1,\cdots, N}^{n+k_\e+1}\sim N^{n+k_\e},\]
+da cui
+\[h_{top}(\sigma)=\lim_{\e\to0^+}\limsup_{n\to+\infty} \frac{n+k_\e}n\log N=\log N.\]
+\end{example}
+
+\section{Mappe di Poincar\'e}
 Proviamo a capire quando un sistema di equazioni differenziali porta un'orbita a tornare vicino a se stessa.
 
 \begin{definition}[Mappa di Poincar\'e]
@@ -188,7 +230,7 @@ quindi $\Oc$ \`e attrattiva se $\la\in [3,1+\sqrt 6]$ e repulsiva se $\la\in (1+
 
 \begin{figure}[!htb]
     \centering
-    \includegraphics[width=8cm]{Immagini/Diagramma_biforcazione_logistica.png}
+    \includegraphics[width=6cm]{Immagini/Diagramma_biforcazione_logistica.png}
     \caption{Diagramma di biforcazione della mappa logistica. Sulle ascisse si succedono i valori di $\la$.}
 \end{figure}
 
@@ -274,7 +316,7 @@ Basta considerare $\vp:[0,1]\to [0,1]$ data da
 e notare che $\vp\circ T_2=T_4\circ \vp$\footnote{entrambe le composizioni assumono il valore $\sin^2(\pi x)$. Ricordiamo che $2\sin(\theta)\cos(\theta)=\sin(2\theta)$.}.
 \end{proof}
 
-\section{Sistemi caotici}
+\section{Miscellanea}
 \begin{example}[Oscillatore armonico perturbato]
 Sia $f:\R\to \R$ una funzione $1$-periodica. Immaginiamo una palla che rimbalza su un piatto la cui altezza varia come $f$. Per semplificarci la vita possiamo immaginare che l'urto avvenga sempre in $x=0$, tanto l'unica cosa che conta \`e $\dot f$ (l'impulso). Siano $t_0,t_1,\cdots,t_n$ i tempi di urto ($t_0=0$) e siano $v_0,\cdots,v_n$ le velocit\`a dopo l'urto. Conoscendo questi dati possiamo ricostruire tutta la dinamica.
 \[T:\funcDef{[0,+\infty)\times (0,+\infty)}{[0,+\infty)\times (0,+\infty)}{(t_{n},v_n)}{(t_{n+1},v_{n+1})}.\]
