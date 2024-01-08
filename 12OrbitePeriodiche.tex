@@ -118,7 +118,7 @@ dove $J_h=[P_h,P_{h+1}]$. Seguiamo alcuni passi:
 
 \begin{figure}[!htb]
 	\centering
-	\includegraphics[width=9cm]{Immagini/Definizione_hbarra.png}
+	\includegraphics[width=7cm]{Immagini/Definizione_hbarra.png}
 	\caption{Rappresentazione grafica della definizione di $\ol h$.}
 \end{figure}
 
@@ -137,11 +137,11 @@ Mostriamo che la seconda non pu\`o verificarsi:\\
 Per assurdo supponiamo $V_{\ol k}\subsetneq \cpa{1,\cdots, m-1}$, allora partendo da $\ol h$ esiste un intervallo che non viene ricoperto (per esempio $J_a$). Notiamo che $T^k(J_{\ol h})$ \`e un intervallo, infatti l'immagine tramite una mappa continua di uno spazio connesso \`e connessa. Poich\'e $J_{\ol h}\subseteq T^k(J_{\ol h})$ per ogni $k$ si ha che se $J_{a}$ non viene ricoperto allora $P_a$ o $P_{a+1}$ non pu\`o mai essere immagine di $P_{\ol h}$, ma questo \`e assurdo perch\'e $P_a,P_{a+1}\in \Oc(P_1)=\Oc(P_{\ol h})$.
 \item \underline{Claim:} Esiste $J_{\ol \ell}$ con $\ol \ell\neq \ol h$ che ricopre $J_{\ol h}$.
 
-Per assurdo supponiamo che non esista un tale $\ol\ell$. 
-Notiamo che per ogni $P_j$ con $P_j>P_{\ol h}$ si deve avere che $T(P_j)<P_{\ol h}$\footnote{se $T(P_{\ol h+1})>P_{\ol h}$ allora esiste un minimo $j_0>\ol h+1$ tale che $T(P_{j_0})\leq P_{\ol h}$ e in tal caso $J_{j_0-1}$ ricopre $J_{\ol h}$, assurdo. Reiteriamo proseguendo verso $b$.}
-Similmente per $P_j<P_{\ol h}$ ricaviamo iterativamente che $T(P_j)>P_{\ol h}$. 
+Per assurdo supponiamo che non esista un tale $\ol\ell$. Sotto questa ipotesi mostriamo che $T(\cpa{P_{\ol{h}+1},\cdots,P_m})\subseteq \cpa{P_1,\cdots, P_{\ol h}}$ e $T(\cpa{P_1,\cdots, P_{\ol h}})\subseteq \cpa{P_{\ol{h}+1},\cdots,P_m}$:\\
+Poich\'e $T(P_{\ol h+1})\leq P_{\ol h}$ necessariamente questo \`e il caso anche per $T(P_{\ol h+2})$, altrimenti $J_{\ol h+1}$ ricoprirebbe $J_{\ol h}$. Procedendo per induzione andando verso $P_m$ abbiamo mostrato la prima inclusione. L'altra segue in modo analogo notando che $T(P_{\ol h})\geq P_{\ol h+1}$ e procedendo per induzione verso $P_1$.
+
 Abbiamo quindi diviso i punti esattamente a met\`a, ma questo \`e assurdo perch\'e $m$ dispari.
-\item Unendo i due punti precedenti sappiamo che esiste un cammino ammissibile della forma
+\item Unendo i due punti precedenti sappiamo che esiste un cammino ammissibile della forma(*******perch\'e?******)
 \[J_{\ol h}J_{p(2)}\cdots J_{p(s)}J_{\ol h}\]
 che contiene $J_k$ per ogni $k\in\cpa{1,\cdots,m-1}$.\\
 Mostriamo che il cammino ammissibile pi\`u breve di questa forma \`e tale che $s=m-1$:
@@ -176,7 +176,7 @@ Osserviamo che, affinch\'e $I_1\cdots I_{m-1}I_1$ abbia la propriet\`a di lunghe
 
 \begin{figure}[!htb]
 	\centering
-	\includegraphics[width=9cm]{Immagini/Disegno_A.png}
+	\includegraphics[width=7cm]{Immagini/Disegno_A.png}
 	\caption{Rappresentazione di come i punti dell'orbita sono organizzati. Il punto centrale \`e $\ol h$.}
 	\label{ConfigurazioneOrbita}
 \end{figure}

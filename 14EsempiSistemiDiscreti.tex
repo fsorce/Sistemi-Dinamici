@@ -17,29 +17,31 @@ Definiamo la mappa di \textbf{shift} come
 La mappa di shift \`e continua perch\'e uniformemente continua.
 \end{remark}
 
-\begin{example}
-Consideriamo $\Ac=\cpa{1,\cdots, N}$, $\Omega=\Ac^\N$ con la metrica definita prima e $\sigma:\Omega\to\Omega$ lo shift.\\
-Affermiamo che $\sigma$ \`e caotica (Devaney) su $\Omega$:
+Uno dei motivi principali per cui studiamo la mappa di shift \`e il seguente
+\begin{proposition}[Lo shift \`e caotico]\label{ShiftECaos}
+Consideriamo $\Ac=\cpa{1,\cdots, N}$, $\Omega=\Ac^\N$ con la metrica definita prima e $\sigma:\Omega\to\Omega$ lo shift, allora $\sigma$ \`e caotica su $\Omega$.
+\end{proposition}
+\begin{proof}[Dimostrazione. (Caotica per Devaney)]
+Verifichiamo le tre condizioni:
 \begin{enumerate}
 \item Vogliamo mostrare che per ogni $\wt \omega$ e per ogni $\e>0$ esiste $\omega$ parola periodica \footnote{$\omega=sssss\cdots$ con $s\in \Ac^\ast$, cio\`e $s$ \`e una parola finita formata dai simboli in $\Ac$.} tale che $d(\omega,\wt \omega)<\e$. Fissati $\wt \omega$ e $\e$ basta prendere $s$ un opportuno troncamento di $\wt \omega$ (tanto la distanza \`e pesata molto sui simboli iniziali).
 \item Gli aperti di $\Omega$ hanno come prebase i cilindri della forma
 \[C(\omega,h,n)=\cpa{\wt \omega\in\Omega\mid \forall i\in\cpa{0,\cdots,n-1},\ \omega_{h+i}=\wt \omega_{h+i}}.\]
 Vogliamo dunque mostrare che ogni $\omega^1,\ \omega^2\in\Omega$ e per ogni $h^1,h^2,n^1,n^2\geq 0$ esiste $m\in\N$ tale che
-\[\sigma^m(C(\omega^1,h^1,n^1))\cap C(\omega^2,h^2,n^2)\neq \emptyset.\]
-Vogliamo dunque mostrare che esiste $\wt \omega\in C(\omega^1,h^1,n^1)$ tale che $\sigma^m(\wt \omega)\in C(\omega^2,h^2,n^2)$. Basta porre che $\rbar{\wt\omega}_{h^1+n^1-1}^{h^1}=\rbar{\omega^1}_{h^1+n^1-1}^{h^1}$ e $\rbar{\wt\omega}_{m+h^2+n^2-1}^{m+h^2}=\rbar{\omega^2}_{h^2+n^2-1}^{h^2}$ per un $m\gg h^1$.
+\[\sigma^m(C(\omega^1,h^1,n^1))\cap C(\omega^2,h^2,n^2)\neq \emptyset,\]
+cerchiamo cio\`e $\wt \omega\in C(\omega^1,h^1,n^1)$ tale che $\sigma^m(\wt \omega)\in C(\omega^2,h^2,n^2)$. Basta porre che 
+\[\rbar{\wt\omega}_{h^1+n^1-1}^{h^1}=\rbar{\omega^1}_{h^1+n^1-1}^{h^1}\quad\text{e}\quad\rbar{\wt\omega}_{m+h^2+n^2-1}^{m+h^2}=\rbar{\omega^2}_{h^2+n^2-1}^{h^2}\]
+per un $m\gg h^1$.
 \item Fissiamo $c\in (0,1)$. Fissati $\omega\in\Omega$ e $\e>0$ cerchiamo $\wt \omega\in B_\e(\omega)$ tale che esiste $m\in\N$ tale che $d(\sigma^m(\omega),\sigma^m(\wt \omega))>c$. Osserviamo che esiste $k_\e\in\N$ tale che se $\omega_i=\wt \omega_i$ per ogni $i\leq k_\e$ allora $d(\omega,\wt \omega)<\e$. Costruiamo allora $\wt \omega$ facendo s\`i che almeno i primi $k_\e$ simboli coincidano con quelli di $\omega$ e tale che tutti i successivi a un certo indice $m$ siano diversi tra le due successioni. Osserviamo allora che $d(\sigma^m(\omega),\sigma^m(\wt \omega))=\sum_{i\geq 0}2^{-i-1}\cdot 1=1>c$.
 \end{enumerate}
-\end{example}
-
-\begin{example}
-Consideriamo $\Ac=\cpa{1,\cdots, N}$, $\Omega=\Ac^\N$ con la metrica definita prima e $\sigma:\Omega\to\Omega$ lo shift.\\
-Affermiamo che $\sigma$ \`e caotica (entropia topologica) su $\Omega$:\\
+\end{proof}
+\begin{proof}[Dimostrazione. (Caotica per Entropia)]
 Fissati $n,\e$ osserviamo che per ogni $\omega\neq \wt\omega$ esiste $k<n$ tale che $d(\sigma^k(\omega),\sigma^k(\wt \omega))>\e$ se e solo se esiste $i\in\cpa{0,\cdots, k_\e}$ tale che $\omega_{k+i}\neq \wt \omega_{k+i}$. Segue che se $S$ \`e $(n,\e)$-separato, la mappa di troncamento
 \[\funcDef{S}{\cpa{1,\cdots, N}^{n+k_\e+1}}{s}{s\res{\cpa{0,\cdots, n+k_\e}}}\] \`e iniettiva. Poich\'e possiamo facilmente costruire un $S$ tale che la mappa sopra \`e bigettiva\footnote{Basta estendere arbitrariamente le stringhe dopo l'$(n+k_\e+1)$-esimo simbolo}, si ha che
 \[\max\cpa{\# S\mid S\text{ \`e $(n,\e)$-separato}}\sim \#\cpa{1,\cdots, N}^{n+k_\e+1}\sim N^{n+k_\e},\]
 da cui
 \[h_{top}(\sigma)=\lim_{\e\to0^+}\limsup_{n\to+\infty} \frac{n+k_\e}n\log N=\log N.\]
-\end{example}
+\end{proof}
 
 \section{Mappe di Poincar\'e}
 Proviamo a capire quando un sistema di equazioni differenziali porta un'orbita a tornare vicino a se stessa.
@@ -90,6 +92,15 @@ A parte le geodetiche corrispondenti a rette verticali, ogni geodetica che incon
 \[\Mc\times S^1\ni ((x,y),\theta)\mapsto g_t((x,y),\theta).\]
 Sia $\Sigma=\cpa{x=0,y>1}\times S^1$. \`E possibile definire $P_\Sigma$ e si da il caso che questa mappa di Poincar\'e \`e pi\`u facile da studiare rispetto al sistema originale.
 \end{example}
+
+\subsection{Sistemi continui caotici}
+Le uniche nozioni di caos che abbiamo trattano i sistemi discreti, quindi se vogliamo studiare quando un sistema continuo manifesta un comportamento caotico con gli streumenti che abbiamo il procedimento standard \`e:
+\begin{itemize}
+\item Cercare $\Sigma$ di codimensione $1$ in $X$ che ammette $P:\Sigma\to\Sigma$ mappa di Poincar\'e.
+\item Cercare $\Lambda\subseteq \Sigma$ positivamente invariante per $P$ su cui $P$ \`e topologicamente coniugata a $(\Omega,\sigma)$ dove $\sigma$ \`e lo shift.
+\item Per la proposizione (\ref{ShiftECaos}) questo mostra che la mappa di Poincar\'e \`e caotica.
+\end{itemize}
+
 
 \section{Endomorfismi del cerchio e mappa di Bernoulli}
 \begin{definition}[Endomorfismi lineari del cerchio]
@@ -164,6 +175,15 @@ Quello che sta succedendo che abbiamo trovato due serie della seguente forma che
 \[x=\sum_{i\geq 0}\frac{\omega_i(x)}{2^{i+1}}.\]
 \end{example}
 
+\begin{example}
+La mappa $T(x)=2x\mod 1$ \`e caotica nel senso di Devaney.
+\begin{enumerate}
+\item Le orbite periodiche corrispondono alle classi dei numeri razionali, i quali sono densi in $[0,1]$
+\item suddividiamo $S^1=[0,1]/0\sim 1$ in intervalli lungo i razionali con denominatore pari ad una potenza di 2 (per esempio $\Jc_2=\cpa{[0,1/4], [1/4, 1/2], [1/2, 3/4], [3,4,1]}$). Dopo un opportuno numero di suddivisioni, esister\`a un $n$ per il quale un intervallo di $\Jc_n$ \`e interamente contenuto in $U$. Allora $T^n(U)=S^1$ e quindi in particolare $T^n(U)\cap V\neq \emptyset$, cio\`e $T$ \`e topologicamente transitiva.
+\item Sia $x\in S^1$. Fissiamo $\e>0$ e sia $k$ un intero tale che $2\ii<\e$. Notiamo che in $B_\e(x)$ esiste un $y$ che coincide con $x$ definitivamente, per esempio possiamo considerare $x$ dove nell'espasione in base 2 abbiamo invertito la $(k+1)$-esima cifra. In tal caso $T^k(x)$ e $T^k(y)$ differiscono nella prima cifra ma coincidono nella seconda, quindi $d(T^k(x),T^k(y))= 1/2>1/4$, quindi se scegliamo $c=1/4$ abbiamo la dipendenza sensibile dai dati iniziali.
+\end{enumerate}
+\end{example}
+
 
 \section{Mappa Logistica e Tenda}
 \subsection{Mappa logistica} 
@@ -174,7 +194,7 @@ Una funzione continua $T_\la:[0,1]\to[0,1]$ si dice \textbf{logistica} se \`e de
 
 \begin{figure}[!htb]
     \centering
-    \includegraphics[width=7cm]{Immagini/Logistica.png}
+    \includegraphics[width=6cm]{Immagini/Logistica.png}
     \caption{Rappresentazione di due mappe logistiche.}
 \end{figure}
 
@@ -199,17 +219,10 @@ Studiamo ora i casi di $\la=1$ e $\la=3$:
 \item[$\boxed{\la=3}$] Il questo caso $1-\la\ii=2/3$, inotlre $T'(x)=3-6x$, $T''(x)=-6$ e $T'''(x)=0$. Segue che $ST(x)=0-\frac32(6/(3-6x))^2<0$, in particolare $ST(2/3)<0$ e quindi \`e un punto fisso attrattivo per il criterio per punti non iperbolici con derivata $-1$ (\ref{CriterioPuntiNonIperboliciDerivataNegativa}).
 \end{itemize}
 
-\newpage
+
 \subsubsection{Diagramma di biforcazione}
 Osserviamo che 
 \[T_\la^2(x)=\la(\la x(1-x))(1-\la x(1-x))=\la^2 x(1-x)(1-\la x(1-x)).\]
-\begin{figure}[!htb]
-    \centering
-    \includegraphics[width=5cm]{Immagini/Seconda_iterata_Logistica.png}
-    \caption{Grafico di $T^2_\la$ al variare di $\la$.}
-    \label{LogisticaIterata}
-\end{figure}
-
 \noindent
 Notiamo graficamente (Figura \ref{LogisticaIterata}) che in corrispondenza di $\la=3$ passiamo da una soluzione a due:
 \begin{gather*}
@@ -218,7 +231,16 @@ x(\la^2(1-x)(1-\la x(1-x))-1)=0\\
 -x(x-(1-\la\ii))(\la^2x^2-\la(\la+1)x+\la+1)=0\\
 x\pa{x-\frac{\la-1}\la}\pa{x-\under{x_+(\la)}{\frac{(\la+1)+\sqrt{\la^2-2\la-3}}{2\la}}}\pa{x-\under{x_-(\la)}{\frac{(\la+1)-\sqrt{\la^2-2\la-3}}{2\la}}}=0
 \end{gather*}
-dove $x_{\pm}(\la)$ esiste se $\sqrt{\la^2-2\la-3}$ \`e ben definita, cio\`e se $\la\geq 3$. Poich\'e le prime due soluzioni sono soluzioni le soluzioni di $T_\la(x)=x$, si ha che $x_{\pm}(\la)$ sono l'unica orbita periodica di periodo minimo 2 (quando le soluzioni sono distinte, cio\`e per $\la>3$).\\
+dove $x_{\pm}(\la)$ esiste se $\sqrt{\la^2-2\la-3}$ \`e ben definita, cio\`e se $\la\geq 3$. Poich\'e le prime due soluzioni sono soluzioni le soluzioni di $T_\la(x)=x$, si ha che $x_{\pm}(\la)$ sono l'unica orbita periodica di periodo minimo 2 (quando le soluzioni sono distinte, cio\`e per $\la>3$).
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=4cm]{Immagini/Seconda_iterata_Logistica.png}
+    \caption{Grafico di $T^2_\la$ al variare di $\la$.}
+    \label{LogisticaIterata}
+\end{figure}
+
+\noindent
 Cerchiamo di capire se $\Oc=\cpa{x_{\pm}(\la)}$ \`e un'orbita attrattiva:
 \[(T_\la^2(x))'=T_\la'(T_\la(x))T'_\la(x),\]
 da cui dopo dei conti
@@ -226,15 +248,16 @@ da cui dopo dei conti
 quindi $\Oc$ \`e attrattiva se $\la\in [3,1+\sqrt 6]$ e repulsiva se $\la\in (1+\sqrt 6,4)$.
 \vspace{0.25cm}
 
-\noindent Possiamo graficare al variare di $\la\in [0,4]$ le orbite stabili (fattibile al computer in quanto stabili). Osserviamo dai risultati ottenuti che per $\la<1$ ci aspettiamo solo l'unico punto fisso $0$, poi per $\la\in(1,3)$ l'unico punto fisso attrattivo \`e $1-\la\ii$, poi per $\la\in (3,1+\sqrt 6)$ troviamo una orbita periodica attrattiva di periodo 2 e possiamo immaginarci di trovare ulteriori suddivisioni dell'intervallo rimanente dove l'orbita graficata ha periodo minimo variabile:
+\noindent Possiamo graficare al variare di $\la\in [0,4]$ le orbite stabili (fattibile al computer in quanto stabili). 
+Osserviamo dai risultati ottenuti che per $\la<1$ ci aspettiamo solo l'unico punto fisso $0$, poi per $\la\in(1,3)$ l'unico punto fisso attrattivo \`e $1-\la\ii$, poi per $\la\in (3,1+\sqrt 6)$ troviamo una orbita periodica attrattiva di periodo 2 e possiamo immaginarci di trovare ulteriori suddivisioni dell'intervallo rimanente dove l'orbita graficata ha periodo minimo variabile.
 
 \begin{figure}[!htb]
     \centering
-    \includegraphics[width=6cm]{Immagini/Diagramma_biforcazione_logistica.png}
+    \includegraphics[width=7cm]{Immagini/Diagramma_biforcazione_logistica.png}
     \caption{Diagramma di biforcazione della mappa logistica. Sulle ascisse si succedono i valori di $\la$.}
 \end{figure}
-
-Per ogni $\la$ possiamo trovare $\Omega^\la$ invariante dato un'orbita periodica ma per $\la\uparrow$ convergiamo verso un $\Omega^\infty$ invariante che non \`e un orbita periodica. $\Omega^\infty$ \`e uno \textbf{strange attractor}\footnote{Questo tipo di fenomeni dimostra che in genere lo studio delle orbite non \`e sufficiente. Per capire meglio sistemi dinamici \`e spesso utile definire misure.}.
+\noindent
+Per ogni $\la$ fino ad un certo valore possiamo trovare $\Omega^\la$ invariante dato da un'orbita periodica ma per $\la\uparrow$ convergiamo verso un $\Omega^\infty$ invariante che non \`e un orbita periodica. $\Omega^\infty$ \`e uno \textbf{strange attractor}\footnote{Questo tipo di fenomeni dimostra che in genere lo studio delle orbite non \`e sufficiente. Per capire meglio questi sistemi dinamici \`e spesso utile definire misure.}.
 
 
 
@@ -252,13 +275,13 @@ a(1-x) & \frac12\leq x\leq 1
 Sia $T_a$ la mappa tenda come sopra e $T_b:[0,1]\to [0,1]$ la mappa lineare $T_b(x)=bx$ (poniamo $b\in [0,1]$).
 \begin{figure}[!htb]
     \centering
-    \includegraphics[width=5cm]{Immagini/Insieme_invariante_tenda.png}
+    \includegraphics[width=4cm]{Immagini/Insieme_invariante_tenda.png}
     \caption{Grafico di una mappa tenda}
 \end{figure}
 Graficamente osserviamo che $T_a([0,1])=[0,\frac a2]$, quindi $[0,\frac a2]$ \`e positivamente invariante, ma \`e invariante solo se $a\geq 1$.
 \begin{figure}[!htb]
     \centering
-    \includegraphics[width=5cm]{Immagini/Insieme_invariante_lineare.png}
+    \includegraphics[width=4cm]{Immagini/Insieme_invariante_lineare.png}
     \caption{Grafico di una mappa lineare}
 \end{figure}
 Osserviamo che $T_b([0,1])=[0,b]$, quindi $[0,b]$ \`e positivamente invariante, ma \`e invariante solo per $b=1$.
@@ -268,7 +291,7 @@ Osserviamo che $T_b([0,1])=[0,b]$, quindi $[0,b]$ \`e positivamente invariante, 
 Sia $T=T_a$ la mappa tenda di parametro $a$. 
 \begin{figure}[!htb]
     \centering
-    \includegraphics[width=5cm]{Immagini/Tipi_mappa_tenda.png}
+    \includegraphics[width=4cm]{Immagini/Tipi_mappa_tenda.png}
     \caption{Grafico della mappa tenda per tre valori di $a$.}
 \end{figure}
 
@@ -298,7 +321,7 @@ Studiamo la dinamica al variare di $a$
 \item[$\boxed{a>1}$] Abbiamo due punti fissi, ma sono entrambi repulsivi. Proviamo a studiare l'iterata seconda
 \begin{figure}[!htb]
     \centering
-    \includegraphics[width=5cm]{Immagini/mappa_tenda_iterata.png}
+    \includegraphics[width=4cm]{Immagini/mappa_tenda_iterata.png}
     \caption{Grafico della mappa tenda e della sua seconda iterata per $a>1$. In nero sono evidenziati i punti fissi di $T$ mentre con un cerchio sono evidenziati i punti di periodo minimo $2$ (visti come punti fissi di $T^2$).}
 \end{figure}
 
@@ -331,21 +354,6 @@ quindi in realt\`a possiamo considerare $S^1$ al posto di $[0,+\infty)$ per i te
 Questo sistema \`e difficile da trattare e presenta molti problemi aperti.
 \end{example}
 
-
-\begin{example}
-La mappa $T(x)=2x\mod 1$ \`e caotica nel senso di Devaney.
-\begin{enumerate}
-\item 
-\end{enumerate}
-\end{example}
-
-\subsection{Sistemi continui caotici}
-Vorremmo
-\begin{theorem}
-Esiste $\Sigma$ di codimensione $1$ in $X$ che ammette $P:\Sigma\to\Sigma$ mappa di Poincar\'e.\\
-Esiste $\Lambda\subseteq \Sigma$ positivamente invariante per $P$ su cui $P$ \`e topologicamente coniugata a $(\Omega,\sigma)$ dove $\sigma$ \`e lo shift.
-\end{theorem}
-
 \begin{definition}[Ferro di cavallo di Smale]
 Sia $\la>2$. Una trasformazione del tipo \textbf{Ferro di cavallo di Smale} \`e definita intuitivamente come segue
 \begin{figure}[!htb]
@@ -353,3 +361,7 @@ Sia $\la>2$. Una trasformazione del tipo \textbf{Ferro di cavallo di Smale} \`e 
     \includegraphics[width=11cm]{Immagini/Ferro_di_cavallo_di_Smale.png}
 \end{figure}
 \end{definition}
+
+
+
+

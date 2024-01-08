@@ -57,8 +57,9 @@ Abbiamo dunque mostrato che $\log k\leq h_{top}(T)$ e $h_{top}(T)\leq \log k$ co
 \begin{proposition}[Entropia di una rotazione]
 Sia $T_\al:S^1\to S^1$ dato da $T_\al(x)=x+\al\mod 1$. Allora $h_{top}(T_\al)=0$
 \end{proposition}
-\begin{proof}
-Notiamo che $T_\al$ \`e una isometria, quindi $d(T_\al^k(x),T^k_\al(y))>\e$ se e solo se $d(x,y)>\e$. Segue che un insieme \`e $(n,\e)$-separato se e solo se \`e $(0,\e)$-separato. La massima cardinalit\`a di un tale insieme \`e $\floor{\e\ii}$, che in particolare \`e un valore costante in $n$. Segue dunque che $\limsup_n\frac1n\log(\floor{\e\ii})=0$ e quindi $h_{top}(T)=\lim_{\e\to0^+}0$.
+\begin{proof}[Dimostrazione. (Esercizio)]
+Notiamo che $T_\al$ \`e una isometria, quindi $d(T_\al^k(x),T^k_\al(y))>\e$ se e solo se $d(x,y)>\e$. Segue che un insieme \`e $(n,\e)$-separato se e solo se \`e $(0,\e)$-separato. La massima cardinalit\`a di un tale insieme \`e $\floor{\e\ii}$, che in particolare \`e un valore costante in $n$. Segue dunque che
+\[h_{top}(T)=\lim_{\e\to0^+}\limsup_{n\to+\infty}\frac1n\log(\floor{\e\ii})=\lim_{\e\to0^+}0=0.\]
 \end{proof}
 
 \section{Ferro di cavallo}
@@ -69,36 +70,31 @@ Una funzione continua $T:[a,b]\to[a,b]$ ha un \textbf{ferro di cavallo} se esist
 \begin{proposition}[Relazione tra ferro di cavallo e periodi minimi]\label{RelazioneFerroDiCavalloEPeriodiMinimi}
 Sia $T:[a,b]\to[a,b]$ continua.
 \begin{enumerate}
-\item Se $T$ ha un ferro di cavallo allora ha orbite periodiche di periodo minimo $n$ per ogni $n\in\N^+$.
-\item Se $T$ ha un'orbita periodica di periodo minimo $m$ dispari allora $T^2$ ha un ferro di cavallo. 
+\item Se $T$ ha un ferro di cavallo allora ammette orbite per ogni periodo minimo.
+\item Se $T$ ammette un'orbita di periodo minimo $m$ dispari allora $T^2$ ha un ferro di cavallo. 
 \end{enumerate}
 \end{proposition}
 \begin{proof}
 Mostriamo i due punti
 \setlength{\leftmargini}{0cm}
 \begin{enumerate}
-\item Per il teorema di Sharkovsky (\ref{TeoremaSharkovsky}) basta mostrare che esiste $x\in [a,b]$ tale che $T^3(x)=x$ e $T(x)\neq x$.\\ 
-Siano $K_1$ e $K_2$ disgiunti intervalli aperti tali che $T(\ol K_i)=J$ per un opportuno intervallo di $[a,b]$.\\
-Se $\ol K_1\cap \ol K_2=\cpa{z}$ con $z$ punto fisso allora osserviamo graficamente che esiste $\ol K_3\subseteq \ol K_1$ tale che $\ol K_3\cap \ol K_2=\emptyset$ e $K_2$ e $K_3$ coprono $J$. Quindi sostituiamo $K_1$ con $K_3$.
+\item Per il teorema di Sharkovsky (\ref{TeoremaSharkovsky}) basta il periodo minimo 3.\\ 
+Per definizione di ferro di cavallo esistono $K_1$ e $K_2$ intervalli aperti disgiunti tali che $T(\ol K_i)=J$ per un opportuno intervallo $J$ di $[a,b]$. Se $\ol K_1\cap \ol K_2=\cpa{z}$ con $z$ punto fisso allora osserviamo graficamente che esiste $\ol K_3\subseteq \ol K_1$ tale che $\ol K_3\cap \ol K_2=\emptyset$ e $K_2$ e $K_3$ coprono $J$. Quindi sostituiamo $K_1$ con $K_3$.
 
 \begin{figure}[!htb]
 	\centering
-	\includegraphics[width=4cm]{Immagini/esempio_Dimostrazione_ferro_di_cavallo.png}
-	\caption{Costruzione di $K_3$ (in blu).}
+	\includegraphics[width=3cm]{Immagini/esempio_Dimostrazione_ferro_di_cavallo.png}
 \end{figure}
 
-
-Definiamo una partizione di $[a,b]$ che contenga $\ol K_1$ e $\ol K_2$. Cos\`i facendo avremo un $T$-grafo dove $\ol K_1\ol K_2\ol K_2\ol K_1$ \`e ammissibile. Per il teorema (\ref{CriterioTGrafoPerEsistenzaOrbitePeriodiche}) esiste $x\in K_1$ tale che $T^3(x)=x$ e $T(x)\in \ol K_2$.\\
-Se $\ol K_1\cap \ol K_2=\emptyset$ allora $T(x)\neq x$ e abbiamo concluso.\\
-Se $\ol K_1\cap \ol K_2=\cpa{z}$ allora per costruzione $z$ non \`e un punto fisso e quindi anche se $x=z$ comunque $T(x)\neq x$ come voluto.
-\item Supponiamo senza perdita di generalit\`a che $m$ sia il pi\`u piccolo dispari per cui vale l'ipotesi. Ricordando la configurazione trovata dimostrando (\ref{TeoremaSharkovsky})\footnote{Figura \ref{ConfigurazioneOrbita}} e applicando un po' di volte il teorema del valore intermedio
+Definiamo una partizione di $[a,b]$ che contenga $\ol K_1$ e $\ol K_2$. Cos\`i facendo avremo un $T$-grafo dove $\ol K_1\ol K_2\ol K_2\ol K_1$ \`e ammissibile. Per il teorema (\ref{CriterioTGrafoPerEsistenzaOrbitePeriodiche}) esiste $x\in K_1$ tale che $T^3(x)=x$ e $T(x)\in \ol K_2$. Chiaramente $x$ ha periodo minimo 1 o 3, ma se $T(x)=x$ allora $\ol K_1\cap \ol K_2=\cpa{x}$ sarebbe un punto fisso, contraddicendo le ipotesi.
+\item Supponiamo senza perdita di generalit\`a che $m$ sia minimo. Fissiamo un'orbita con periodo minimo $m$ e ordiniamo i vertici secondo la configurazione trovata dimostrando (\ref{TeoremaSharkovsky})\footnote{Figura \ref{ConfigurazioneOrbita}. In questa configurazione $J_{\ol h}=I_1=[P_1,P_2]$.}. Notiamo che esiste $x_0$ fisso in $[P_1,P_2]$ e $y_0\in [P_{m},P_{m-2}]$ tale che $T(y_0)=x_0$. Applicando un po' di volte il teorema del valore intermedio come in figura 
 
 \begin{figure}[!htb]
 	\centering
-	\includegraphics[width=10cm]{Immagini/Ferro_di_cavallo_2.png}
+	\includegraphics[width=8cm]{Immagini/Ferro_cavallo_2.png}
 \end{figure}
 
-osserviamo che esiste $\ol x$ fisso in $[P_1,P_2]$ e $\ol y\in [P_{m},P_{m-2}]$ tale che $T(\ol y)=\ol x$. Segue che $J=[P_m,\ol x]$ copre se stesso almeno due volte per $T^2$.
+osserviamo che $J=[P_m,x_0]$ copre se stesso almeno due volte per $T^2$ \footnote{infatti $[P_m,\ol x]\subseteq T([y_0,P_{m-2}])\cap T([P_{m-2},x_0])$.}.
 \end{enumerate}
 \setlength{\leftmargini}{0.5cm}
 \end{proof}
