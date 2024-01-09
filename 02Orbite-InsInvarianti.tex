@@ -57,15 +57,17 @@ Sia $x_0\in I_c$. In particolare $\nabla I(x_0)\neq 0$. Per continuit\`a esiste 
 \[\begin{cases}
 \dot \ulx=\ulf(\ulx,y)\\
 \dot y=g(\ulx,y)
-\end{cases}\quad \text{con }g(\ulx,0)=0\ \forall (x,y)\in h(U),\]
-dove $(\ulf, g)=h\circ F$.\\
-Osservo che se una soluzione rispetta il sistema
+\end{cases}\]
+dove $(\ulf, g)(\ulx, y)=\Dc h_{h\ii(\ulx, y)}\circ F(h\ii(\ulx, y))$. Notiamo inoltre che\footnote{Per capire meglio i seguenti passaggi consigliamo di seguire corsi di Geometria differenziale. L'idea comunque dovrebbe essere intuitiva anche pensando a fatti di Analisi 2.}
+\[\Dc h_{h\ii(\ulx,0)}\res{T_{h\ii(\ulx,0)}I_c}=\Dc(h\res{I_c})_{h\ii(\ulx,0)}:T_{h\ii(\ulx,0)}I_c\to T_{(\ulx,0)}\cpa{y=0}=\cpa{y=0},\] 
+quindi $g(\ulx,0)=0$, in quanto $\dot I\res{I_c}=0, \nabla I\res{I_c}\neq 0\implies \imm F\res{I_c}\subseteq \nabla I^\perp =TI_c$\footnote{Stiamo sottointendendo la valutazione in un punto generico di $I_c$.}.\\
+Osserviamo che se una soluzione rispetta il sistema
 \[\begin{cases}
-\dot x=f(x,y)\\
+\dot \ulx=\ulf(\ulx,y)\\
 \dot y=0\\
-x_0=0
+(\ulx,y)(0)=0
 \end{cases}\]  
-allora rispetta anche il sistema originale perch\'e non mi sposto mai da $\cpa{y=0}$ e quindi la condizione $\dot y=0$ resta sempre vera. Per Cauchy-Lipschitz questa soluzione \`e l'unica che stavamo cercando e applicando $h\ii$ troviamo l'unica soluzione al sistema originale e, appunto, questa rimane entro $I_c$.
+allora rispetta anche il sistema originale perch\'e non esce mai da $\cpa{y=0}$ e quindi la condizione $\dot y=0$ resta sempre vera. Per Cauchy-Lipschitz questa soluzione \`e l'unica che stavamo cercando e applicando $h\ii$ troviamo l'unica soluzione al sistema originale e, per quanto detto, questa rimane entro $I_c$.
 \end{proof}
 
 \begin{corollary}[Invarianza degli insiemi di livello di integrali primi]\label{InvarianzaInsiemiLivelloIntegraliPrimi}
@@ -112,14 +114,14 @@ Verifichiamo in linea preliminare la seguente uguaglianza:
 \[\omega(x)=\bigcap_{j\geq 1}\ol{\Oc^+(\phi_{\tau_j}(x))}.\]
 \setlength{\leftmargini}{0cm}  
 \begin{itemize}
-\item[$\boxed{\subseteq}$] Segue dal fatto che chiuso implica chiuso per successioni: per ogni $t\geq 0$ vale
+\item[$\boxed{\subseteq}$] Segue dal fatto che chiuso implica chiuso per successioni: per ogni $t\geq 0$ fissato vale definitivamente in $k$
 \[\begin{cases}
 y=\lim_k\phi_{t_k}(x)\\
 \phi_{t_k}(x)\in \Oc^+(\phi_t(x))
 \end{cases}\implies y\in \ol{\Oc^+(\phi_t(x))}\]
 \item[$\boxed{\supseteq}$] Sia $y\in \bigcap_{j\geq 1}\ol{\Oc^+(\phi_{\tau_j}(x))}$. Per definizione di intersezione si ha che per ogni $j\geq 1$ abbiamo $y\in\ol{\Oc^+(\phi_{\tau_j}(x))}$. In particolare, per una caratterizzazione di chiusura in spazi metrici, esiste $t_j>0$ tale che
 \[d(\phi_{t_j+\tau_j}(x),y)=d(\phi_{t_j}(\phi_{\tau_j}(x)),y)\leq \frac1j.\]
-Segue che $\displaystyle\lim_{j\to+\infty}(\phi_{t_j+\tau_j}(x),y)=0$, cio\`e $y\in \omega(x)$.
+Segue che $\displaystyle\lim_{j\to+\infty}d(\phi_{t_j+\tau_j}(x),y)=0$, cio\`e $y\in \omega(x)$.
 \end{itemize}
 Verificata l'uguaglianza sopra, segue immediatamente che $\omega(x)$ \`e non vuoto e compatto (intersezione di compatti inscatolati non vuoti). Per mostrare l'invarianza mostriamo che $y\in\omega(x)\implies \phi_t(y)\in\omega(x)$ per ogni $t\in\R$.\\
 Per definizione di $\omega$-limite esiste una successione $t_k\to+\infty$ tale che $\phi_{t_k}(x)\to y$. La tesi segue dalla seguente catena di identit\`a:

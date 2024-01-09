@@ -150,11 +150,13 @@ Gli ultimi due punti seguono da come funzionano i $e^{\Real(\la)t}$ (questi fatt
         \`e di Lyapunov stretta in un intorno di $0$. La prima condizione \`e evidentemente verificata, quindi dobbiamo solo trovare un intorno dove $\dot V(y)<0$ per $y\neq 0$.
         \begin{align*}
             \dot V(y)=&\sum_{i=1}^{d-1}y_i\under{\dot y_i}{(\la y_i+\e y_{i+1}+\wt G_i(y))}+y_d\under{\dot y_d}{(\la y_d+\wt G_d(y))}=\\
-            =&\la\norm y+\e \sum_{i=1}^{d-1}y_iy_{i+1}+{y\cdot \wt G(y)}\leq\\
-            \leq& \la\norm y+\frac\e2 \pa{\sum_{i=1}^{d-1}y_i^2 +\sum_{i=2}^{d}y_i^2}+O(\norm y^3)=\\
+            =&\la\norm y^2+\e \sum_{i=1}^{d-1}y_iy_{i+1}+{y\cdot \wt G(y)}\pasgnlmath\leq{(\ast)}\\
+            \leq& \la\norm y^2+\frac\e2 \pa{\sum_{i=1}^{d-1}y_i^2 +\sum_{i=2}^{d}y_i^2}+O(\norm y^3)=\\
             =&\pa{\la+\frac\e2}(y_1^2+y_d^2)+(\la+\e)\sum_{i=2}^{d-1}y_i^2+O(\norm y^3)\leq\\
-            \leq& (\la+\e)\norm y^2+O(\norm y^3).
+            \leq& (\la+\e)\norm y^2+O(\norm y^3),
         \end{align*}
+        dove nel passaggio evidenziato abbiamo usato 
+        \[0\leq \norm{\mat{y_1-y_2\\\vdots\\y_{d-1}-y_d}}^2.\]
         Cerchiamo dunque condizioni valide per $\e$ e $\norm y$:\\
         Poich\'e $\la<0$ \`e lecito fissare $\e\in(0,\abs\la)$. Per le propriet\`a degli $O$ grandi esistono $r,C>0$ tali che
         \[\norm y<r\implies \dot V(y)\leq((\la+\e)+C\norm y)\norm y^2.\]
@@ -176,7 +178,7 @@ Gli ultimi due punti seguono da come funzionano i $e^{\Real(\la)t}$ (questi fatt
             &       &\ddots
         }\]
         e concludiamo in modo simile al caso precedente.
-        \item[$\boxed{\text{generale}}$] Segue dai due casi precedenti dando un ulteriore limitazione con gli $O$ grandi sui termini non lineari.
+        \item[$\boxed{\text{generale}}$] Segue dai due casi precedenti dando un'ulteriore limitazione con gli $O$ grandi sui termini non lineari.
     \end{itemize}
     \setlength{\leftmargini}{0.5cm}
 \end{proof}

@@ -39,12 +39,25 @@ Data questa trasformazione, la tesi \`e equivalente a mostrare che $W^s_{loc}(0,
 \vspace{0.5cm}
 
 \noindent Definiamo i seguenti insiemi: per ogni $\e>0$ e per ogni $M>1$ siano
-\[D_\e=\cpa{|x|\leq\e,\ |y|\leq \e},\ C_M=\cpa{|x|\geq M|y|},\ C_M^+=C_M\cap\cpa{x>0}\cap D_\e.\]
-Mostriamo prima dei lemmi utili alla dimostrazione. Fissiamo $M>1$
-\begin{lemma}
-Esiste un $\e>0$ tale che $\dot x\res{C_M^+}<0$
-\end{lemma}
-\begin{proof}[Dimostrazione del lemma.]
+\[D_\e=\cpa{|x|\leq\e,\ |y|\leq \e},\ C_M=\cpa{|x|\geq M|y|},\ C_M^+=C_M\cap\cpa{x>0}\cap D_\e,\]
+\begin{align*}
+I^+_\e=&\cpa{y\in(-\e,\e)\mid (\e,y)\in C_M,\ \exists t_0>0\ t.c.\ \phi_{t_0}(\e,y)\in \del C_M^+\cap \cpa{y>0}}\\
+I^-_\e=&\cpa{y\in(-\e,\e)\mid (\e,y)\in C_M,\ \exists t_0>0\ t.c.\ \phi_{t_0}(\e,y)\in \del C_M^+\cap \cpa{y<0}}.
+\end{align*}
+La dimostrazione si articola nei seguenti passi:
+\begin{itemize}
+\item Per $\e$ abbastanza piccolo, $\dot x$ \`e negativo su $C^+_M$
+\item Per $\e$ abbastanza piccolo, $\dot y$ ha lo stesso segno di $y$ sul bordo $\del C^+_M$
+\item Gli insiemi $I^+_\e$ e $I^-_\e$ sono (intervalli) aperti
+\item Per ogni $(\e,y)\in C_M$ sappiamo che $\Oc^+(\e,y)$ esce dal bordo superiore ($y\in I^+_\e$), inferiore ($y\in I^-_\e$), o converge a $(0,0)$ ($y\in (-\e,\e)\bs(I^+_\e\cup I^-_\e)$).\\
+Mostriamo che esiste un solo punto $\ol y\in (-\e,\e)$ tale che $\omega((\e,\ol y))=\cpa{(0,0)}$.
+\item Con il metodo delle isocline interpretiamo $\Oc^+((\e,\ol y))$ come il grafico di una funzione $h\in C^k((0,\e))$
+\item Per arbitrariet\`a di $M>1$ possiamo passare al limite in $M\to+\infty$ per mostrare $h'(0)=0$, da cui segue la tangenza.
+\end{itemize}
+Fissiamo $M>1$ e procediamo a mostrare i primi quattro punti:
+\begin{itemize}
+\item[\ul{Claim}:] Esiste un $\e>0$ tale che $\dot x\res{C_M^+}<0$.
+\begin{proof}[Dimostrazione del Claim.]
 Ricordiamo che
 \[\dot x=-\la x+f(x,y)\quad\text{con }|f(x,y)|=o(\sqrt{x^2+y^2}),\]
 in particolare esiste $\e>0$ tale che per ogni $(x,y)\in D_\e$
@@ -58,10 +71,8 @@ Mettendo insieme questi risultati
 \pasgnlmath\leq{x>0} & -\la x+\frac\la2x=-\frac\la2 x<0.
 \end{align*}
 \end{proof}
-\begin{lemma}
-Esiste un $\e>0$ tale che $\dot y\res{\del C_M^+\cap \cpa{y>0}}>0$ e $\dot y\res{\del C_M^+\cap \cpa{y<0}}<0$.
-\end{lemma}
-\begin{proof}[Dimostrazione del lemma.]
+\item[\ul{Claim}:] Esiste un $\e>0$ tale che $\dot y\res{\del C_M^+\cap \cpa{y>0}}>0$ e $\dot y\res{\del C_M^+\cap \cpa{y<0}}<0$.
+\begin{proof}[Dimostrazione del Claim.]
 Ricordiamo che
 \[\dot y=\mu y+g(x,y)\quad\text{con }|g(x,y)|=o(\sqrt{x^2+y^2}),\]
 in particolare esiste $\e>0$ tale che per ogni $(x,y)\in D_\e$
@@ -74,15 +85,8 @@ Segue che
 \end{align*}
 Gli stessi conti con le disuguaglianze nel senso opposto danno la dimostrazione per $\dot y\res{\del C_M^+\cap \cpa{y<0}}$.
 \end{proof}
-Definiamo gli insiemi
-\begin{align*}
-I^+_\e=&\cpa{y\in(-\e,\e)\mid (\e,y)\in C_M,\ \exists t_0>0\ t.c.\ \phi_{t_0}(\e,y)\in \del C_M^+\cap \cpa{y>0}}\\
-I^-_\e=&\cpa{y\in(-\e,\e)\mid (\e,y)\in C_M,\ \exists t_0>0\ t.c.\ \phi_{t_0}(\e,y)\in \del C_M^+\cap \cpa{y<0}}
-\end{align*}
-\begin{lemma}
-Gli insiemi $I_\e^+$ e $I_\e^-$ sono intervalli aperti.
-\end{lemma}
-\begin{proof}[Dimostrazione del lemma]
+\item[\ul{Claim}:] Gli insiemi $I_\e^+$ e $I_\e^-$ sono intervalli aperti.
+\begin{proof}[Dimostrazione del Claim.]
 Mostriamo la tesi solo per $I_\e^+$. Il caso $I_\e^-$ \`e simmetrico.
 \setlength{\leftmargini}{0cm}
 \begin{itemize}
@@ -96,13 +100,9 @@ La tesi segue a meno di restringere $U$ a $U\cap (\phi_{\tau(\cdot)}(\e,\cdot))\
 \end{itemize}
 \setlength{\leftmargini}{0.5cm}
 \end{proof}
-\noindent
-Per ogni $(\e,y)\in C_M$ sappiamo che $\phi_t(\e,y)$ esce dal bordo superiore, inferiore, o tocca $(0,0)$.
-\begin{lemma}
-Si ha che
+\item[\ul{Claim}:] Si ha che
 \[\#\cpa{y\in(-\e,\e)\mid (\e,y)\in C_M,\ \omega(\e,y)=\cpa{(0,0)}}=1.\]
-\end{lemma}
-\begin{proof}
+\begin{proof}[Dimostrazione del Claim.]
 Supponiamo per assurdo che esistano $y_0$ e $y_1$ distinti nell'insieme. A meno di moltiplicare $F$ per una funzione scalare\footnote{\`e noto da analisi 2 che questa operazione non cambia le orbite del sistema} possiamo supporre
 \[\begin{cases}
 \dot x=-x\\
@@ -128,6 +128,10 @@ Si ha dunque che
 \end{align*}
 dunque $y_1(t)-y_0(t)$ cresce, in particolare non possono entrambe convergere verso $(0,0)$.
 \end{proof}
+\end{itemize}
+\noindent Siamo pronti per mostrare gli ultimi due punti e concludere la dimostrazione.
+\smallskip
+
 \noindent
 Sia $\ol y\in(-\e,\e)$ l'unica condizione iniziale tale che $(\e,\ol y)\in C_M$ e $\omega(\e,\ol y)=(0,0)$. Si ha dunque che 
 \[W^s_{loc}(0,0)\cap \cpa{x>0}=\Oc^+(\e,\ol y).\]
@@ -140,8 +144,8 @@ con $h(x)$ soluzione di
 \[\dd xy=\frac{\mu y+g(x,y)}{-\la x+f(x,y)}.\]
 Per la regolarit\`a delle funzioni che definiscono $h$ sappiamo che $h$ \`e $C^k$, quindi effettivamente $W^s_{loc}\cap \cpa{x>0}$ \`e una variet\`a $C^k$.\\
 Osserviamo inoltre che $h'(0)=0$, infatti
-\[\abs{h'(x)}\sim_{x\to o^+}\abs{-\frac \mu\la\frac yx}\leq \frac\mu\la\frac1M\]
-per ogni $M>1$, dunque passando al limite per $M\to+\infty$ troviamo $h'(0)=0$. Questo mostra la tangenza di $W^s_{loc}\cap \cpa{x>0}$ a $\cpa{y=0}$ in $(0,0)$. Ripetendo questi passaggi per l'altro semipiano troviamo finalmente la tesi. 
+\[\abs{h'(x)}\sim_{x\to 0^+}\abs{-\frac \mu\la\frac yx}\leq \frac\mu\la\frac1M\]
+per ogni $M>1$, dunque passando al limite per $M\to+\infty$\footnote{anche se a priori per $M$ diversi dovremmo considerare $\e$, $\ol y$ e $h$ diversi, per l'unicit\`a mostrata stiamo solo restringendo il tratto di $h$ che stiamo considerando senza alterarne la forma.} troviamo $h'(0)=0$. Questo mostra la tangenza di $W^s_{loc}\cap \cpa{x>0}$ a $\cpa{y=0}$ in $(0,0)$. Ripetendo questi passaggi per l'altro semipiano troviamo finalmente la tesi. 
 \end{proof}
 
 \section{Variet\`a stabili e instabili}

@@ -124,43 +124,51 @@ dove $J_h=[P_h,P_{h+1}]$. Seguiamo alcuni passi:
 
 Osserviamo che $T(P_{\ol h})\geq P_{\ol h+1}$ e $T(P_{\ol h+1})\leq P_{\ol h-1}$, quindi $J_{\ol h}$ ricopre se stesso. Segue dunque che $J_{\ol h}J_{\ol h}$ \`e un cammino ammissibile e quindi per la proposizione (\ref{CriterioTGrafoPerEsistenzaOrbitePeriodiche}) esiste un punto fisso in $J_{\ol h}$, quindi abbiamo verificato l'esistenza di un'orbita di \textit{periodo minimo 1}.
 
-\item \underline{Claim:} per ogni $\ell\in \cpa{1,\cdots, m-1}$ esiste un cammino ammissibile da $J_{\ol h}$ a $J_{\ell}$:
+\item \underline{Claim:} se $J_h$ ricopre se stesso allora per ogni $\ell\in \cpa{1,\cdots, m-1}$ esiste un cammino ammissibile da $J_{h}$ a $J_{\ell}$:
 
-Poniamo $V_1=\cpa{\ol h}$ e per ogni $k\geq1$ poniamo 
+Poniamo $V_1=\cpa{h}$ e per ogni $k\geq1$ poniamo 
 \[V_{k+1}=\cpa{v\in \cpa{1,\cdots, m-1}\mid \exists w\in V_k\ t.c.\ J_w\text{ ricopre }J_v}.\]
-Poich\'e $J_{\ol h}$ ricopre $J_{\ol h}$ si ha che $V_k\subseteq V_{k+1}$ per ogni $k\geq 1$, quindi esiste $\ol k$ tale che $V_{\ol k}=V_{\ol k+1}=V_r$ per ogni $r\geq \ol k+1$. Si presentano due possibilit\`a:
+Poich\'e $J_{h}$ ricopre se stesso si ha che $V_k\subseteq V_{k+1}$ per ogni $k\geq 1$, quindi esiste $\ol k$ tale che $V_{\ol k}=V_{\ol k+1}=V_r$ per ogni $r\geq \ol k+1$. Si presentano due possibilit\`a:
 \begin{itemize}
 \item $V_{\ol k}=\cpa{1,\cdots,m-1}$ e abbiamo completato il passo,
 \item $V_{\ol k}$ \`e un sottoinsieme stretto di $\cpa{1,\cdots, m-1}$.
 \end{itemize} 
 Mostriamo che la seconda non pu\`o verificarsi:\\
-Per assurdo supponiamo $V_{\ol k}\subsetneq \cpa{1,\cdots, m-1}$, allora partendo da $\ol h$ esiste un intervallo che non viene ricoperto (per esempio $J_a$). Notiamo che $T^k(J_{\ol h})$ \`e un intervallo, infatti l'immagine tramite una mappa continua di uno spazio connesso \`e connessa. Poich\'e $J_{\ol h}\subseteq T^k(J_{\ol h})$ per ogni $k$ si ha che se $J_{a}$ non viene ricoperto allora $P_a$ o $P_{a+1}$ non pu\`o mai essere immagine di $P_{\ol h}$, ma questo \`e assurdo perch\'e $P_a,P_{a+1}\in \Oc(P_1)=\Oc(P_{\ol h})$.
+Per assurdo supponiamo $V_{\ol k}\subsetneq \cpa{1,\cdots, m-1}$, allora partendo da $h$ esiste un intervallo che non viene ricoperto (per esempio $J_a$). Notiamo che $\bigcup_{I\in V_k}I= T^k(J_{h})$ \`e un intervallo, infatti l'immagine tramite una mappa continua di uno spazio connesso \`e connessa. Poich\'e $J_{h}\subseteq T^k(J_{h})$ per ogni $k$ si ha che se $J_{a}$ non viene ricoperto allora $P_a$ o $P_{a+1}$ non pu\`o mai essere immagine di $P_{h}$, ma questo \`e assurdo perch\'e $P_a,P_{a+1}\in \Oc(P_1)=\Oc(P_{h})$.
 \item \underline{Claim:} Esiste $J_{\ol \ell}$ con $\ol \ell\neq \ol h$ che ricopre $J_{\ol h}$.
 
 Per assurdo supponiamo che non esista un tale $\ol\ell$. Sotto questa ipotesi mostriamo che $T(\cpa{P_{\ol{h}+1},\cdots,P_m})\subseteq \cpa{P_1,\cdots, P_{\ol h}}$ e $T(\cpa{P_1,\cdots, P_{\ol h}})\subseteq \cpa{P_{\ol{h}+1},\cdots,P_m}$:\\
 Poich\'e $T(P_{\ol h+1})\leq P_{\ol h}$ necessariamente questo \`e il caso anche per $T(P_{\ol h+2})$, altrimenti $J_{\ol h+1}$ ricoprirebbe $J_{\ol h}$. Procedendo per induzione andando verso $P_m$ abbiamo mostrato la prima inclusione. L'altra segue in modo analogo notando che $T(P_{\ol h})\geq P_{\ol h+1}$ e procedendo per induzione verso $P_1$.
 
 Abbiamo quindi diviso i punti esattamente a met\`a, ma questo \`e assurdo perch\'e $m$ dispari.
-\item Unendo i due punti precedenti sappiamo che esiste un cammino ammissibile della forma(*******perch\'e?******)
+\item Unendo i due punti precedenti esiste un cammino ammissibile della forma
 \[J_{\ol h}J_{p(2)}\cdots J_{p(s)}J_{\ol h}\]
-che contiene $J_k$ per ogni $k\in\cpa{1,\cdots,m-1}$.\\
-Mostriamo che il cammino ammissibile pi\`u breve di questa forma \`e tale che $s=m-1$:
+tale che $p(i)\neq \ol h$ per qualche $i\in\cpa{2,\cdots, s}$.\\
+Mostriamo che un cammino ammissibile di lunghezza minima di questa forma \`e tale che $s=m-1$:
 \setlength{\leftmargini}{0cm}
 \begin{itemize}
-\item[$\boxed{s\geq m-1}$] Per assurdo supponiamo $s<m-1$. Se $s$ \`e dispari allora per la proposizione (\ref{CriterioTGrafoPerEsistenzaOrbitePeriodiche}) esiste $x\in J_{\ol h}$ tale che $T^s(x)=x$, ma questo \`e assurdo perch\'e $s<m$ e dispari, quindi $s\leq m-2$ ma il cammino deve attraversare ogni intervallo di $\Jc$.\\
+\item[$\boxed{s\geq m-1}$] Per assurdo supponiamo $s<m-1$. Se $s$ \`e dispari allora per la proposizione (\ref{CriterioTGrafoPerEsistenzaOrbitePeriodiche}) esiste $x\in J_{\ol h}$ tale che $T^s(x)=x$, ma questo \`e assurdo perch\'e, poich\'e $s<m$ \`e dispari, $s\leq m-2$ e quindi $T$ ammetterebbe un'orbita con periodo minimo dispari\footnote{potenzialmente un divisore di $s$} minore di $m$.\\
 Se $s$ \`e pari allora il cammino 
 \[J_{\ol h}J_{p(2)}\cdots J_{p(s)}J_{\ol h}J_{\ol h}\]
-\`e ammissibile e quindi sempre per la proposizione troviamo $x\in J_{\ol h}$ tale che $T^{s+1}(x)=x$, ma questo \`e assurdo perch\'e $s<m-1$ e $m-1$ pari implica che $s\leq m-3$ e quindi $s+1\leq m-2$ e abbiamo lo stesso assurdo di prima.
-\item[$\boxed{s=m-1}$] Visto il punto precedente basta mostrare che il cammino contiene ogni $J_{\ell}$ per $\ell\in\cpa{1,\cdots, m-1}$ esattamente una volta. Se $\ell$ apparisse pi\`u volte potremmo eliminare il tratto tra le due manifestazioni di $\ell$ e trovare un cammino ammissibile pi\`u breve, ma questo \`e assurdo perch\'e, reiterando questo procedimento per ogni $J_\ell$, si avrebbe $s<m-1$, assurdo per il punto precedente.
+\`e ammissibile e quindi troviamo $x\in J_{\ol h}$ tale che $T^{s+1}(x)=x$, ma questo \`e assurdo perch\'e $s<m-1$ e $m-1$ pari implica che $s\leq m-3$ e quindi $s+1\leq m-2$ e abbiamo lo stesso assurdo di prima.
+\item[$\boxed{s=m-1}$] Visto il punto precedente basta mostrare che il cammino contiene ogni $J_{\ell}$ per $\ell\in\cpa{1,\cdots, m-1}$ al massimo una volta (escluso l'ultimo $J_{\ol h}$). Se $J_\ell$ apparisse pi\`u volte potremmo eliminare il tratto tra la prima e l'ultima manifestazione di $J_\ell$\footnote{per esempio per $\ell=1$ e $\ol h=1$ si avrebbe $J_1J_2J_3J_4J_2J_3J_3J_1\leadsto J_1J_2J_3J_3J_1$} e trovare un cammino ammissibile pi\`u breve, negando la minimalit\`a del cammino di partenza.
 \end{itemize}
 \setlength{\leftmargini}{0.5cm}
 
 \item \underline{Claim:} Esiste un unico $\ell\in\cpa{1,\cdots,m-1}\bs\cpa{\ol h}$ tale che $J_\ell$ ricopre $J_{\ol h}$.\\
-Abbiamo gi\`a mostrato l'esistenza quindi supponiamo per assurdo che esistano $k_1\neq k_2$ diversi da $\ol h$ tali che $J_{k_1}$ e $J_{k_2}$ ricoprono $J_{\ol h}$. In tal caso, preso un cammino ammissibile che contiene ogni intervallo (e quindi di lunghezza esattamente $m$) si avrebbe che se due indici distinti coprono $J_{\ol h}$ allora esisterebbe un cammino ammissibile pi\`u breve, contraddicendo il punto precedente.
+Abbiamo gi\`a mostrato l'esistenza quindi supponiamo per assurdo che esistano $k_1\neq k_2$ diversi da $\ol h$ tali che $J_{k_1}$ e $J_{k_2}$ ricoprono $J_{\ol h}$. In tal caso, preso un cammino ammissibile come nel punto precedente si avrebbe che se due indici distinti coprono $J_{\ol h}$ allora esisterebbe un cammino ammissibile pi\`u breve, contraddicendo il punto precedente.
 
-\item Combinando i due punti precedenti ricaviamo che $V_1=\cpa{\ol h}$ e che ad ogni applicazione successiva di $T$ viene aggiunto esattamente un indice fino a raggiungere $\cpa{1,\cdots, m-1}$.\\
-Imponiamo allora come notazione $I_1=J_{\ol h}$, $I_2=J_{p(2)}$ dove $\cpa{p(2)}=V_2\bs V_1$ e procedendo iterativamente. In questa notazione si ha che il cammino pi\`u breve ammissibile che contiene ogni elemento di $\Jc$ e che torna a $J_{\ol h}$ \`e dato da
+\item Combinando i due punti precedenti ricaviamo che se $V_1=\cpa{\ol h}$ e costruiamo gli insiemi di indici come al punto 2, ad ogni applicazione successiva di $T$ viene aggiunto esattamente un indice fino a raggiungere $\cpa{1,\cdots, m-1}$.\\
+Imponiamo allora come notazione $I_1=J_{\ol h}$, $I_2=J_{p(2)}$ dove $\cpa{p(2)}=V_2\bs V_1$ e procedendo iterativamente. In questa notazione si ha che il cammino\footnote{siamo giustificati nel chiamarlo ``il cammino" per l'osservazione appena fatta.} pi\`u breve ammissibile che parte da $J_{\ol h}$ e torna a $J_{\ol h}$ passando per un altro intervallo \`e dato da
 \[I_1I_2\cdots I_{m-1}I_1.\]
+
+\item Osserviamo che, affinch\'e $I_1\cdots I_{m-1}I_1$ abbia la propriet\`a di lunghezza minima mostrata, $I_1$ copre solo $I_1$ e $I_2$. Similmente $I_2$ pu\`o coprire al massimo $I_1,\ I_2$ e $I_3$ eccetera. Osserviamo dunque che $I_2=J_{\ol h+1}$ oppure $J_{\ol h-1}$, senza perdita di generalit\`a supponiamo $I_2=J_{\ol h-1}$\footnote{il ragionamento procede in modo simile per l'altro caso}. Si deve dunque avere che $T(P_{\ol h+1})=P_{\ol h-1}$ e $T(P_{\ol h})=P_{\ol h+1}$. Imponendo iterativamente le condizioni sopra ricaviamo che $I_2$ copre solo $I_3$, $I_3$ copre solo $I_4$ e cos\`i procedendo fino a raggiungere $I_{m-1}=J_{1}$, la cui immagine forzata ad essere $[P_{\ol h},P_m]$ cio\`e, sempre per la corrispondenza esplicita trovata, $I_1\cup I_2\cup \cdots\cup I_{m-2}$.
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=7cm]{Immagini/Disegno_A.png}
+	\caption{Rappresentazione di come i punti dell'orbita sono organizzati. Il punto centrale \`e $\ol h$. La figura rappresenta il caso di $I_2=J_{\ol h-1}$, l'altro caso \`e dato riflettendo l'immagine attraverso un asse verticale.}
+	\label{ConfigurazioneOrbita}
+\end{figure}
 
 \item Mostriamo che esiste un'orbita periodica di \textit{periodo minimo $n$ per ogni $n>m$}:\\
 Notiamo che il cammino
@@ -171,19 +179,8 @@ Notiamo che il cammino
 \`E sufficiente mostrare che $I_{m-1}$ ricopre $I_k$ per ogni $k$ dispari, infatti in tal caso baster\`a applicare (\ref{CriterioEsistenzaPeriodiMinimi}) ai cammini ammissibili della forma
 \[I_{m-1}I_k I_{k+1}\cdots I_{m-2}I_{m-1}\]
 per ogni $k$ dispari.
-
-Osserviamo che, affinch\'e $I_1\cdots I_{m-1}I_1$ abbia la propriet\`a di lunghezza minima mostrata, $I_1$ copre solo $I_1$ e $I_2$. Similmente $I_2$ pu\`o coprire al massimo $I_1,\ I_2$ e $I_3$ eccetera. Osserviamo dunque che $I_1=J_{\ol h+1}$ oppure $J_{\ol h-1}$, senza perdita di generalit\`a supponiamo $I_1=J_{\ol h-1}$\footnote{il ragionamento procede in modo simile per l'altro caso}. Si deve dunque avere che $T(P_{\ol h+1})=P_{\ol h-1}$ e $T(P_{\ol h})=P_{\ol h+1}$. Imponendo iterativamente le condizioni sopra ricaviamo che $I_2$ copre solo $I_3$, $I_3$ copre solo $I_4$ e cos\`i procedendo fino a raggiungere $I_{m-1}=J_{1}$, la cui immagine forzata ad essere $[P_{\ol h},P_m]$ cio\`e, sempre per la corrispondenza esplicita trovata, $I_1\cup I_2\cup \cdots I_{m-2}$.
-
-\begin{figure}[!htb]
-	\centering
-	\includegraphics[width=7cm]{Immagini/Disegno_A.png}
-	\caption{Rappresentazione di come i punti dell'orbita sono organizzati. Il punto centrale \`e $\ol h$.}
-	\label{ConfigurazioneOrbita}
-\end{figure}
-
-
 \end{enumerate}
-Consideriamo ora il caso $m$ pari\footnote{Da qu\`i in poi \`e una curiosit\`a che non fa parte del programma.}.
+Consideriamo ora il caso $m$ pari\footnote{\textbf{Da qu\`i in poi \`e una curiosit\`a che non fa parte del programma.}}.
 Senza perdita di generalit\`a supponiamo che $T$ abbia un'orbita di periodo minimo $m$ e non di periodo $k$ per ogni $k\succ m$. Scriviamo $m=2^p\wt m$.\\
 Seguendo quanto fatto per il caso dispari mostriamo anche in questo caso che $J_{\ol h}$ ricopre se stesso e che iterando $T$ ricopre ogni intervallo. Applicando il caso dispari a $T^{2^p}$ e $\wt m$ troviamo per ogni $k\prec \wt m$ un valore $x$ tale che $x$ abbia periodo minimo $k$ per $T^{2^p}$, e quindi ha periodo $2^pk$ per $T$. Per mostrare che questo periodo \`e minimo \`e necessario studiare pi\`u approfonditamente l'equivalente dei punti 3, 4 e 5.
 \end{proof}

@@ -117,10 +117,10 @@ dove nel secondo sistema dobbiamo ricordarci $x=\rho\cos\theta$ e $y=\rho\sin\th
 \end{cases}\]
 Un'orbita periodica pu\`o essere della forma particolare $\cpa{\rho=\text{cost.}}$.
 \begin{proposition}[Criterio polare esistenza orbita periodica]\label{CriterioPolareEsistenzaOrbitaPeriodica}
-Dato un sistema in coordinate polari, se esiste $c>0$ tale che per ogni $\theta$ valgono $h(c,\theta)=0$ e $\ell(c,\theta)\neq0$ allora $\cpa{\rho=c}$ \`e invariante\footnote{e quindi $\cpa{x^2+y^2=c^2}$ \`e periodica}.
+Dato un sistema in coordinate polari, se esiste $c>0$ tale che per ogni $\theta$ valgono $\dot\rho\res{\rho=c}=0$ e $\dot\theta\res{\rho=c}\neq0$ allora $\cpa{\rho=c}$ \`e un'orbita periodica.
 \end{proposition}
 \begin{proof}
-Segue dal criterio sull'invarianza di curve di livello (\ref{CostruzioneInsiemiInvariantiCurveDiLivello}) unito all'assenza di punti fissi.
+Segue dal criterio sull'invarianza di curve di livello (\ref{CostruzioneInsiemiInvariantiCurveDiLivello}) applicato alla mappa $(\rho,\theta)\mapsto\rho$ unito all'assenza di punti fissi.
 \end{proof}
 \noindent Un problema cruciale di questo risultato \`e che la minima perturbazione annichila le ipotesi.
 
@@ -135,16 +135,25 @@ Sia $y\in \R^2$ tale che $F(y)\neq 0$. Se $\ell(y)=\Span(v)+y$ \`e la retta pass
 Dato $y\in\R^2$ tale che $F(y)\neq 0$ consideriamo la parametrizzazione di $\ell(y)$ data da $\gamma(u)=y+uv$ al variare di $u\in\R$.
 Affermiamo che esitono $V$ e $U$ intorni di $y$ e $0$ rispettivamente e un diffeomorfismo $\psi:U\to V$ tale che $\psi(s,u)=\phi_s(\gamma(u))$.
 \end{lemma}
+\begin{proof}
+NON DATA DURANTE IL CORSO.
+\end{proof}
 
 \begin{definition}[Rettangolo di flusso]
 Sia $\psi:U\to V$ un diffeomorfismo di rettificazione locale. Fissiamo $\sigma>0,\ \chi>0$ tali che
 \[N_{\sigma,\chi}=\cpa{(s,u)\in \R^2\mid |s|\leq \sigma,\ |u|\leq \chi}\subseteq U.\]
-Definiamo il \textbf{rettangolo di flusso} per questa scelta di $\sigma$ e $\chi$ come $\Nc_{\sigma,\chi}=\phi(N_{\sigma,\chi})$.
+Definiamo il \textbf{rettangolo di flusso} per questa scelta di $\sigma$ e $\chi$ come $\Nc_{\sigma,\chi}=\psi(N_{\sigma,\chi})$.
 \end{definition}
 
-\begin{lemma}
-Se $\Nc_{\sigma,\chi}$ \`e un rettangolo di flusso allora $\Nc_{\sigma,\chi}$ \`e un intorno di $y$ tale che per ogni $z\in \Nc_{\sigma,\chi}$ esiste $\ol t(z)\in (-\sigma,\sigma)$ tale che $\phi_{\ol t}(z)\in S_k(y)$.
+\begin{lemma}[Sui rettangoli di flusso]\label{LemmaRettangoliFlusso}
+Se $\Nc_{\sigma,\chi}$ \`e un rettangolo di flusso allora $\Nc_{\sigma,\chi}$ \`e un intorno di $y$ tale che per ogni $z\in \Nc_{\sigma,\chi}$ esiste $\ol t(z)\in (-\sigma,\sigma)$ tale che $\phi_{\ol t}(z)\in \psi(\cpa{0}\times (-\chi,\chi))$.
 \end{lemma}
+\begin{proof}
+NON DATA DURANTE IL CORSO.
+\end{proof}
+\begin{remark}
+Se scegliamo rettangoli di flusso abbastanza piccoli possiamo scrivere $S_k(y)$ al posto di $\psi(\cpa{0}\times (-\chi,\chi))$.
+\end{remark}
 
 \begin{figure}[!htb]
     \centering
@@ -167,18 +176,18 @@ Sia $x_0\in \R^2$ per cui esiste $t_0>0$ tale che $\phi_t(x_0)\in D$ per ogni $t
 Mostriamo prima che l'intersezione \`e non vuota e poi mostriamo che contiene un'unico punto.
 \setlength{\leftmargini}{0cm}
 \begin{itemize}
-\item[$\boxed{\neq \emptyset}$] Per definizione di $\omega(x)$ esiste una successione monotona $t_k\nearrow +\infty$ tale che $\phi_{t_k}(x)\to y$. Poich\'e $\Nc_{\sigma,\chi}$ \`e un intorno di $y$, per definizione di convergenza esiste $\ol t>\sigma$ tale che $\phi_{\ol t}(x)\in \Nc_{\sigma,\chi}$. Per il lemma precedente esiste allora $\wh t\in (-\sigma,\sigma)$ tale che $\phi_{\wh t}(\phi_{\ol t}(x))\in S_k(y)$. Ponendo $\wh t+\ol t=\wt t$ esiste $\wt t>0$ tale che $\phi_{\wt t}(x)\in S_k(y)$.
-\item[$\boxed{\#=1}$] Supponiamo per assurdo che esistano $x_1,x_2\in S_k(y)\cap \Oc^+(x)\subseteq \omega(x_0)$ distinti. Per definizione di $\omega$-limite esistono $\tau_{j}^1\nearrow+\infty$ e $\tau_{j}^2\nearrow+\infty$ tali che 
+\item[$\boxed{\exists}$] Per definizione di $\omega(x)$ esiste una successione monotona $t_k\nearrow +\infty$ tale che $\phi_{t_k}(x)\to y$. Poich\'e $\Nc_{\sigma,\chi}$ \`e un intorno di $y$, per definizione di convergenza esiste $\ol t>\sigma$ tale che $\phi_{\ol t}(x)\in \Nc_{\sigma,\chi}$. Per il lemma sui rettangoli di flusso (\ref{LemmaRettangoliFlusso}) esiste $\wh t\in (-\sigma,\sigma)$ tale che $\phi_{\wh t}(\phi_{\ol t}(x))\in S_k(y)$. Ponendo $\wh t+\ol t=\wt t$ esiste $\wt t>0$ tale che $\phi_{\wt t}(x)\in S_k(y)$.
+\item[$\boxed{!}$] Supponiamo per assurdo che esistano $x_1,x_2\in S_k(y)\cap \Oc^+(x)\subseteq \omega(x_0)$ distinti. Per definizione di $\omega$-limite esistono $\tau_{j}^1\nearrow+\infty$ e $\tau_{j}^2\nearrow+\infty$ tali che 
 \[\lim_{j\to+\infty}\phi_{\tau^1_j}(x_0)=x_1,\quad \lim_{j\to+\infty}\phi_{\tau^2_j}(x_0)=x_2.\]
-Esistono dunque per il lemma $\wt \tau^1_j$ e $\wt \tau^2_j$ tali che $\phi_{\wt \tau^i_j}(x_0)\in S_k(y)$. Siano $U_1$ e $U_2$ intorni di $x_1$ e $x_2$ disgiunti. Per $j$ abbastanza grande abbiamo che $\phi_{\wt \tau^i_j}(x_0)\in U_i$.\\
+Esistono dunque definitivamenteper il lemma sui rettangoli di flusso (\ref{LemmaRettangoliFlusso}) $\wt \tau^1_j$ e $\wt \tau^2_j$ tali che $\phi_{\wt \tau^i_j}(x_0)\in S_k(y)$\footnote{$\wt \tau^i_j\in (\tau^i_j-\sigma,\tau^i_j+\sigma)$}. Siano $U_1$ e $U_2$ intorni di $x_1$ e $x_2$ disgiunti. Per $j$ abbastanza grande abbiamo che $\phi_{\wt \tau^i_j}(x_0)\in U_i$.\\
 Poich\'e sia $\wt \tau_j^1$ che $\wt \tau_j^2$ vanno a $+\infty$, esistono $\xi_1<\xi_2<\xi_3$ tali che
 \[\phi_{\xi_1}(x_0)\in U_1,\ \phi_{\xi_2}(x_0)\in U_2,\ \phi_{\xi_3}(x_0)\in U_1.\]
 Sia $\wt \Gamma$ la curva chiusa data da
 \[\wt \Gamma=\cpa{\al\phi_{\xi_1}(x_0)+(1-\al)\phi_{\xi_2}(x_0)\mid \al\in [0,1]}\cup \bigcup_{s\in (\xi_1,\xi_2)}\phi_s(x_0).\]
-Per definizione di $S_k(y)$ e per unicit\`a locale si ha che $\Oc^+(\phi_{\xi_2}(x_0))$ \`e contenuto nella componente connessa limitata definita da $\wt \Gamma$, ma questo \`e assurdo perch\'e esiste $\Delta t=\xi_3-\xi_2$ \`e tale che $\phi_{\Delta t}(\phi_{\xi_2}(x_0))=\phi_{\xi_3}(x_0)$ ma per definizione di $S_k(y)$ un'orbita che parte da $S_k(y)$ torna a $S_k(y)$ dal lato opposto rispetto a quello di partenza.
+Per definizione di $S_k(y)$ e per unicit\`a locale si ha che $\Oc^+(\phi_{\xi_2}(x_0))$ \`e contenuto nella componente connessa limitata definita da $\wt \Gamma$, ma questo \`e assurdo perch\'e esiste $\Delta t=\xi_3-\xi_2$ tale che $\phi_{\Delta t}(\phi_{\xi_2}(x_0))=\phi_{\xi_3}(x_0)$ ma per definizione di $S_k(y)$ un'orbita che parte da $S_k(y)$ torna a $S_k(y)$ dal lato opposto rispetto a quello di partenza.
 \begin{figure}[!htb]
     \centering
-    \includegraphics[width=5cm]{Immagini/poincare_bendixon.png}
+    \includegraphics[width=4cm]{Immagini/poincare_bendixon.png}
     \caption{Rappresentazione grafica dell'assurdo trovato.}
 \end{figure}
 
@@ -186,16 +195,29 @@ Per definizione di $S_k(y)$ e per unicit\`a locale si ha che $\Oc^+(\phi_{\xi_2}
 \setlength{\leftmargini}{0.5cm}
 \end{proof}
 \noindent
-Sia $y\in \omega(x)$ e sia $\wt t>0$ tale che $\phi_{\wt t}(x)\in S_k(y)$ (esiste per il primo punto del claim). Sappiamo che esiste $\tau>\wt t$ tale che $\phi_{\tau}(x)\in \Nc_{\sigma,\chi}$ (convergenza di successioni). Esiste dunque $\wt \tau\in (-\sigma,\sigma)$ tale che $\phi_{\tau+\wt \tau}(x)\in S_k(y)$ (lemma) e per il secondo punto del claim $\phi_{\tau+\wt\tau}(x)=\phi_{\wt t}(x)$, dunque $\Gamma=\Oc(x)$ \`e periodica.
+Sia $y\in \omega(x)$ e sia $\wt t>0$ tale che $\phi_{\wt t}(x)\in S_k(y)$ (esiste per il primo punto del claim). Sappiamo che esiste $\tau>\wt t$ tale che $\phi_{\tau}(x)\in \Nc_{\sigma,\chi}$ (convergenza di successioni). Esiste dunque per il lemma (\ref{LemmaRettangoliFlusso}) un $\wt \tau\in (-\sigma,\sigma)$ tale che $\phi_{\tau+\wt \tau}(x)\in S_k(y)$ e per il secondo punto del claim $\phi_{\tau+\wt\tau}(x)=\phi_{\wt t}(x)$, dunque $\Gamma=\Oc(x)$ \`e periodica.
 \vspace{0.25cm}
 
 \noindent
-Osserviamo che $\Gamma\subseteq \omega(x_0)$ per costruzione. L'altro contenimento segue come segue:\\
-Per definizione $x=\lim_j\phi_{t_j}(x_0)$. Se $z=\phi_{s}(x)$ allora per continuit\`a del flusso $z=\lim_j\phi_{t_j+s}(x_0)$.
+Osserviamo che $\Gamma\subseteq \omega(x_0)$ per costruzione. Mostriamo l'altro contenimento:\\
+Sia $z\in \omega(x_0)$ e notiamo che 
+\[z=\lim_j \phi_{t_j}(x_0),\qquad x=\lim_{h}\phi_{\tau_h}(x_0).\] 
+Ponendo $j(0)=0$, sia $j(h+1)$ il pi\`u piccolo intero tale che $t_{j(h+1)}>t_{j(h)}+\tau_{h+1}-\tau_{h}+1$. Con questa scelta $t_{j(h)}-\tau_h\nearrow +\infty$, quindi possiamo scrivere 
+\[z\pasgnl={sottosucc.}\lim_h \phi_{t_{j(h)}}(x_0)=\lim_h\phi_{t_{j(h)}-\tau_h}(x).\]
+Poich\'e $\Oc(x)$ \`e un'orbita periodica, $\Oc(x)=\omega(x)$ e questo conclude.
 \end{proof}
 
 \begin{remark}
 Osserviamo che $D$ come nel teorema di Poicar\'e-Bendixon non pu\`o essere semplicemente connesso per la teoria dell'indice.
+\end{remark}
+
+\begin{remark}[Tipico uso di Poincar\'e-Bendixon]
+Nel contensto di esercizi, spesso il teorema di Poincar\'e-Bendixon come segue:
+\begin{itemize}
+\item Ci mettiamo in coordinate polari centrate in un punto fisso instabile isolato.
+\item Verifichiamo che esistono $0<\rho_0<\rho_1$ tali che $\cpa{\rho_0\leq\rho\leq \rho_1}$ non contiene punti fissi e (generalmente) 
+\[\dot\rho\res{\rho=\rho_0}>0,\qquad\dot \rho\res{\rho=\rho_1}>0.\]
+\end{itemize}
 \end{remark}
 
 \begin{fact}[Poincar\'e-Bendixon generale]
