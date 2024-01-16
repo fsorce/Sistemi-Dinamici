@@ -53,21 +53,22 @@ Una funzione $I:\R^d\to \R,\ I\in C^1(\R^d)$ \`e un integrale primo per $\dot x=
 Sia $c\in\R$ e $I:\R^d\to \R,\ I\in C^1$ tale che $\nabla I\res{\cpa{I=c}}\not\equiv 0$ e $\dot I\res{\cpa{I=c}}=0$, allora $\cpa{I=c}$ \`e invariante.
 \end{proposition}
 \begin{proof}
-Sia $x_0\in I_c$. In particolare $\nabla I(x_0)\neq 0$. Per continuit\`a esiste un intorno $U$ dove la condizione $\nabla I(x_0)\neq0$ \`e vera. A meno di cambio di variabile $h$ derivante dal teorema delle funzioni implicite, poniamo $h(U\cap I_c)=\cpa{y=0}$ (dove le nuove coordinate sono $(\ulx, y)$). Il sistema diventa
+Sia $x_0\in I_c$. In particolare $\nabla I(x_0)\neq 0$. Senza perdita di generalit\`a supponiamo che l'ultima entrata sia non nulla, cio\`e $\pp{x_d}I(x_0)\neq 0$. Per il teorema della funzione implicita esistono un intorno $U$ di $x_0$ in $\R^d$ e una funzione $h:\R^{d-1}\to \R$ della stessa regolarit\`a di $I$ tali che\footnote{La mappa $\pi_{\neq x_d}$ \`e la proiezione ovvia da $\R^d$ a $\R^{d-1}$ che elimina l'ultima coordinata.}
+\[I_c\cap U=\cpa{\ulx\in \pi_{\neq x_d}(U)\mid I(\ulx, h(\ulx))=c}.\]
+A meno di restringere $U$, per il teorema sulla permanenza del segno supponiamo che $\pp{x_d}I\res{U}$ non si annulli mai.\\
+Scriviamo $F=(\ulf,g)$ con $\ulf:\R^d\to \R^{d-1}$ e $g:\R^d\to\R$. Se $x_0=(\ulx_0,y_0)$, consideriamo il problema di Cauchy
 \[\begin{cases}
-\dot \ulx=\ulf(\ulx,y)\\
-\dot y=g(\ulx,y)
+\dot \ulx=\ulf(\ulx,h(\ulx))\\
+\ulx(0)=\ulx_0
 \end{cases}\]
-dove $(\ulf, g)(\ulx, y)=\Dc h_{h\ii(\ulx, y)}\circ F(h\ii(\ulx, y))$. Notiamo inoltre che\footnote{Per capire meglio i seguenti passaggi consigliamo di seguire corsi di Geometria differenziale. L'idea comunque dovrebbe essere intuitiva anche pensando a fatti di Analisi 2.}
-\[\Dc h_{h\ii(\ulx,0)}\res{T_{h\ii(\ulx,0)}I_c}=\Dc(h\res{I_c})_{h\ii(\ulx,0)}:T_{h\ii(\ulx,0)}I_c\to T_{(\ulx,0)}\cpa{y=0}=\cpa{y=0},\] 
-quindi $g(\ulx,0)=0$, in quanto $\dot I\res{I_c}=0, \nabla I\res{I_c}\neq 0\implies \imm F\res{I_c}\subseteq \nabla I^\perp =TI_c$\footnote{Stiamo sottointendendo la valutazione in un punto generico di $I_c$.}.\\
-Osserviamo che se una soluzione rispetta il sistema
-\[\begin{cases}
-\dot \ulx=\ulf(\ulx,y)\\
-\dot y=0\\
-(\ulx,y)(0)=0
-\end{cases}\]  
-allora rispetta anche il sistema originale perch\'e non esce mai da $\cpa{y=0}$ e quindi la condizione $\dot y=0$ resta sempre vera. Per Cauchy-Lipschitz questa soluzione \`e l'unica che stavamo cercando e applicando $h\ii$ troviamo l'unica soluzione al sistema originale e, per quanto detto, questa rimane entro $I_c$.
+e sia $\wt \psi_t(\ulx_0)$ la sua soluzione in un intorno di $\ulx_0$. Poniamo $\psi_t(x_0)=(\wt \psi_t(\ulx_0),h(\wt \psi_t(\ulx_0)))$ e verifichiamo che $\psi=\phi$. Chiaramente le condizioni iniziali coincidono, cos\`i come la derivata lungo le prime $d-1$ entrate. Per concludere basta dunque verificare che $\dd{t}h(\ulx)=g(\ulx,h(\ulx))$.\\
+Derivando $I(\psi_t(x_0))=c$ troviamo 
+\[\nabla I(\psi_t(x_0))\cdot \mat{\ulf(\ulx,h(\ulx))\\\dd{t}h(\ulx)}=0\]
+e dalla condizione $\dot I(\psi_t(x_0))=0$ ricaviamo
+\[\nabla I(\psi_t(x_0))\cdot \mat{\ulf(\ulx,h(\ulx))\\g(\ulx,h(\ulx))}=0.\]
+Confrontando queste due equazioni ricaviamo
+\[\pp{x_d}I(\psi_t(x_0))\pa{\dd{t}h(\ulx)-g(\ulx,h(\ulx))}=0,\]
+ma poich\'e abbiamo supposto che $\pp{x_d}I\res{U}\neq 0$, ricaviamo l'uguaglianza cercata per un opportuno intorno di $x_0$.
 \end{proof}
 
 \begin{corollary}[Invarianza degli insiemi di livello di integrali primi]\label{InvarianzaInsiemiLivelloIntegraliPrimi}

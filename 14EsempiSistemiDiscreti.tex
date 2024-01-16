@@ -14,7 +14,7 @@ Definiamo la mappa di \textbf{shift} come
 \[\sigma:\funcDef{\Omega}{\Omega}{(\omega_i)_{i\in\N}}{(\omega_{i+1})_{i\in\N}}.\]
 \end{definition}
 \begin{remark}
-La mappa di shift \`e continua perch\'e uniformemente continua.
+La mappa di shift \`e continua perch\'e $2$-lipschitziana.
 \end{remark}
 
 Uno dei motivi principali per cui studiamo la mappa di shift \`e il seguente
@@ -169,7 +169,7 @@ Sia $I_0=[0,\frac12)$, $I_1=[\frac12,1)$ e $\Omega=\cpa{0,1}^\N$. Consideriamo l
 0 & T^i(x)\leq \frac12\\
 1 & T^i(x)\geq\frac12
 \end{cases}\]
-Osserviamo che $\sigma\circ \vp=\vp\circ T_2$ ma $\vp$ non \`e un omeomorfismo (o ben definita), infatti
+Osserviamo che $\sigma\circ \vp=\vp\circ T_2$ ma $\vp$ non \`e un omeomorfismo (o ben definita\footnote{potremmo imporre di considerare solo i rappresentanti in $[0,1)$ e definire $\omega_i(x)=1$ se $T^i(x)=1/2$, ma queste scelte andrebbero a violare la surgettivit\`a di $\vp$ e la continuit\`a in generale.}), infatti
 \[\vp\ii(1,0,0,0,\cdots)=\cpa{\frac12}=\vp\ii(0,1,1,1,1,\cdots).\]
 Quello che sta succedendo che abbiamo trovato due serie della seguente forma che convergono allo stesso valore
 \[x=\sum_{i\geq 0}\frac{\omega_i(x)}{2^{i+1}}.\]

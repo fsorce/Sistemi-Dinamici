@@ -7,7 +7,7 @@ Con la notazione $\pp xH$ intendiamo il vettore la cui componente $i$-esima \`e 
 \end{notation}
 \begin{definition}[Sistema Hamiltoniano]
 Un sistema di ODE su $\R^{2d}$ \`e un \textbf{sistema Hamiltoniano} se \`e della forma
-\[\mat{\dot x\\ -\dot y}=\nabla H\coimplies \begin{cases}
+\[\mat{-\dot y\\\dot x}=\nabla H\coimplies \begin{cases}
 \displaystyle \dot x_i=\pp{y_i}H\\\\
 \displaystyle \dot y_i=-\pp{x_i}H
 \end{cases}\text{per ogni }i\in\cpa{1,\cdots,d},\]
@@ -100,3 +100,9 @@ e consideriamo un $\e$ abbastanza piccolo in modo tale che $m_\e\sup_{B_\e((x_0,
 Poich\'e le orbite del sistema corrispondono alle curve di livello di $H$ abbiamo trovato una contraddizione in quanto per $\e$ abbastanza piccolo le orbite non possono attraversare $\del B_\e((x_0,0))$.\\
 Se $(x_0,0)$ fosse asintoticamente stabile esisterebbe un intorno di $(x_0,0)$ che converge a $(x_0,0)$, in particolare l'area di questo intorno non si conserva, contraddicendo il teorema di Liouville (\ref{TeoremaLiouville}).
 \end{proof}
+\medskip
+
+\noindent
+Nel caso di $V'(x_0)=V''(x_0)=0$ spesso ci aspettiamo orbite omocline dove il punto fisso \`e una cuspide. Pi\`u precisamente\footnote{Questa motivazione non \`e stata data a lezione.}, applicando il teorema di Taylor:
+\[\dd xy=-\frac{V'(x)}{y}=-\frac{V'(x)}{\pm \sqrt{2(V(x_0)-V(x))}}=-\frac{o(x-x_0)}{\pm\sqrt{2o((x-x_0)^2)}}=o(1)\underset{x\to x_0}{\longrightarrow}0,\]
+cio\`e troviamo una cuspide.
