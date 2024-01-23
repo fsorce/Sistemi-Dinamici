@@ -42,9 +42,11 @@ Sia $T:[0,1]\to[0,1]$ tale che esiste $\Jc=\cpa{J_1,\cdots, J_k}$ partizione fin
 \[h_{top}(T)=\log k=\lim_{n\to+\infty}\frac1n\log(\#\cpa{Fix T^n}).\]
 \end{proposition}
 \begin{proof}[Dimostrazione (NON DATA DURANTE IL CORSO)]
+	~
+[QUESTA DIMOSTRAZIONE NON FUNZIONA, IGNORARE!!!]
 Osserviamo che per ogni $n$, la partizione $\Jc=\Jc_1$ induce una partizione finita $\Jc_n$ pi\`u fine (composta da $k^n$ intervalli) data considerando gli intervalli dove $T^n$ \`e necessariamente invertibile e continua.
 Senza perdita di generalit\`a supponiamo $\e<1/k$. In tal caso notiamo che $Fix T^n$ \`e un insieme $(n,\e)$-separato:\\
-I punti di $Fix T^n$ appartengono a diversi intervalli di $\Jc_n$ e appartengono tutti alla parte interna di questi (altrimenti $T^n\res{int(J^{(n)}_j)}$ non potrebbe essere invertibile). Siano $x,y\in Fix T^n$ punti distinti e sia $k$ il pi\`u piccolo intero tale che $y$ e $x$ appartengono ad intervalli diversi per la partizione $\Jc_k$. Notiamo che $k$ esiste ed \`e compreso tra $1$ e $n$ per costruzione. Affermiamo che $d(T^k(x),T^k(y))>1/k>\e$, infatti per costruzione delle partizioni $T^k(x)$ e $T^k(y)$ appartengono ad elementi diversi di $\Jc$ e quindi per ipotesi su $\e$ distano pi\`u di $\e$.
+I punti di $Fix T^n$ appartengono a diversi intervalli di $\Jc_n$ e appartengono tutti alla parte interna di questi (altrimenti $T^n\res{int(J^{(n)}_j)}$ non potrebbe essere invertibile). Siano $x,y\in Fix T^n$ punti distinti e sia $k$ il pi\`u piccolo intero tale che $y$ e $x$ appartengono ad intervalli diversi per la partizione $\Jc_k$. Notiamo che $k$ esiste ed \`e compreso tra $1$ e $n$ per costruzione. [QUESTO PEZZO NON FUNZIONA] Affermiamo che $d(T^k(x),T^k(y))>1/k>\e$, infatti per costruzione delle partizioni $T^k(x)$ e $T^k(y)$ appartengono ad elementi diversi di $\Jc$ e quindi per ipotesi su $\e$ distano pi\`u di $\e$.
 
 Osserviamo che se $\e>1/m$ allora la massima cardinalit\`a di un insieme $(0,\e)$-separato \`e $m$. Un insieme $S$ $(n,\e)$-separato di massima cardinalit\`a possibile pu\`o perci\`o contenere al massimo $k^nm$ punti in quanto ogni punto deve distare da ogni altro punto almeno $\e$ applicando una mappa della forma $T^r$ per qualche $r\leq n$\footnote{il miglior caso \`e porre avere $m$ punti in ogni elemenento di $\Jc_n$.}. Si ha dunque che 
 \begin{align*}
