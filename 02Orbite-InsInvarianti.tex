@@ -2,7 +2,7 @@
 
 \section{Orbite, punti fissi e periodici}
 \begin{definition}[Orbita]
-Definiamo l'\textbf{orbita positiva} di un'equazione di flusso $\phi$ come
+Definiamo l'\textbf{orbita positiva} del punto $x$ determinata da un'equazione di flusso $\phi$ come
 \[\Oc^+(x)=\bigcup_{t\geq 0}\phi_t(x).\]
 In modo simile definiamo l'\textbf{orbita negativa} e l'\textbf{orbita}.\\
 La \textbf{traiettoria} di $x$ \`e il grafico $t\mapsto \phi_t(x)$ contenuto in $\R\times \R^d$\footnote{questa \`e la terminologia italiana. In inglese ''trajectory" corrisponde alla nostra orbita, non alla traiettoria.}.
@@ -61,14 +61,17 @@ Scriviamo $F=(\ulf,g)$ con $\ulf:\R^d\to \R^{d-1}$ e $g:\R^d\to\R$. Se $x_0=(\ul
 \dot \ulx=\ulf(\ulx,h(\ulx))\\
 \ulx(0)=\ulx_0
 \end{cases}\]
-e sia $\wt \psi_t(\ulx_0)$ la sua soluzione in un intorno di $\ulx_0$. Poniamo $\psi_t(x_0)=(\wt \psi_t(\ulx_0),h(\wt \psi_t(\ulx_0)))$ e verifichiamo che $\psi=\phi$. Chiaramente le condizioni iniziali coincidono, cos\`i come la derivata lungo le prime $d-1$ entrate. Per concludere basta dunque verificare che $\dd{t}h(\ulx)=g(\ulx,h(\ulx))$.\\
+e sia $\wt \psi_t(\ulx_0)$ la sua soluzione in un intorno di $\ulx_0$. Poniamo $\psi_t(x_0)=(\wt \psi_t(\ulx_0),h(\wt \psi_t(\ulx_0)))$ e verifichiamo che $\psi=\phi$. Chiaramente le condizioni iniziali coincidono, cos\`i come la derivata lungo le prime $d-1$ entrate. 
+Per concludere basta dunque verificare che 
+\[\dd t{}\pa{h(\wt \psi_t(\ulx))}=\Dc h(\wt\psi_t(\ulx))\wt\psi_t(\ulx)'=g(\ulx,h(\ulx)),\]
+in quanto in tal caso avremo verificato che soluzioni che partono in $I_c\cap U$ restano in $I_c\cap U$ per tempi brevi.\\
 Derivando $I(\psi_t(x_0))=c$ troviamo 
-\[\nabla I(\psi_t(x_0))\cdot \mat{\ulf(\ulx,h(\ulx))\\\dd{t}h(\ulx)}=0\]
+\[\nabla I(\psi_t(x_0))\cdot \mat{\ulf(\ulx,h(\ulx))\\\\\Dc h(\wt\psi_t(\ulx))\wt\psi_t(\ulx)'}=0\]
 e dalla condizione $\dot I(\psi_t(x_0))=0$ ricaviamo
 \[\nabla I(\psi_t(x_0))\cdot \mat{\ulf(\ulx,h(\ulx))\\g(\ulx,h(\ulx))}=0.\]
 Confrontando queste due equazioni ricaviamo
-\[\pp{x_d}I(\psi_t(x_0))\pa{\dd{t}h(\ulx)-g(\ulx,h(\ulx))}=0,\]
-ma poich\'e abbiamo supposto che $\pp{x_d}I\res{U}\neq 0$, ricaviamo l'uguaglianza cercata per un opportuno intorno di $x_0$.
+\[\pp{x_d}I(\psi_t(x_0))\pa{\Dc h(\wt\psi_t(\ulx))\wt\psi_t(\ulx)'-g(\ulx,h(\ulx))}=0.\]
+Poich\'e abbiamo supposto che $\pp{x_d}I\res{U}\neq 0$, da questa equazione ricaviamo l'uguaglianza cercata per un opportuno intorno di $x_0$.
 \end{proof}
 
 \begin{corollary}[Invarianza degli insiemi di livello di integrali primi]\label{InvarianzaInsiemiLivelloIntegraliPrimi}

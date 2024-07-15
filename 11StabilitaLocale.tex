@@ -9,11 +9,7 @@ Un punto fisso $x\in X$ si dice \textbf{repulsivo} se esiste un intorno $U$ di $
 \end{definition}
 
 \begin{definition}[Semi-attrattivit\`a]
-Supponiamo che $X=[0,1]$. Un punto fisso \`e
-\begin{itemize}
-\item \textbf{semi-attrattivo} se \`e attrattivo da destra e repulsivo da sinistra,
-\item \textbf{semi-repulsivo} se attrattivo da sinistra e repulsivo da destra.
-\end{itemize}
+Supponiamo che $X=[0,1]$. Un punto fisso \`e \textbf{semi-attrattivo} o \textbf{semi-repulsivo} se \`e attrattivo da un lato e repulsivo dall'altro.
 \end{definition}
 
 \begin{definition}[Orbita attrattiva/repulsiva]
@@ -61,17 +57,17 @@ Osserviamo che
 In particolare se $x$ \`e un punto di periodo $p$ segue riordinando i fattori della formula sopra che $(T^p)'(T^k(x))=(T^p)'(x)$.
 \end{remark}
 
-\newpage
+
 Supponendo una opportuna regolarit\`a di $T$ possiamo estrapolare il comportamento di alcuni punti non iperbolici. 
 \begin{proposition}[Criterio per punti fissi non iperbolici con derivata positiva]\label{CriterioPuntiNonIperboliciDerivataPositiva}
 Sia $x_0$ un punto fisso per $T:[0,1]\to[0,1]$ con $T\in C^3$ e $T'(x_0)=1$. Allora
 \begin{itemize}
-\item se $T''(x_0)\neq 0$ il punto $x_0$ \`e semiattrattivo o semi-repulsivo.
+\item se $T''(x_0)\neq 0$ il punto $x_0$ \`e semi-attrattivo.
 \item se $T''(x_0)=0$ allora
-\[T'''(x_0)\begin{cases}
->0 & \text{se }x_0\text{ repulsivo}\\
-<0 & \text{se }x_0\text{ attrattivo}
-\end{cases}\]
+\begin{align*}
+T'''(x_0)>0&\implies x_0\text{ repulsivo}\\
+T'''(x_0)<0&\implies x_0\text{ attrattivo}\\
+\end{align*}
 \end{itemize}
 \end{proposition}
 
