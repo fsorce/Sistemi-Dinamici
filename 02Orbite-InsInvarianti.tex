@@ -54,7 +54,7 @@ Sia $c\in\R$ e $I:\R^d\to \R,\ I\in C^1$ tale che $\nabla I\res{\cpa{I=c}}\not\e
 \end{proposition}
 \begin{proof}
 Sia $x_0\in I_c$. In particolare $\nabla I(x_0)\neq 0$. Senza perdita di generalit\`a supponiamo che l'ultima entrata sia non nulla, cio\`e $\pp{x_d}I(x_0)\neq 0$. Per il teorema della funzione implicita esistono un intorno $U$ di $x_0$ in $\R^d$ e una funzione $h:\R^{d-1}\to \R$ della stessa regolarit\`a di $I$ tali che\footnote{La mappa $\pi_{\neq x_d}$ \`e la proiezione ovvia da $\R^d$ a $\R^{d-1}$ che elimina l'ultima coordinata.}
-\[I_c\cap U=\cpa{\ulx\in \pi_{\neq x_d}(U)\mid I(\ulx, h(\ulx))=c}.\]
+\[I_c\cap U=\cpa{(\ulx,y)\in U\mid I(\ulx, y)=c}=\cpa{(\ulx,h(\ulx))\mid \ulx\in \pi_{\neq x_d}(U)}.\]
 A meno di restringere $U$, per il teorema sulla permanenza del segno supponiamo che $\pp{x_d}I\res{U}$ non si annulli mai.\\
 Scriviamo $F=(\ulf,g)$ con $\ulf:\R^d\to \R^{d-1}$ e $g:\R^d\to\R$. Se $x_0=(\ulx_0,y_0)$, consideriamo il problema di Cauchy
 \[\begin{cases}
