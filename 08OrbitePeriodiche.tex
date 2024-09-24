@@ -202,9 +202,13 @@ Sia $y\in \omega(x)$ e sia $\wt t>0$ tale che $\phi_{\wt t}(x)\in S_k(y)$ (esist
 Osserviamo che $\Gamma\subseteq \omega(x_0)$ per costruzione. Mostriamo l'altro contenimento:\\
 Sia $z\in \omega(x_0)$ e notiamo che 
 \[z=\lim_j \phi_{t_j}(x_0),\qquad x=\lim_{h}\phi_{\tau_h}(x_0).\] 
-Ponendo $j(0)=0$, sia $j(h+1)$ il pi\`u piccolo intero tale che $t_{j(h+1)}>t_{j(h)}+\tau_{h+1}-\tau_{h}+1$. Con questa scelta $t_{j(h)}-\tau_h\nearrow +\infty$, quindi possiamo scrivere 
-\[z\pasgnl={sottosucc.}\lim_h \phi_{t_{j(h)}}(x_0)=\lim_h\phi_{t_{j(h)}-\tau_h}(x).\]
-Poich\'e $\Oc(x)$ \`e un'orbita periodica, $\Oc(x)=\omega(x)$ e questo conclude.
+Ponendo $j(0)=0$, sia $j(h+1)$ il pi\`u piccolo intero tale che $t_{j(h+1)}>t_{j(h)}+\tau_{h+1}-\tau_{h}+1$. Con questa scelta $t_{j(h)}-\tau_h\nearrow +\infty$. Notiamo che $\cpa{\phi_{t_j(h)-\tau_h}(x)}\subseteq \Oc(x)$ e che $\Oc(x)$ \`e compatto, quindi esiste una sottosuccessione convergente $\cpa{\phi_{t_j(h_k)-\tau_{h_k}}(x)}$. Calcoliamo il limite
+\begin{align*}
+\lim_k\phi_{t_j(h_k)-\tau_{h_k}}(x)=&\lim_k\lim_\ell\phi_{t_j(h_k)-\tau_{h_k}+\tau_\ell}(x_0)\pasgnl={sottosucc.}\\
+=&\lim_k\phi_{t_j(h_k)-\tau_{h_k}+\tau_{h_k}}(x_0)=\lim_k\phi_{t_j(h_k)}(x_0).
+\end{align*}
+Poich\'e $\cpa{\phi_{t_j(h_k)}(x_0)}$ \`e una sottosuccessione di $\cpa{\phi_{t_j}(x_0)}$ e questa converge a $z$, anche il limite cercato converge a $z$. Questo mostra che $z\in \omega(x)$ e,
+poich\'e $\Oc(x)$ \`e un'orbita periodica, si ha $\Oc(x)=\omega(x)$ e quindi $z\in \Oc(x)$ come voluto.
 \end{proof}
 
 \begin{remark}
